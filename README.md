@@ -1,9 +1,10 @@
 # WiMag3
-- startup
-Add this to your 'MyMatlabTools' folder
+- startup.md
 
 ```
 dbstop if error
-% Your path of WiMag3
+cd % Your path of WiMag3
 pre
 ```
+
+Add this to your 'MyMatlabTools' folder

@@ -1,5 +1,5 @@
 # WiMag3
-- startup.md
+- startup.m
 
 ```
 dbstop if error

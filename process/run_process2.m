@@ -16,12 +16,10 @@ head=false; %是否删除首
 tail=false; %是否删除尾
 % 存储设置
 is_save_fingerprint=true; %是否保存fingerpint
-is_save_fingerprints=true; %是否保存fingerpints
 is_save_testdata=true; %是否保存testdata
 is_save_database=true; %是否保存databas
-fps=cell(1,length(area_table));
 mag_cols=18:20;
-for i_area=i_areas %i_areas
+for i_area=i_areas
     clear fp td db;
     is_have_fingerprint=false;
     is_have_testdata=false;
@@ -56,7 +54,6 @@ for i_area=i_areas %i_areas
         end
         disp(' ');
     end
-    fps{i}=fp;
     if is_have_fingerprint&&is_save_fingerprint
         fp=before_save(fp,outdoor_magnetics);
         save(['data/' area_table{i_area} '/fingerprint' data_version '.mat'],'fp');
@@ -71,7 +68,4 @@ for i_area=i_areas %i_areas
         db=before_save(db,outdoor_magnetics);
         save(['data/' area_table{i_area} '/database' data_version '.mat'],'db');
     end
-end
-if is_have_fingerprint&&is_save_fingerprints
-    save(['data/fingerprints' data_version '.mat'],'fps');
 end

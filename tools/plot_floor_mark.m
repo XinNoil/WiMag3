@@ -4,7 +4,11 @@ function H=plot_floor_mark(settings,cdns,data,n)
         is_plot_floors=false;
     end
     if is_plot_floors
-        figure('color','white');
+        if nargin==4&&n==1
+        else
+            figure('color','white');
+        end
+        
         hold on;
         box on;
         set(gca,'fontsize',15);

@@ -9,11 +9,14 @@ if is_rssi
     db.bssid_maps=[];
     db.bssid_indexs=[];
     db.types=[];
+    db.wfiles={};
+    db.sfiles={};
 else
     db.cdns=[];
     db.magnetics=[];
     db.magnitudes=[];
     db.types=[];
+    db.sfiles={};
     if isfield(db,'rssis')
         db=rmfield(db,'rssis');
         db=rmfield(db,'bssid_maps');

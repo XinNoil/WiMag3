@@ -11,5 +11,5 @@ outdoor_magnetics=[28.5 -43.6];
 for i=i_areas
     fp=fps{i};
 %     disp(['ÇøÓò' n2s(i)]);
-    fprintf('%s\t%s\n',n2s(fp.rqs_num),n2s(fp.rqs_num_i));
+    fprintf('%s\t%s\n',n2s(fp.num),n2s(fp.num_i));
 end

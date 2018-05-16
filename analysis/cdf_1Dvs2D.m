@@ -10,7 +10,7 @@ for area_i=1:length(area_table)
     fp=fps{area_i};
     c=1;
     if isfield(fp,'rqs_num')
-        rqs_num=fp.rqs_num;
+        rqs_num=fp.num;
         distance_magnitude=zeros(1,rqs_num*rqs_num);
         distance_magnetic=zeros(1,rqs_num*rqs_num);
         rqs_magnitude=fp.magnitudes;

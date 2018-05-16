@@ -4,7 +4,7 @@ function result = WiMag_match_wifi( fp,test_data,parameters)
 [ feature_mode,distance_mode,K,threshold_rssi,center_weight ] = get_parameters( parameters );
 index_mask=true(1,length(test_data.rssi));
 
-search_mask=true(fp.rqs_num,1);
+search_mask=true(fp.num,1);
 if parameters.bpca=='N'
     fp_rssis=cell2mat(fp.rssis);
     test_rssi=test_data.rssi;

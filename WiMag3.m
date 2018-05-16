@@ -37,7 +37,7 @@ is_rssi=[true true false true true];
 % 载入指纹库&测试集
 load(['data/fingerprints' data_version '.mat']);
 load (['data/' area_table{test_area} '/testdata' data_version '.mat']);
-test_num=td.test_num;
+test_num=td.num;
 i_area=WiMaG_predicate_area(test_area);
 % 运行设置
 is_plot=false;

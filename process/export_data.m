@@ -15,11 +15,11 @@ for i=1:length(areas_i)
     area_i=areas_i(i);
     fp=fps{area_i};
     cdns=fp.cdns;
-    selected_index=1:floor(fp.rqs_num/13):fp.rqs_num;
+    selected_index=1:floor(fp.num/13):fp.num;
     if is_one_hot
-        labels=zeros(fp.rqs_num,length(selected_index));
-        for p=1:fp.rqs_num
-%             for q=1:fp.rqs_num
+        labels=zeros(fp.num,length(selected_index));
+        for p=1:fp.num
+%             for q=1:fp.num
 %                 labels(p,q)=exp(-distance(cdns(p,:),cdns(q,:)));
 %             end
             for q=1:length(selected_index)
@@ -51,9 +51,9 @@ for i=1:length(areas_i)
     % testing
     load (['data/' area_table{area_i} '/testdata' data_version '.mat']);
     if is_one_hot
-        labels=zeros(td.test_num,length(selected_index));
-        for p=1:td.test_num
-%             for q=1:fp.rqs_num
+        labels=zeros(td.num,length(selected_index));
+        for p=1:td.num
+%             for q=1:fp.num
 %                 labels(p,q)=exp(-distance(td.cdns(p,:),cdns(q,:)));
 %             end
             for q=1:length(selected_index)

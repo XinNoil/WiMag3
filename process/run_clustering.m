@@ -26,14 +26,14 @@ for i=1:length(area_table)
         K=floor(fp.area_size/15);
         [Idx,Ctrs,SumD,D] = kmeans(X,K,'Replicates',3,'Options',opts);
         plot_floor_mark(fp.settings);
-        for j=1:fp.rqs_num
+        for j=1:fp.num
             h=plot(fp.cdns(j,1),fp.cdns(j,2));
             set(h,'Marker',mq(Idx(j)),'Color',cq(Idx(j)),'MarkerFaceColor',cq(Idx(j)));
         end
         if bTest==1
-            for j=1:td.test_num
+            for j=1:td.num
                 h=plot(td.cdns(j,1),td.cdns(j,2));
-                set(h,'Marker',mq(Idx(j+fp.rqs_num)),'Color',cq(Idx(j+fp.rqs_num)),'MarkerFaceColor',cq(Idx(j+fp.rqs_num)));
+                set(h,'Marker',mq(Idx(j+fp.num)),'Color',cq(Idx(j+fp.num)),'MarkerFaceColor',cq(Idx(j+fp.num)));
             end
         end
         disp(' ');

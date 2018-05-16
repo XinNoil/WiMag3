@@ -35,9 +35,9 @@ for i=i_areas
     if any(isnan(fp.magnetics_i))
         disp('Error');
     end
-    fp.rqs_num_i=size(fp.magnetics_i,1);
-    fp.distance_center_i=zeros(fp.rqs_num_i,1);
-    for j=1:fp.rqs_num_i
+    fp.num_i=size(fp.magnetics_i,1);
+    fp.distance_center_i=zeros(fp.num_i,1);
+    for j=1:fp.num_i
         fp.distance_center_i(j)=distance(fp.magnetics_i(j,:),outdoor_magnetics);
     end
     fp.magnitudes_i=sqrt(fp.magnetics_i(:,1).*fp.magnetics_i(:,1)+fp.magnetics_i(:,2).*fp.magnetics_i(:,2));

@@ -5,10 +5,10 @@ distance_mode=parameters.distance_mode;
 center_weight=parameters.center_weight;
 K=parameters.K;
 % convert_mode=parameters.convert_mode;
-if(fp.rqs_num~=size(fp.cdns,1))
+if(fp.num~=size(fp.cdns,1))
     disp('WARNING: 数据库参考点数量不一致');
 end
-search_mask= true(fp.rqs_num,1);
+search_mask= true(fp.num,1);
 % search_mask(test_data.no)=false;
 search_num=sum(search_mask);
 search_dis=zeros(search_num,1);

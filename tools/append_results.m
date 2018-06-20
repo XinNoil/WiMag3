@@ -7,6 +7,6 @@ if is_rssi
     db.rssis=[db.rssis;results.rssis];
     db.bssid_maps=[db.bssid_maps;results.bssid_maps];
     db.bssid_indexs=[db.bssid_indexs;results.bssid_indexs];
-    db.types=[db.types;results.types];
     db.wfiles=[db.wfiles;results.wfiles];
+    db.rssis_statics=[db.rssis_statics results.rssis_statics];
 end

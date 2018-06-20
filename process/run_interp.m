@@ -3,7 +3,7 @@ clear
 clc
 load glo.mat
 cd (work_path)
-data_version='1';
+disp(['data_version:' data_version]);
 load (['data/fingerprints' data_version '.mat']);
 is_rssi=[true true false true true];
 i_areas=1:5;

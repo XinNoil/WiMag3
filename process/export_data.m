@@ -2,8 +2,7 @@ clear
 clc
 load glo.mat
 cd (work_path)
-% 参数设置
-data_version='1';
+disp(['data_version:' data_version]);
 % 载入指纹库&测试集
 load(['data/fingerprints' data_version '.mat']);
 areas_i=[1 2 4 5];
@@ -47,7 +46,7 @@ for i=1:length(areas_i)
     end
     settings(i).name=area_table(area_i);
     settings(i).bssid_map=bssid_map;
-    csvwrite(['data/' area_table{area_i} '_training.csv'],m);
+    csvwrite(['data_new/' area_table{area_i} '_training.csv'],m);
     % testing
     load (['data/' area_table{area_i} '/testdata' data_version '.mat']);
     if is_one_hot
@@ -77,9 +76,9 @@ for i=1:length(areas_i)
         rssis(rssis>1)=1;
     end
     m_t=[labels magnetics rssis];
-    csvwrite(['data/' area_table{area_i} '_testing.csv'],m_t);
+    csvwrite(['data_new/' area_table{area_i} '_testing.csv'],m_t);
 end
 settingsJson=jsonencode(settings);
-fid = fopen('data/settings.json', 'w');
+fid = fopen('data_new/settings.json', 'w');
 fprintf(fid,'%s',settingsJson); 
 fclose(fid);

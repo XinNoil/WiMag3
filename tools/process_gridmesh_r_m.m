@@ -1,7 +1,4 @@
 function [cdns,magnetics,types]=process_gridmesh_r_m(paths,gridmesh,mag_cols,origin)
-area_table=gridmesh.area_table;
-i_area=gridmesh.i_area;
-i_subarea=gridmesh.i_subarea;
 [row_index,column_index,folderList,folderNum,fileNum,~,~]=get_gridmesh(gridmesh);
 disp(['Magnetic data:' paths{1}]);
 num=folderNum*(fileNum-2);

@@ -11,6 +11,7 @@ if is_rssi
     db.types=[];
     db.wfiles={};
     db.sfiles={};
+    db.rssis_statics=[];
 else
     db.cdns=[];
     db.magnetics=[];

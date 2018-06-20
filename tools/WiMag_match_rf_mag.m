@@ -1,10 +1,12 @@
 function result = WiMag_match_rf_mag( fp,test_data,parameters)
 %WiMag_match_rf_mag 
 %% WiFiÉ¸Ñ¡½×¶Î
-[ feature_mode,distance_mode,K,threshold_rssi,center_weight ] = get_parameters( parameters );
+[ feature_mode,distance_mode,K,threshold_rssi,center_weight,is_testdata ] = get_parameters( parameters );
 index_mask=true(1,length(test_data.rssi));
-
 search_mask=true(fp.num,1);
+if ~is_testdata
+    search_mask(test_data.i)=false;
+end
 if parameters.bpca=='N'
     fp_rssis=cell2mat(fp.rssis);
     test_rssi=test_data.rssi;

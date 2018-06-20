@@ -9,16 +9,16 @@ clc
 load glo.mat
 cd (work_path)
 % 参数设置
-data_version='1';
+disp(['data_version:' data_version]);
 % 存储设置
 is_save_fingerprint=true; %是否保存fingerpint
 is_save_testdata=false; %是否保存fingerpint
-is_save_database=false; %是否保存fingerpint
-head=false;
-tail=false;
+is_save_database=true; %是否保存fingerpint
+head=true;
+tail=true;
 i_areas=1:7;
 i_areas=i_areas(is_rssi);
-for i_area=i_areas %i_areas
+for i_area=1:5
     clear fp td db;
     load(['data/' area_table{i_area} '/fingerprint' data_version '.mat']);
     [~,settings,area_size,bssid_map]=get_fingerprint(fp);
@@ -39,7 +39,7 @@ for i_area=i_areas %i_areas
                     case '0'
                         disp('参考点...');
 %                         paths{1}=get_dpath( area_table,i_area,i_subarea,'short' );
-                        paths{1}=get_dpath( i_area,i_subarea,'long' );
+                        paths{1}=get_dpath( i_area,i_subarea,'short' );
                         paths{2}=get_dpath( i_area,i_subarea,'long' );
                         [cdns,magnetics,rssis,bssid_maps,bssid_indexs,types]=process_gridmesh_r(paths,gridmesh(i),mag_cols,bssid_map,setting.origin,head,tail);
                         fp = join_gridmesh( fp,cdns,magnetics,rssis,bssid_maps,bssid_indexs,types );
@@ -55,12 +55,12 @@ for i_area=i_areas %i_areas
                 switch gridmesh(i).type
                     case '0'
                         disp('参考点...');
-                        paths{1}=get_dpath( area_table,i_area,i_subarea,'short' );
+                        paths{1}=get_dpath( i_area,i_subarea,'short' );
                         [cdns,magnetics,types]=process_gridmesh_r_m(paths,gridmesh(i),mag_cols,setting.origin);
                         fp = join_gridmesh( fp,cdns,magnetics,types );
                     case '1'
                         disp('测试点...');
-                        paths{1}=get_dpath( area_table,i_area,i_subarea,'short' );
+                        paths{1}=get_dpath( i_area,i_subarea,'short' );
                         [cdns,magnetics,types]=process_gridmesh_t_m(paths,gridmesh(i),mag_cols,setting.origin);
                         td = join_gridmesh( td,cdns,magnetics,types );
                 end

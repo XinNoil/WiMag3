@@ -3,7 +3,7 @@ clc
 load glo.mat
 cd (work_path)
 % ²ÎÊıÉèÖÃ
-data_version='1';
+disp(['data_version:' data_version]);
 feature_modes={'1DM','2DM','WiFi','W1','F1'};
 simulation_parameters=[3.16 4.42 0 9.36 5.04];
 error_predict_paras={

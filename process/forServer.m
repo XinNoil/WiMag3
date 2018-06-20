@@ -2,7 +2,7 @@ clear
 clc
 load glo.mat
 cd (work_path)
-data_version='1';
+disp(['data_version:' data_version]);
 load(['data/fingerprints' data_version '.mat']);
 Areas(1).aid=1;
 Areas(1).aName='天津大学第55教学楼';

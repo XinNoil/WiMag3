@@ -1,8 +1,9 @@
 function show_origin_data(filename,type,bssid_map)
 load glo.mat
+disp(filename);
 switch (type)
     case 'rssi'
-        [timestamp,BSSID,RSSI,~]=loadWiFiData(filename);
+        [timestamp,BSSID,RSSI,Frequency]=loadWiFiData(filename);
         bssid=unique(BSSID);
         local_bssid_indexs=zeros(1,length(bssid));
         for i=1:length(bssid)
@@ -21,7 +22,9 @@ switch (type)
         local_bssid_map=containers.Map(bssid,num2cell(1:length(bssid)));
         local_ApNum=length(bssid);
         tmp_rssi=-100*ones(RecordsNum,local_ApNum);
+        frequencys=containers.Map();
         for i=1:row
+            frequencys(BSSID{i})=Frequency(i);
             if(isKey(local_bssid_map,BSSID(i)))
                 tmp_rssi(timestamp(i)+1,local_bssid_map(cell2mat(BSSID(i))))=RSSI(i);
             end
@@ -41,7 +44,7 @@ switch (type)
             end
             xlim([1 RecordsNum]);
             ylim([-100 -10]);
-            figFormat(10,[n2s(local_bssid_indexs(i)) ' -- ' bssid{i}],'');
+            figFormat(10,[n2s(local_bssid_indexs(i)) ' -- ' bssid{i} '--' n2s(frequencys(bssid{i}))],'');
         end
     case 'mag'
         tmp=load(filename);

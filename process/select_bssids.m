@@ -10,9 +10,9 @@ clc
 load glo.mat
 cd (work_path)
 % 参数设置
-i_area=7;
-data_version='1';
-RSSI_threshold=-60;
+i_area=9;
+disp(['data_version:' data_version]);
+RSSI_threshold=-80;
 if i_area>0
     load(['data/' area_table{i_area} '/fingerprint' data_version '.mat']);
     settings=fp.settings;
@@ -20,7 +20,7 @@ if i_area>0
     bssids=[];
     rssis={};
     for i=1:length(settings)
-        cd (['original data/' area_table{i_area} '/long/' num2str(i)])
+        cd (['original_data/' area_table{i_area} '/long/' num2str(i)])
         gridmesh=settings{i}.gridmesh;
         for j=1:length(gridmesh)
             if strcmp(gridmesh(j).type,'0')
@@ -36,7 +36,6 @@ if i_area>0
     save(['data/' area_table{i_area} '/fingerprint' data_version '.mat'],'fp');
     disp(bssid_map);
 else
-    is_rssi=[true true false true true];
     i_areas=1:length(area_table);
     i_areas=i_areas(is_rssi);
     for i_area=i_areas
@@ -45,7 +44,7 @@ else
         % BSSID_MAP构造
         bssids=[];
         for i=1:length(settings)
-            cd (['original data/' area_table{i_area} '/long/' num2str(i)])
+            cd (['original_data/' area_table{i_area} '/long/' num2str(i)])
             gridmesh=settings{i}.gridmesh;
             for j=1:length(gridmesh)
                 if strcmp(gridmesh(j).type,'0')

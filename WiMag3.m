@@ -8,11 +8,15 @@ clear
 clc
 load glo.mat
 cd (work_path)
+disp(['data_version:' data_version]);
+
 % 参数设置
-data_version='1';
-test_area=3;
+is_testdata=false; % 没有测试数据则采用测试数据从数据库中抽取。
+test_area=7;
+feature_mode=3;
+
 feature_modes={'1DM','2DM','WiFi','W1','F1'};
-simulation_parameters=[3.16 4.42 0 9.36 5.04];
+simulation_parameters=[3.16 4.42 0 9.36 5.04 0 0];
 error_predict_paras={
     [0.2 1.5],[0.2 1],[1 0.36],1;
     [0.2 1.6],[0.5 0.45],[0.86 0.75],1;
@@ -20,7 +24,8 @@ error_predict_paras={
     [0.3 3.56],[0.45 1.15],[1.36 1.64],0;
     [0.1 2],[0.45 0.75],[0.7 1],1.5 }; % WiFi预测参数 / Dmk预测参数 / Pm预测参数 / 使用融合算法的阈值
 parameters.test_area=test_area;
-parameters.feature_mode=feature_modes{2}; % '1DM','2DM','WiFi','W1','F1'
+parameters.is_testdata=is_testdata;
+parameters.feature_mode=feature_modes{feature_mode}; % '1DM','2DM','WiFi','W1','F1'
 parameters.distance_mode='E'; % E
 parameters.K=10;
 parameters.simulation_parameter=simulation_parameters(test_area); %3.16 / 4.42 / 9.36 / 5.04
@@ -32,13 +37,16 @@ if strcmp(parameters.feature_mode,'F1')
     parameters.predict_method=1;
     parameters.error_predict_para=error_predict_paras(test_area,:);
 end
-% 存储设置
-is_rssi=[true true false true true];
+i_area=WiMaG_predicate_area(test_area);
 % 载入指纹库&测试集
 load(['data/fingerprints' data_version '.mat']);
-load (['data/' area_table{test_area} '/testdata' data_version '.mat']);
-test_num=td.num;
-i_area=WiMaG_predicate_area(test_area);
+if is_testdata
+    load (['data/testdatas' data_version '.mat']);
+    td=tds{test_area};
+    test_num=td.num;
+else
+    test_num=fps{i_area}.num;
+end
 % 运行设置
 is_plot=false;
 if is_plot
@@ -48,7 +56,11 @@ if is_plot
 end
 % 定位循环
 for i=1:test_num
-    test_data=get_testdata( td,i,is_rssi(i_area) );
+    if is_testdata
+        test_data=get_testdata( td,i,is_rssi(i_area) );
+    else
+        test_data=get_testdata( fps{i_area},i,is_rssi(i_area) );
+    end
     switch parameters.feature_mode
         case '1DM'
             tmp_r=WiMag_match_magni(fps{i_area},test_data,parameters);
@@ -77,6 +89,7 @@ end
 % 输出平均定位误差
 if isfield(results(1),{'wifi_err'})
     mean([results.wifi_err],2)
+    mycdfplot([results.wifi_err],1,'Error Distance','CDF','k','-');
 end
 if isfield(results(1),{'result_err'})
     result_err=[results.result_err];
@@ -100,7 +113,7 @@ if isfield(results(1),{'result_errs_f'})
         load tmp.mat
         mycdfplot(tmp,0,'Error Distance','CDF','b','-');
         legend(gca,'location','Best','Two-Stage','Dmk Predict','Pm Predict');
-        savegcf(['figures/' area_table{test_area} '/errcdfcmp']);
+%         savegcf(['figures/' area_table{test_area} '/errcdfcmp']);
     end
     mean(abs([results.pre_err_w]))
     mean(abs([results.pre_err]))

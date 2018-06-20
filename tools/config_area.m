@@ -18,6 +18,10 @@ switch area_table{i_area}
         set_55_2xx
     case '55-2-210'
         set_55_210
+    case '55-5-W-2'
+        set_55_5_W_2
+    case '55-5-W-2h'
+        set_55_5_W_2h
 end
 % 绘制整体区域示意图
 end

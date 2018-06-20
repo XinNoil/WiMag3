@@ -13,10 +13,11 @@ results.magnetics=magnetics;
 results.types=types;
 results.sfiles=sfiles;
 if (is_rssi) %Èç¹ûÓÐWiFi
-    [~,rssis,bssid_maps,bssid_indexs,wfiles]=process_gridmesh_w(gridmesh,bssid_map,origin,head,tail,type);
+    [~,rssis,bssid_maps,bssid_indexs,wfiles,rssis_statics]=process_gridmesh_w(gridmesh,bssid_map,origin,head,tail,type);
     results.rssis=rssis;
     results.bssid_maps=bssid_maps;
     results.bssid_indexs=bssid_indexs;
     results.wfiles=wfiles;
+    results.rssis_statics=rssis_statics;
 end
 

@@ -2,10 +2,12 @@ function result = WiMag_match_fusion( fp,test_data,parameters)
 %WIMAG_MATCH_FUSION 此处显示有关此函数的摘要
 %   此处显示详细说明 
 %% WiFi筛选阶段
-[ feature_mode,distance_mode,K,threshold_rssi,center_weight ] = get_parameters( parameters );
+[ feature_mode,distance_mode,K,threshold_rssi,center_weight,is_testdata ] = get_parameters( parameters );
 index_mask=true(1,length(test_data.rssi));
-
 search_mask=true(fp.num,1);
+if ~is_testdata
+    search_mask(test_data.i)=false;
+end
 if parameters.bpca=='N'
     fp_rssis=cell2mat(fp.rssis);
     test_rssi=test_data.rssi;

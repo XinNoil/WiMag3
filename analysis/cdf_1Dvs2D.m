@@ -3,7 +3,7 @@ clear
 clc
 load glo.mat
 cd (work_path)
-data_version='1';
+disp(['data_version:' data_version]);
 load (['data/fingerprints' data_version '.mat']);
 
 for area_i=1:length(area_table)

@@ -3,9 +3,9 @@ clear
 clc
 load glo.mat
 cd (work_path)
+disp(['data_version:' data_version]);
 %% ÔØÈëÊı¾İ
 test_area=1;
-data_version='1';
 load(['data/' area_table{test_area} '/parameters' '.mat']);
 load (['data/fingerprints' data_version '.mat']);
 fp=fps{test_area};

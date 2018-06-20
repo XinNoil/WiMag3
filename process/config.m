@@ -9,15 +9,16 @@ clear
 clc
 load glo.mat
 cd (work_path)
+disp(['data_version:' data_version]);
 for i=1:length(area_table)
     if ~exist(['data/' area_table{i}],'dir')
         mkdir(['data/' area_table{i}]);
     end
 end
 % 区域设置
-i_area=7;
+i_area=9;
 % 存储设置
-s.data_version='1';
+s.data_version=data_version;
 s.is_new_fingerprint=true; %是否保存fingerpint
 s.is_save_fingerprint=true; %是否保存fingerpint
 s.is_plot_magnetic_object=false; % 是否画出磁性物体

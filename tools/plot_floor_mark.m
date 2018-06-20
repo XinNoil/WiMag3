@@ -31,7 +31,9 @@ function H=plot_floor_mark(settings,cdns,data,n)
                 d1=max(data);
                 d2=min(data);
                 data=data-min(data);
-                data=data/max(data);
+                if(max(data)~=0 )
+                    data=data/max(data);
+                end
                 colorbar('ytick',0:0.2:1,'yticklabel',d2:(d1-d2)/5:d1);
             else
                 colorbar;

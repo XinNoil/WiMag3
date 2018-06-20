@@ -6,7 +6,7 @@ for j=1:db.num
 end
 db.magnitudes=sqrt(db.magnetics(:,1).*db.magnetics(:,1)+db.magnetics(:,2).*db.magnetics(:,2));
 % rssi pca process
-if isfield(db,'rssis')
+if isfield(db,'bssid_map')&&isfield(db,'rssis')
     rssis=cell2mat(db.rssis);
     db.rssi_rqs_set=cell(length(db.bssid_map),1);
     for j=1:length(db.bssid_map)

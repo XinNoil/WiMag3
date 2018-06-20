@@ -5,7 +5,7 @@ load glo.mat
 cd (work_path)
 test_area=1;
 load(['data/' area_table{test_area} '/parameters.mat']);
-data_version='1';
+disp(['data_version:' data_version]);
 load(['result/' area_table{test_area} '/result' data_version '_' get_resultName(parameters)]);
 load (['data/fingerprints' data_version '.mat']);
 load (['data/' area_table{test_area} '/testdata' data_version '.mat']);

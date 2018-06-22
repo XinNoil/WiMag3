@@ -11,7 +11,6 @@ pro='WiMag_dnn';
 for i=1:length(areas_i)
     % training
     area_i=areas_i(i);
-    [mag_max,mag_min]=get_magnetic_statics(area_i);
     load(['data_new/fingerprints' data_version 's_' area_table{area_i} '.mat']);
     for s=1:length(sub_fps)
         fp=sub_fps{s};

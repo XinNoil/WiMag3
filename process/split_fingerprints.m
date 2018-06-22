@@ -40,6 +40,8 @@ for area_i=areas
         subfp.cdns=[];
         subfp.rssi=[];
         subfp.magnetics=[];
+        subfp.rssis_m=zeros(length(wfiles),length(fp.bssid_map));
+        subfp.magnetics_m=zeros(length(wfiles),2);
         for p=1:length(wfiles)
             tmp_cdn=cdns(p,:);
             [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(wfiles{p},fp.bssid_map);
@@ -47,9 +49,11 @@ for area_i=areas
             subfp.cdns=[subfp.cdns ; repmat( tmp_cdn , RecordsNum , 1 )];
             subfp.magnetics=[subfp.magnetics ; tmp_magnetics];
             subfp.rssi=[subfp.rssi ; tmp_rssi];
+            subfp.rssis_m(p,:)=mean(tmp_rssi);
+            subfp.magnetics_m(p,:)=mean(tmp_magnetics);
         end
         sub_fps{j}=subfp;
     end
-    disp(['data_new/fingerprints' data_version 's_' area_table{area_i} '.mat']);
-    save (['data_new/fingerprints' data_version 's_' area_table{area_i} '.mat'],'sub_fps');
+    disp(['data/fingerprints' data_version 's_' area_table{area_i} '.mat']);
+    save (['data/fingerprints' data_version 's_' area_table{area_i} '.mat'],'sub_fps');
 end

@@ -4,7 +4,11 @@ function result = WiMag_match_fusion( fp,test_data,parameters)
 %% WiFiÉ¸Ñ¡½×¶Î
 [ feature_mode,distance_mode,K,threshold_rssi,center_weight,is_testdata ] = get_parameters( parameters );
 index_mask=true(1,length(test_data.rssi));
-search_mask=true(fp.num,1);
+if parameters.is_sub_i
+    search_mask=fp.sub_i==test_data.sub_i;
+else
+    search_mask=true(fp.num,1);
+end
 if ~is_testdata
     search_mask(test_data.i)=false;
 end

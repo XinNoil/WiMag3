@@ -11,7 +11,7 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
-areas=1:5;
+areas=1;%[1 2 4 5];
 sub_grid_size=5.001; % 子区域大小
 is_overlapped=false;
 

@@ -9,7 +9,11 @@ is_testdata=parameters.is_testdata;
 if(fp.num~=size(fp.cdns,1))
     disp('WARNING: 数据库参考点数量不一致');
 end
-search_mask= true(fp.num,1);
+if parameters.is_sub_i
+    search_mask=fp.sub_i==test_data.sub_i;
+else
+    search_mask=true(fp.num,1);
+end
 if ~is_testdata
     search_mask(test_data.i)=false;
 end

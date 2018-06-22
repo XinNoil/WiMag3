@@ -11,10 +11,10 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
-is_testdata=false; % 没有测试数据则采用测试数据从数据库中抽取。
-test_area=7;
-feature_mode=3;
-
+is_testdata=true; % 没有测试数据则采用测试数据从数据库中抽取。
+test_area=1;
+is_sub_i=true;
+feature_mode=5;
 feature_modes={'1DM','2DM','WiFi','W1','F1'};
 simulation_parameters=[3.16 4.42 0 9.36 5.04 0 0];
 error_predict_paras={
@@ -25,6 +25,7 @@ error_predict_paras={
     [0.1 2],[0.45 0.75],[0.7 1],1.5 }; % WiFi预测参数 / Dmk预测参数 / Pm预测参数 / 使用融合算法的阈值
 parameters.test_area=test_area;
 parameters.is_testdata=is_testdata;
+parameters.is_sub_i=is_sub_i;
 parameters.feature_mode=feature_modes{feature_mode}; % '1DM','2DM','WiFi','W1','F1'
 parameters.distance_mode='E'; % E
 parameters.K=10;
@@ -57,9 +58,9 @@ end
 % 定位循环
 for i=1:test_num
     if is_testdata
-        test_data=get_testdata( td,i,is_rssi(i_area) );
+        test_data=get_testdata( td,i,is_rssi(i_area),is_sub_i );
     else
-        test_data=get_testdata( fps{i_area},i,is_rssi(i_area) );
+        test_data=get_testdata( fps{i_area},i,is_rssi(i_area),is_sub_i );
     end
     switch parameters.feature_mode
         case '1DM'
@@ -106,18 +107,31 @@ if isfield(results(1),{'result_errs_f'})
     [XData,YData]=mycdfplot(result_errs_f(3,:),0,'Error Distance','CDF','r','-');
     disp(['80% ' n2s(getError(XData,YData,0.8)) ]);
     disp(['90% ' n2s(getError(XData,YData,0.9)) ]);
-    if parameters.predict_method==1
-        tmp=result_errs_f(3,:);
-        save tmp.mat tmp
-    else
-        load tmp.mat
-        mycdfplot(tmp,0,'Error Distance','CDF','b','-');
-        legend(gca,'location','Best','Two-Stage','Dmk Predict','Pm Predict');
-%         savegcf(['figures/' area_table{test_area} '/errcdfcmp']);
-    end
     mean(abs([results.pre_err_w]))
     mean(abs([results.pre_err]))
+end
+if(is_sub_i)
+    sub_i_list=unique([fps{i_area}.sub_i]);
+    disp(['sub area errors: (K=3)']);
+    for i=1:length(sub_i_list)
+        tmp1=result_err(3,td.sub_i==sub_i_list(i));
+        if isfield(results(1),{'result_errs_f'})
+            tmp2=result_errs_f(3,td.sub_i==sub_i_list(i));
+            disp(['subarea:' n2s(sub_i_list(i)) ' ,Two-stage error: ' n2s(mean(tmp1),3) ' ,Funsion error: ' n2s(mean(tmp2),3)]);
+        else
+            disp(['subarea:' n2s(sub_i_list(i)) ' ,Two-stage error: ' n2s(mean(tmp1),3)]);
+        end
+    end
 end
 save(['result/' area_table{test_area} '/result' data_version '_' get_resultName(parameters)], 'results');
 save(['data/' area_table{test_area} '/parameters.mat'],'parameters');
 disp('finish');
+%     if parameters.predict_method==1
+%         tmp=result_errs_f(3,:);
+%         save tmp.mat tmp
+%     else
+%         load tmp.mat
+%         mycdfplot(tmp,0,'Error Distance','CDF','b','-');
+%         legend(gca,'location','Best','Two-Stage','Dmk Predict','Pm Predict');
+% %         savegcf(['figures/' area_table{test_area} '/errcdfcmp']);
+%     end

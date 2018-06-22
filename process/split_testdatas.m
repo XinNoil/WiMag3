@@ -50,6 +50,6 @@ for area_i=areas
         end
         sub_tds{j}=subtd;
     end
-    disp(['data_new/testdatas' data_version 's_' area_table{area_i} '.mat']);
-    save (['data_new/testdatas' data_version 's_' area_table{area_i} '.mat'],'sub_tds');
+    disp(['data/testdatas' data_version 's_' area_table{area_i} '.mat']);
+    save (['data/testdatas' data_version 's_' area_table{area_i} '.mat'],'sub_tds');
 end

@@ -3,8 +3,9 @@ original_data
 # data_new
 data_new
 data_new2
-# parameters
+# parameters tmp
 parameters.mat
+tmp.mat
 # eps
 *.eps
 # yuanhao

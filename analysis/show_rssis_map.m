@@ -25,7 +25,7 @@ for area_i=4 % areas
     bads=false(length(show_rssi_indexs),1);
     for i=1:length(show_rssi_indexs)
         show_rssi_map(fp,td,show_rssi_indexs(i));
-        bad=input([bssid_map_r(show_rssi_indexs(i)) ' have problem?: (y/n)'],'s');
+        bad=input([n2s(i) ': ' bssid_map_r(show_rssi_indexs(i)) ' have problem?: (y/n)'],'s');
         if strcmp(bad,'y')
             bads(i)=true;
         end

@@ -11,7 +11,7 @@ pro='WiMag_dnn';
 for i=1:length(areas_i)
     % training
     area_i=areas_i(i);
-    load(['data_new/fingerprints' data_version 's_' area_table{area_i} '.mat']);
+    load(['data/fingerprints' data_version 's_' area_table{area_i} '.mat']);
     for s=1:length(sub_fps)
         fp=sub_fps{s};
         disp(['python3 ' pro '.py -c ' n2s(fp.sub_i) ' -x ' x]);

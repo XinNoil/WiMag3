@@ -1,4 +1,4 @@
-function H=plot_floor_mark(settings,cdns,data,n)
+function H=plot_floor_mark(settings,cdns,data,n,is_split,sub_grid_size)
     is_plot_floors=true;
     if nargin==4&&n==0
         is_plot_floors=false;
@@ -20,6 +20,26 @@ function H=plot_floor_mark(settings,cdns,data,n)
         xl=get(gca,'xlim');
         yl=get(gca,'ylim');
         set(gcf,'Units','centimeters','Position',[0 1 (xl(2)-xl(1))*1 (yl(2)-yl(1))*1]);
+    end
+    if nargin>4
+        if(is_split)
+            for s_i=1:length(settings)
+                setting=settings{s_i};
+                origin=setting.origin;
+                M=setting.M;
+                N=setting.N;
+                M_n=ceil(M/sub_grid_size);
+                N_n=ceil(N/sub_grid_size);
+                subarea_row_index=origin(1)+[(0:M_n-1).*sub_grid_size M];
+                subarea_column_index=origin(2)+[(0:N_n-1).*sub_grid_size N];
+                for i=1:M_n+1
+                    plot([subarea_row_index(i) subarea_row_index(i)],[subarea_column_index(1) subarea_column_index(end)],'b--');
+                end
+                for j=1:N_n+1
+                    plot([subarea_row_index(1) subarea_row_index(end)],[subarea_column_index(j) subarea_column_index(j)],'b--');
+                end
+            end
+        end
     end
     if nargin>1
         if islogical(data)

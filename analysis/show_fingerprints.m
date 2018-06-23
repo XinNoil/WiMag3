@@ -4,7 +4,7 @@ load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);
 load(['data/fingerprints' data_version '.mat']);
-show_type='all';
+show_type='rssi';
 
 areas=1:length(area_table);
 for area_i=5 % areas

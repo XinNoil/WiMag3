@@ -44,6 +44,7 @@ for area_i=areas
         subfp.cdns=fp.cdns(tmp_mask,:);
         subfp.rssis=fp.rssis(tmp_mask,:);
         subfp.magnetics=fp.magnetics(tmp_mask,:);
+        subfp.rssi_mask=fp.rssi_mask;
         for p=1:length(wfiles)
             tmp_cdn=cdns(p,:);
             [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(wfiles{p},fp.bssid_map);

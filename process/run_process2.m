@@ -15,11 +15,11 @@ outdoor_magnetics=[28.5 -43.6];
 head=false; %是否删除首
 tail=false; %是否删除尾
 % 存储设置
-is_save_fingerprint=true; %是否保存fingerpint
-is_save_testdata=true; %是否保存testdata
-is_save_database=true; %是否保存databas
+is_save_fingerprint=false; %是否保存fingerpint
+is_save_testdata=false; %是否保存testdata
+is_save_database=false; %是否保存databas
 mag_cols=18:20;
-for i_area=9 %i_areas
+for i_area=4 %i_areas
     clear fp td db;
     is_have_fingerprint=false;
     is_have_testdata=false;

@@ -6,7 +6,7 @@ disp(['data_version:' data_version]);
 fps=cell(1,length(area_table));
 tds=cell(1,length(area_table));
 dbs=cell(1,length(area_table));
-thredhold=-80;
+thredhold=-100;
 outdoor_magnetics=[28.5 -43.6];
 for i=1:length(area_table)
     if(exist(['data/' area_table{i} '/fingerprint' data_version '.mat'],'file'))

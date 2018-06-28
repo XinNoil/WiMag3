@@ -36,6 +36,9 @@ for I=1:folderNum
         cdns(c,1)=row_index(J+1);
         cdns(c,2)=column_index(I);
         filename=[path num2str(folderList(I)) '/W' num2str(J) '.txt'];
+        if(strcmp(filename,'original_data/LIB-1-E/long/1/1/W7.txt'))
+            disp(filename);
+        end
         wfiles{c}=filename;
         [timestamp,BSSID,RSSI,~]=loadWiFiData(filename);
         row=size(timestamp,1);

@@ -37,16 +37,20 @@ for area_i=areas
         cdns=td.cdns(tmp_mask,:);
         wfiles=td.wfiles(tmp_mask);
         sfiles=td.sfiles(tmp_mask);
-        subtd.cdns=[];
-        subtd.rssi=[];
-        subtd.magnetics=[];
+        subtd.num=length(wfiles);
+        subtd.cdns_m=[];
+        subtd.rssis_m=[];
+        subtd.magnetics_m=[];
+        subtd.cdns=td.cdns(tmp_mask,:);
+        subtd.rssis=td.rssis(tmp_mask,:);
+        subtd.magnetics=td.magnetics(tmp_mask,:);
         for p=1:length(wfiles)
             tmp_cdn=cdns(p,:);
             [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(wfiles{p},td.bssid_map);
             tmp_magnetics=process_magnetic(sfiles{p},RecordsNum,mag_cols,test_time);
-            subtd.cdns=[subtd.cdns ; repmat( tmp_cdn , RecordsNum , 1 )];
-            subtd.magnetics=[subtd.magnetics ; tmp_magnetics];
-            subtd.rssi=[subtd.rssi ; tmp_rssi];
+            subtd.cdns_m=[subtd.cdns_m ; repmat( tmp_cdn , RecordsNum , 1 )];
+            subtd.magnetics_m=[subtd.magnetics_m ; tmp_magnetics];
+            subtd.rssis_m=[subtd.rssis_m ; tmp_rssi];
         end
         sub_tds{j}=subtd;
     end

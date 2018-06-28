@@ -5,14 +5,14 @@
 % Contact:  jiankunwang@tju.edu.cn
 
 clear
-clc
+% clc
 load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
 is_testdata=true; % 没有测试数据则采用测试数据从数据库中抽取。
-test_area=5;
+test_area=1;
 is_sub_i=true;
 feature_mode=5;
 feature_modes={'1DM','2DM','WiFi','W1','F1'};

@@ -11,7 +11,7 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
-areas=[1 2 4 5];
+areas=1;%[1 2 4 5];
 sub_grid_size=5.001; % 子区域大小
 is_overlapped=false;
 
@@ -31,10 +31,8 @@ for area_i=areas
     settings=fp.settings;
     fp.ws=get_which_setting(cdns,settings,sub_grid_size);
     fp.sub_i=get_subarea(cdns,settings,fp.ws,sub_grid_size);
-    fp.sub_grid_size=sub_grid_size;
     td.ws=get_which_setting(tdcdns,settings,sub_grid_size);
     td.sub_i=get_subarea(tdcdns,settings,td.ws,sub_grid_size);
-    td.sub_grid_size=sub_grid_size;
     if (~all(unique(fp.sub_i)==unique(td.sub_i)))
         disp('error: sub_i not same.');
     end

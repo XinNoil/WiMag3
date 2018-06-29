@@ -11,11 +11,12 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
+test_area=1;
 sub_grid_size=5.001;
 is_testdata=true; % 没有测试数据则采用测试数据从数据库中抽取。
-test_area=1;
 is_sub_i=false;
-feature_mode=5;
+is_rssi_mask=true;
+feature_mode=3;
 feature_modes={'1DM','2DM','WiFi','W1','F1'};
 simulation_parameters=[3.16 4.42 0 9.36 5.04 0 0];
 error_predict_paras={
@@ -27,6 +28,7 @@ error_predict_paras={
 parameters.test_area=test_area;
 parameters.is_testdata=is_testdata;
 parameters.is_sub_i=is_sub_i;
+parameters.is_rssi_mask=is_rssi_mask;
 parameters.feature_mode=feature_modes{feature_mode}; % '1DM','2DM','WiFi','W1','F1'
 parameters.distance_mode='E'; % E
 parameters.K=10;
@@ -70,7 +72,10 @@ for s_i=1:length(sub_fps)
         if is_testdata
             test_data=get_testdata( td,i,is_rssi(i_area),is_sub_i );
         else
-            test_data=get_testdata( sub_fp{s_i},i,is_rssi(i_area),is_sub_i );
+            test_data=get_testdata( sub_fps{s_i},i,is_rssi(i_area),is_sub_i );
+        end
+        if is_rssi_mask
+            test_data.rssi=test_data.rssi(logical(subfp.rssi_mask));
         end
         switch parameters.feature_mode
             case '1DM'

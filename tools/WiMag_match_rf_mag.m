@@ -2,7 +2,7 @@ function result = WiMag_match_rf_mag( fp,test_data,parameters)
 %WiMag_match_rf_mag 
 %% WiFiÉ¸Ñ¡½×¶Î
 [ feature_mode,distance_mode,K,threshold_rssi,center_weight,is_testdata ] = get_parameters( parameters );
-index_mask=true(1,length(test_data.rssi));
+index_mask=true(1,length(fp.bssid_map));
 if parameters.is_sub_i
     search_mask=fp.sub_i==test_data.sub_i;
 else
@@ -20,6 +20,9 @@ else
     score=bsxfun(@minus,test_data.rssi,fp.rssis_mean)*fp.rssis_coef;
     test_rssi=score(:,1:fp.rssis_r);
     search_rssis=fp_rssis(search_mask,:);
+end
+if parameters.is_rssi_mask
+    search_rssis=search_rssis(:,logical(fp.rssi_mask));
 end
 search_cdns=fp.cdns(search_mask,:);
 cs.mode='N';

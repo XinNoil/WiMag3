@@ -5,7 +5,7 @@
 % Contact:  jiankunwang@tju.edu.cn
 
 clear
-% clc
+clc
 load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);

@@ -1,16 +1,21 @@
-# Oirgin data
+# folders
 original_data
-# data_new
 data_new
 data_new2
-# parameters tmp
-parameters.mat
-tmp.mat
 tmp
+
+# data format
+tmp.mat
 data/tmp.mat
-# eps
+parameters.mat
+*.csv
+*.json
+
+# figures format
+*.png
 *.eps
-# yuanhao
+
+# workspace
 yuanhao
-# shiyiyao
 shiyiyao
+weishengen

@@ -54,6 +54,7 @@ for area_i=areas
             plot([subarea_row_index(1) subarea_row_index(end)],[subarea_column_index(j) subarea_column_index(j)],'b--');
         end
     end
+    savegcf(['setting files/' area_table{area_i} '_split'],{'png','fig'})
     fps{area_i}=fp;
     tds{area_i}=td;
 end

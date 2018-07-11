@@ -33,6 +33,6 @@ for area_i=[1 2 4 5] % areas
     plot_floor_mark(fp.settings,tdcdns,acc./count,true,true,sub_grid_size);
     settings=fp.settings;
     title([area_table{area_i} ', acc: ' n2s(sum(accs)/length(accs))]);
-    savegcf(['./figures/' area_table{area_i} '_area_predict']);
+%     savegcf(['./figures/' area_table{area_i} '_area_predict']);
 end
 

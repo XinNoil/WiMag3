@@ -4,9 +4,9 @@ load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);
 areas_i=1;%[1 2 4 5];
-x='t';
+x='3';
 disp(['mkdir ' x]);
-pro='WiMag_dnn';
+pro='WiMag_dnn_v2';
 % disp(['python3 ' pro '.py -x ' x]);
 for i=1:length(areas_i)
     % training

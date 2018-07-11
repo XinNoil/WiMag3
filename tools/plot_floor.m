@@ -71,6 +71,18 @@ if nargin>2
         end
     end
 end
+if nargin>2
+    if isfield(vars,'plot_sub')
+        for i=1:length(vars.area_vertexs)
+            avs=vars.area_vertexs;
+            h=plot([avs(i).xv avs(i).xv(1)],[avs(i).yv avs(i).yv(1)],'r');
+            set(h,'linewidth',0.5,'linestyle','--');
+            center=avs(i).center;
+            ht=text(center(1),center(2),n2s(i));
+            set(ht,'fontsize',20,'color','r','HorizontalAlignment', 'center');
+        end
+    end
+end
 end
 
 

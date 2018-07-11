@@ -1,5 +1,6 @@
 function show_origin_data(filename,type,bssid_map)
 load glo.mat
+load data/tmp.mat
 disp(filename);
 switch (type)
     case 'rssi'
@@ -22,14 +23,20 @@ switch (type)
         local_bssid_map=containers.Map(bssid,num2cell(1:length(bssid)));
         local_ApNum=length(bssid);
         tmp_rssi=-100*ones(RecordsNum,local_ApNum);
+        save_rssi=-100*ones(RecordsNum,length(fp.bssid_map));
         frequencys=containers.Map();
         for i=1:row
             frequencys(BSSID{i})=Frequency(i);
             if(isKey(local_bssid_map,BSSID(i)))
                 tmp_rssi(timestamp(i)+1,local_bssid_map(cell2mat(BSSID(i))))=RSSI(i);
             end
+            if(isKey(fp.bssid_map,BSSID(i)))
+                save_rssi(timestamp(i)+1,fp.bssid_map(cell2mat(BSSID(i))))=RSSI(i);
+            end
         end
         tmp_rssis=mean(tmp_rssi);
+        file_no=input('file_no');
+        save(['./tmp/rssi' n2s(file_no) '.mat'],'save_rssi','bssid');
         plotrow=floor(sqrt(length(bssid)));
         plotclo=ceil(length(bssid)/plotrow);
         figure('color','w')
@@ -46,6 +53,7 @@ switch (type)
             ylim([-100 -10]);
             figFormat(10,[n2s(local_bssid_indexs(i)) ' -- ' bssid{i} '--' n2s(frequencys(bssid{i}))],'');
         end
+        save('tmp.mat','-append','bssid');
     case 'mag'
         tmp=load(filename);
         tmp=tmp(floor(size(tmp,1)/10):end-floor(size(tmp,1)/10),:);

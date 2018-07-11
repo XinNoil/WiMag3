@@ -9,4 +9,6 @@ else
     save('./setting files/glo.mat','work_path')
     disp('warning: glo.mat not found!');
 end
+
+disp(['data_version:' data_version]);
     

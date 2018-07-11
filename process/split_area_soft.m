@@ -57,7 +57,6 @@ for area_i=areas
                 ht=text(center(1),center(2),n2s(area_code));
                 set(ht,'fontsize',20,'color','r','HorizontalAlignment', 'center');
                 area_code=area_code+1;
-%                 pause
                 set(h,'linewidth',0.5,'linestyle','--'); 
             end
         end

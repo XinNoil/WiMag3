@@ -6,6 +6,8 @@ data_new2
 # parameters tmp
 parameters.mat
 tmp.mat
+tmp
+data/tmp.mat
 # eps
 *.eps
 # yuanhao

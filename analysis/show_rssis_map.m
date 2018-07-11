@@ -8,8 +8,8 @@ load(['data/testdatas' data_version '.mat']);
 show_type='rssi';
 show_which_rssi='all';
 show_rssi_indexs=[];
-is_run_auto=true;
-for area_i=4 % areas
+is_run_auto=false;
+for area_i=1 % areas
     fp=fps{area_i};
     td=tds{area_i};
     rssis=cell2mat(fp.rssis);
@@ -26,8 +26,9 @@ for area_i=4 % areas
     bads=false(length(show_rssi_indexs),1);
     for i=1:length(show_rssi_indexs)
         show_rssi_map(fp,td,show_rssi_indexs(i));
+        title([bssid_map_r(show_rssi_indexs(i))]);
         if is_run_auto
-%             savegcf(['./shiyiyao/data_new_2/' area_table{area_i} '_' n2s(show_rssi_indexs(i))]);
+            savegcf(['./shiyiyao/data_new_4_4&5/' area_table{area_i} '_' n2s(show_rssi_indexs(i))]);
         else
             bad=input([n2s(show_rssi_indexs(i)) ': ' bssid_map_r(show_rssi_indexs(i)) ' have problem?: (y/n)'],'s');
             if strcmp(bad,'y')
@@ -38,3 +39,4 @@ for area_i=4 % areas
         close;
     end
 end
+% '_' bssid_map_r(show_rssi_indexs(i))

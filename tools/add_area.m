@@ -9,3 +9,4 @@ is_rssi(end+1)=rssi;
 is_together{end+1}=together;
 disp(['area' n2s(length(area_table)) ':' name]);
 save('glo.mat','-append','area_table','is_rssi','is_together');
+load('glo.mat');

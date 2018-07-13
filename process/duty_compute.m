@@ -16,17 +16,7 @@ for area_i=1
     duties=zeros(length(fp.wfiles),length(fp.bssid_map));
     for i=1:length(fp.wfiles)
         filename=fp.wfiles{i};
-        [timestamp,BSSID,RSSI,~]=loadWiFiData(filename);
-        BSSIDs=unique(BSSID);
-        max_num=max(timestamp)+1;
-        index_s=get_bssid_index(fp.bssid_map,BSSIDs);
-        index=get_bssid_index(fp.bssid_map,BSSID);%所有BSSID对应的编号
-        index_s(index_s==0)=[];%把是0的地方去掉
-        %求每个点上每个AP的duty
-        for j=1:length(index_s)
-            index_sum=sum(index==index_s(j));%index_s()就是取对应的值
-            duties(i,index_s(j))=index_sum/max_num;
-        end
+        duties(i,:)=get_duties(filename,fp.bssid_map);
     end
     fp.duties=duties;
     fps{area_i}=fp;

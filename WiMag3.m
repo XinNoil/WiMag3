@@ -1,7 +1,6 @@
 % Date:     2017/11/23
 % Auther:   WJK
-% Function: This Script construct area settings
-%           这是一个基于WiFi和地磁的定位算法
+% Function: 这是一个基于WiFi和地磁的定位算法。  
 % Contact:  jiankunwang@tju.edu.cn
 
 clear
@@ -14,7 +13,7 @@ disp(['data_version:' data_version]);
 test_area=1;
 is_testdata=true; % 没有测试数据则采用测试数据从数据库中抽取。
 is_sub_i=false;
-is_rssi_mask=true;
+is_rssi_mask=false;
 feature_mode=5;
 feature_modes={'1DM','2DM','WiFi','W1','F1'};
 simulation_parameters=[3.16 4.42 0 9.36 5.04 0 0];

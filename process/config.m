@@ -1,9 +1,15 @@
 % Date:     2017/12/12
 % Auther:   WJK
-% Function: This Script construct area settings
-%           这个脚本用于创建区域的设置
+% Function: This script construct area settings.
+%           这个脚本用于创建区域的设置。
+% Note:     
+% 
+% # ITEM1   After excute this script, run 'process_origin.m' to process 
+%           origin data and generate fingerprintsn.mat. 执行完这个脚本后，
+%           需要执行process_origin.m处理原始数据，生成fingerprintsn.mat文件
+%           
+% # ITEM2   参考点和测试点集合由多个gridmesh组成。
 % Contact:  jiankunwang@tju.edu.cn
-% Note:     参考点集由三个meshgrid组合
 
 clear
 clc
@@ -16,7 +22,7 @@ for i=1:length(area_table)
     end
 end
 % 区域设置
-i_area=9;
+i_area=10;
 % 存储设置
 s.data_version=data_version;
 s.is_new_fingerprint=true; %是否保存fingerpint

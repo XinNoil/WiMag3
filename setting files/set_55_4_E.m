@@ -28,7 +28,7 @@ gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'0');
 
 setting=set_area(1,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
-settings{1}=setting;
+settings{area}=setting;
 clear gridmesh;
 
 %% Area 2
@@ -36,7 +36,7 @@ area=2;
 rows=8;
 columns=[3];
 gap=[0];
-margin=[0.62 0.775 0 0.43];
+margin=[0.22 0.775 0 0.43];
 origin=[18.55 -2.27];
 M=bs*sum(columns)+margin(3)+margin(4)+sum(gap);
 N=bs*rows+margin(1)+margin(2);
@@ -58,7 +58,7 @@ gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'0');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
-settings{3}=setting;
+settings{area}=setting;
 clear gridmesh;
 
 %% Area 3
@@ -88,7 +88,7 @@ gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'0');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
-settings{2}=setting;
+settings{area}=setting;
 clear gridmesh;
 
 %% Area 4 by wjk
@@ -122,5 +122,5 @@ gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'0');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
-settings{3}=setting;
+settings{area}=setting;
 clear gridmesh;

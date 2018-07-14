@@ -26,7 +26,7 @@ gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(1,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
-settings{1}=setting;
+settings{area}=setting;
 clear gridmesh;
 
 % Area 2
@@ -56,5 +56,5 @@ gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
-settings{2}=setting;
+settings{area}=setting;
 clear gridmesh;

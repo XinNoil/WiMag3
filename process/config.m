@@ -4,9 +4,11 @@
 %           这个脚本用于创建区域的设置。
 % Note:     
 % 
-% # ITEM1   After excute this script, run 'process_origin.m' to process 
-%           origin data and generate fingerprintsn.mat. 执行完这个脚本后，
-%           需要执行process_origin.m处理原始数据，生成fingerprintsn.mat文件
+% # ITEM1   After excute this script, ,run scan_bssids.m to genrate bssid_map
+%           run 'process_origin.m' to process origin data and generate 
+%           fingerprintsn.mat.
+%           执行完这个脚本后，需要执行scan_bssids.m，生成bssid_map
+%           执行process_origin.m处理原始数据，生成fingerprintsn.mat文件。
 %           
 % # ITEM2   参考点和测试点集合由多个gridmesh组成。
 % Contact:  jiankunwang@tju.edu.cn
@@ -22,7 +24,7 @@ for i=1:length(area_table)
     end
 end
 % 区域设置
-i_area=10;
+i_area=0;
 % 存储设置
 s.data_version=data_version;
 s.is_new_fingerprint=true; %是否保存fingerpint
@@ -39,11 +41,3 @@ else
         save_fingerprint(i,settings,s)
     end
 end
-
-% load (['data/fingerprints' s.data_version '.mat']);
-% load(['data/' area_table{i_area} '/testdata' s.data_version '.mat']);
-% fp=fps{i_area};
-% fpcdns=fp.cdns;
-% tdcdns=td.cdns;
-% save data/tmp.mat fpcdns tdcdns fp td
-% setupdatefun(@myupdatefcn3);

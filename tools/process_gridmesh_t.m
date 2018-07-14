@@ -46,6 +46,10 @@ for I=1:folderNum
         %}
         % WiFi
         filename=[paths{2} num2str(folderList(I)) '/W' num2str(J) '.txt'];
+        disp(filename)
+        if(strcmp('original_data/55-4-W/short/2/1/W2.txt',filename))
+            disp('original_data/55-4-W/short/2/1/W2.txt')
+        end
         [timestamp,BSSID,RSSI,~]=loadWiFiData(filename);
         row=size(timestamp,1);
         RecordsNum=max(timestamp)+1;

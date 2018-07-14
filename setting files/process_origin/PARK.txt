@@ -1,0 +1,90 @@
+ 
+data_version:3
+区域:PARK
+总面积:180.6379
+ 
+子区域:1
+面积:51.3
+测试点...
+Magnetic data:original_data/PARK/short/1/0
+Magnetic data:original_data/PARK/short/1/2
+Magnetic data:original_data/PARK/short/1/4
+Magnetic data:original_data/PARK/short/1/6
+参考点...
+Magnetic data:original_data/PARK/short/1/1
+Magnetic data:original_data/PARK/short/1/3
+Magnetic data:original_data/PARK/short/1/5
+测试点...
+Magnetic data:original_data/PARK/short/1/7
+Magnetic data:original_data/PARK/short/1/8
+Magnetic data:original_data/PARK/short/1/9
+Magnetic data:original_data/PARK/short/1/10
+ 
+子区域:2
+面积:129.3379
+测试点...
+Magnetic data:original_data/PARK/short/2/0
+Magnetic data:original_data/PARK/short/2/2
+Magnetic data:original_data/PARK/short/2/4
+Magnetic data:original_data/PARK/short/2/6
+Magnetic data:original_data/PARK/short/2/8
+Magnetic data:original_data/PARK/short/2/10
+Magnetic data:original_data/PARK/short/2/12
+Magnetic data:original_data/PARK/short/2/14
+Magnetic data:original_data/PARK/short/2/16
+Magnetic data:original_data/PARK/short/2/18
+Magnetic data:original_data/PARK/short/2/20
+Magnetic data:original_data/PARK/short/2/22
+Magnetic data:original_data/PARK/short/2/24
+Magnetic data:original_data/PARK/short/2/26
+Magnetic data:original_data/PARK/short/2/28
+Magnetic data:original_data/PARK/short/2/30
+Magnetic data:original_data/PARK/short/2/32
+Magnetic data:original_data/PARK/short/2/34
+Magnetic data:original_data/PARK/short/2/36
+Magnetic data:original_data/PARK/short/2/38
+Magnetic data:original_data/PARK/short/2/40
+参考点...
+Magnetic data:original_data/PARK/short/2/1
+Magnetic data:original_data/PARK/short/2/3
+Magnetic data:original_data/PARK/short/2/5
+Magnetic data:original_data/PARK/short/2/7
+Magnetic data:original_data/PARK/short/2/9
+Magnetic data:original_data/PARK/short/2/11
+Magnetic data:original_data/PARK/short/2/13
+Magnetic data:original_data/PARK/short/2/15
+Magnetic data:original_data/PARK/short/2/17
+Magnetic data:original_data/PARK/short/2/19
+Magnetic data:original_data/PARK/short/2/21
+Magnetic data:original_data/PARK/short/2/23
+Magnetic data:original_data/PARK/short/2/25
+Magnetic data:original_data/PARK/short/2/27
+Magnetic data:original_data/PARK/short/2/29
+Magnetic data:original_data/PARK/short/2/31
+Magnetic data:original_data/PARK/short/2/33
+Magnetic data:original_data/PARK/short/2/35
+Magnetic data:original_data/PARK/short/2/37
+Magnetic data:original_data/PARK/short/2/39
+测试点...
+Magnetic data:original_data/PARK/short/2/41
+Magnetic data:original_data/PARK/short/2/42
+Magnetic data:original_data/PARK/short/2/43
+Magnetic data:original_data/PARK/short/2/44
+Magnetic data:original_data/PARK/short/2/45
+Magnetic data:original_data/PARK/short/2/46
+Magnetic data:original_data/PARK/short/2/47
+Magnetic data:original_data/PARK/short/2/48
+Magnetic data:original_data/PARK/short/2/49
+Magnetic data:original_data/PARK/short/2/50
+Magnetic data:original_data/PARK/short/2/51
+Magnetic data:original_data/PARK/short/2/52
+Magnetic data:original_data/PARK/short/2/53
+Magnetic data:original_data/PARK/short/2/54
+Magnetic data:original_data/PARK/short/2/55
+Magnetic data:original_data/PARK/short/2/56
+Magnetic data:original_data/PARK/short/2/57
+Magnetic data:original_data/PARK/short/2/58
+Magnetic data:original_data/PARK/short/2/59
+Magnetic data:original_data/PARK/short/2/60
+Magnetic data:original_data/PARK/short/2/61
+ 

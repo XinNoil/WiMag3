@@ -26,6 +26,6 @@ if s.is_save_fingerprint
     save(['data/' area_table{i_area} '/fingerprint' s.data_version '.mat'],'fp');
 end
 if s.is_savegcf
-    savegcf(['setting files/' area_table{i_area}]);
+    savegcf(['setting files/setting figures/' area_table{i_area}]);
 end
 end

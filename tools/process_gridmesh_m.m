@@ -27,10 +27,10 @@ switch type
         path=get_dpath(i_area,i_subarea,'short');
         types=ones(num,1);
 end
-disp(['Magnetic data:' path]);
 test_time=1;
 c=1;
 for I=1:folderNum
+    disp(['Magnetic data:' path n2s(folderList(I))]);
     for J=J_range
         cdns(c,1)=row_index(J+1);
         cdns(c,2)=column_index(I);

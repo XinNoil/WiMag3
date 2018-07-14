@@ -1,6 +1,6 @@
 function settings=config_area( i_area )
-%config_area 此处显示有关此函数的摘要
-%   此处显示详细说明
+%config_area 区域设置映射
+%   再添加新的配置文件后在此处增加映射
 load glo.mat;
 vars.plot01='1';
 switch area_table{i_area}
@@ -26,7 +26,5 @@ switch area_table{i_area}
         set_55_4_E
     case '55-4'
         set_55_4
-end
-% 绘制整体区域示意图
 end
 

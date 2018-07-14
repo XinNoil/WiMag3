@@ -42,6 +42,10 @@ function H=plot_floor_mark(settings,cdns,data,n,is_split,sub_grid_size)
         end
     end
     if nargin>1
+        if ~exist('data','var')
+            plot(cdns(:,1),cdns(:,2),'r*');
+            return;
+        end
         if islogical(data)
             plot(cdns(data,1),cdns(data,2),'r*');
             plot(cdns(~data,1),cdns(~data,2),'b*');

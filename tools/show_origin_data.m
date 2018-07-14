@@ -35,8 +35,8 @@ switch (type)
             end
         end
         tmp_rssis=mean(tmp_rssi);
-        file_no=input('file_no');
-        save(['./tmp/rssi' n2s(file_no) '.mat'],'save_rssi','bssid');
+%         file_no=input('file_no');
+%         save(['./tmp/rssi' n2s(file_no) '.mat'],'save_rssi','bssid');
         plotrow=floor(sqrt(length(bssid)));
         plotclo=ceil(length(bssid)/plotrow);
         figure('color','w')

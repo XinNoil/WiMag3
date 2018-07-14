@@ -1,0 +1,42 @@
+ 
+data_version:3
+  <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
+
+        Count: 27
+      KeyType: char
+    ValueType: double
+
+save to: data/55-2-210/fingerprint3.mat
+区域:55-2-210
+总面积:47.25
+ 
+子区域:1
+面积:10.8
+参考点...
+Magnetic data:original_data/55-2-210/long/1/0
+WiFi     data:original_data/55-2-210/long/1/0
+ 
+子区域:2
+面积:12.15
+参考点...
+Magnetic data:original_data/55-2-210/long/2/0
+Magnetic data:original_data/55-2-210/long/2/1
+Magnetic data:original_data/55-2-210/long/2/2
+Magnetic data:original_data/55-2-210/long/2/3
+WiFi     data:original_data/55-2-210/long/2/0
+WiFi     data:original_data/55-2-210/long/2/1
+WiFi     data:original_data/55-2-210/long/2/2
+WiFi     data:original_data/55-2-210/long/2/3
+ 
+子区域:3
+面积:24.3
+参考点...
+Magnetic data:original_data/55-2-210/long/3/0
+Magnetic data:original_data/55-2-210/long/3/1
+Magnetic data:original_data/55-2-210/long/3/2
+Magnetic data:original_data/55-2-210/long/3/3
+WiFi     data:original_data/55-2-210/long/3/0
+WiFi     data:original_data/55-2-210/long/3/1
+WiFi     data:original_data/55-2-210/long/3/2
+WiFi     data:original_data/55-2-210/long/3/3
+ 

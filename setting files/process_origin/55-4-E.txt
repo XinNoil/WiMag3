@@ -1,0 +1,134 @@
+ 
+data_version:3
+  <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
+
+        Count: 89
+      KeyType: char
+    ValueType: double
+
+save to: data/55-4-E/fingerprint3.mat
+区域:55-4-E
+总面积:209.8453
+ 
+子区域:1
+面积:49.0648
+测试点...
+Magnetic data:original_data/55-4-E/short/1/0
+Magnetic data:original_data/55-4-E/short/1/2
+Magnetic data:original_data/55-4-E/short/1/4
+WiFi     data:original_data/55-4-E/short/1/0
+WiFi     data:original_data/55-4-E/short/1/2
+WiFi     data:original_data/55-4-E/short/1/4
+测试点...
+Magnetic data:original_data/55-4-E/short/1/1
+Magnetic data:original_data/55-4-E/short/1/3
+WiFi     data:original_data/55-4-E/short/1/1
+WiFi     data:original_data/55-4-E/short/1/3
+参考点...
+Magnetic data:original_data/55-4-E/long/1/0
+Magnetic data:original_data/55-4-E/long/1/1
+WiFi     data:original_data/55-4-E/long/1/0
+WiFi     data:original_data/55-4-E/long/1/1
+ 
+子区域:2
+面积:20.9279
+测试点...
+Magnetic data:original_data/55-4-E/short/2/0
+Magnetic data:original_data/55-4-E/short/2/2
+Magnetic data:original_data/55-4-E/short/2/4
+Magnetic data:original_data/55-4-E/short/2/6
+Magnetic data:original_data/55-4-E/short/2/8
+Magnetic data:original_data/55-4-E/short/2/10
+Magnetic data:original_data/55-4-E/short/2/12
+Magnetic data:original_data/55-4-E/short/2/14
+WiFi     data:original_data/55-4-E/short/2/0
+WiFi     data:original_data/55-4-E/short/2/2
+WiFi     data:original_data/55-4-E/short/2/4
+WiFi     data:original_data/55-4-E/short/2/6
+WiFi     data:original_data/55-4-E/short/2/8
+WiFi     data:original_data/55-4-E/short/2/10
+WiFi     data:original_data/55-4-E/short/2/12
+WiFi     data:original_data/55-4-E/short/2/14
+测试点...
+Magnetic data:original_data/55-4-E/short/2/1
+Magnetic data:original_data/55-4-E/short/2/3
+Magnetic data:original_data/55-4-E/short/2/5
+Magnetic data:original_data/55-4-E/short/2/7
+Magnetic data:original_data/55-4-E/short/2/9
+Magnetic data:original_data/55-4-E/short/2/11
+Magnetic data:original_data/55-4-E/short/2/13
+WiFi     data:original_data/55-4-E/short/2/1
+WiFi     data:original_data/55-4-E/short/2/3
+WiFi     data:original_data/55-4-E/short/2/5
+WiFi     data:original_data/55-4-E/short/2/7
+WiFi     data:original_data/55-4-E/short/2/9
+WiFi     data:original_data/55-4-E/short/2/11
+WiFi     data:original_data/55-4-E/short/2/13
+参考点...
+Magnetic data:original_data/55-4-E/long/2/0
+Magnetic data:original_data/55-4-E/long/2/1
+Magnetic data:original_data/55-4-E/long/2/2
+Magnetic data:original_data/55-4-E/long/2/3
+Magnetic data:original_data/55-4-E/long/2/4
+Magnetic data:original_data/55-4-E/long/2/5
+Magnetic data:original_data/55-4-E/long/2/6
+WiFi     data:original_data/55-4-E/long/2/0
+WiFi     data:original_data/55-4-E/long/2/1
+WiFi     data:original_data/55-4-E/long/2/2
+WiFi     data:original_data/55-4-E/long/2/3
+WiFi     data:original_data/55-4-E/long/2/4
+WiFi     data:original_data/55-4-E/long/2/5
+WiFi     data:original_data/55-4-E/long/2/6
+ 
+子区域:3
+面积:107.5176
+测试点...
+Magnetic data:original_data/55-4-E/short/3/0
+Magnetic data:original_data/55-4-E/short/3/2
+Magnetic data:original_data/55-4-E/short/3/4
+Magnetic data:original_data/55-4-E/short/3/6
+Magnetic data:original_data/55-4-E/short/3/8
+WiFi     data:original_data/55-4-E/short/3/0
+WiFi     data:original_data/55-4-E/short/3/2
+WiFi     data:original_data/55-4-E/short/3/4
+WiFi     data:original_data/55-4-E/short/3/6
+WiFi     data:original_data/55-4-E/short/3/8
+测试点...
+Magnetic data:original_data/55-4-E/short/3/1
+Magnetic data:original_data/55-4-E/short/3/3
+Magnetic data:original_data/55-4-E/short/3/5
+Magnetic data:original_data/55-4-E/short/3/7
+WiFi     data:original_data/55-4-E/short/3/1
+WiFi     data:original_data/55-4-E/short/3/3
+WiFi     data:original_data/55-4-E/short/3/5
+WiFi     data:original_data/55-4-E/short/3/7
+参考点...
+Magnetic data:original_data/55-4-E/long/3/0
+Magnetic data:original_data/55-4-E/long/3/1
+Magnetic data:original_data/55-4-E/long/3/2
+Magnetic data:original_data/55-4-E/long/3/3
+WiFi     data:original_data/55-4-E/long/3/0
+WiFi     data:original_data/55-4-E/long/3/1
+WiFi     data:original_data/55-4-E/long/3/2
+WiFi     data:original_data/55-4-E/long/3/3
+ 
+子区域:4
+面积:32.3351
+测试点...
+Magnetic data:original_data/55-4-E/short/4/0
+Magnetic data:original_data/55-4-E/short/4/2
+Magnetic data:original_data/55-4-E/short/4/4
+WiFi     data:original_data/55-4-E/short/4/0
+WiFi     data:original_data/55-4-E/short/4/2
+WiFi     data:original_data/55-4-E/short/4/4
+测试点...
+Magnetic data:original_data/55-4-E/short/4/1
+Magnetic data:original_data/55-4-E/short/4/3
+WiFi     data:original_data/55-4-E/short/4/1
+WiFi     data:original_data/55-4-E/short/4/3
+参考点...
+Magnetic data:original_data/55-4-E/long/4/0
+Magnetic data:original_data/55-4-E/long/4/1
+WiFi     data:original_data/55-4-E/long/4/0
+WiFi     data:original_data/55-4-E/long/4/1
+ 

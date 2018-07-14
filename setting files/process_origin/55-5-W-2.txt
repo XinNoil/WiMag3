@@ -1,0 +1,20 @@
+ 
+data_version:3
+  <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
+
+        Count: 26
+      KeyType: char
+    ValueType: double
+
+save to: data/55-5-W-2/fingerprint3.mat
+区域:55-5-W-2
+总面积:36.3792
+ 
+子区域:1
+面积:36.3792
+参考点...
+Magnetic data:original_data/55-5-W-2/long/1/0
+Magnetic data:original_data/55-5-W-2/long/1/1
+WiFi     data:original_data/55-5-W-2/long/1/0
+WiFi     data:original_data/55-5-W-2/long/1/1
+ 

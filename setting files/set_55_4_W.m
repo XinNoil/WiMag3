@@ -22,8 +22,10 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 setting=set_area(1,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{1}=setting;
+clear gridmesh;
 
-% Area 2
+
+%% Area 2
 area=2;
 rows=6;
 columns=[5 6 5 5 5 5];
@@ -46,8 +48,9 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{2}=setting;
+clear gridmesh;
 
-% Area 3
+%% Area 3
 area=3;
 rows=3;
 columns=[6 5 5 5];
@@ -70,6 +73,7 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{3}=setting;
+clear gridmesh;
 
 settings{1}.magnetic_object_cdns=[
     0 3.5*0.8

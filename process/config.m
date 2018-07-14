@@ -16,7 +16,7 @@ for i=1:length(area_table)
     end
 end
 % 区域设置
-i_area=9;
+i_area=10;
 % 存储设置
 s.data_version=data_version;
 s.is_new_fingerprint=true; %是否保存fingerpint

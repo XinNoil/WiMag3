@@ -1,5 +1,7 @@
+%%
+vars.plot01='1';
 bs=0.8; %砖块大小
-% Area 1
+%% Area 1
 area=1; % 区域编号
 rows=3; % 砖块行数
 columns=[6 5 5]; % 砖块列数
@@ -22,8 +24,9 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 setting=set_area(1,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{1}=setting;
+clear gridmesh;
 
-% Area 2
+%% Area 2
 area=2;
 rows=2;
 columns=[2 11 1 9];
@@ -51,6 +54,7 @@ setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 setting.in_gap=in_gap;
 plot_floor(setting,true,vars);
 settings{2}=setting;
+clear gridmesh;
 
 % Area 3
 area=3;
@@ -75,6 +79,7 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{3}=setting;
+clear gridmesh;
 
 % Area 4
 area=4;
@@ -99,3 +104,4 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{4}=setting;
+clear gridmesh;

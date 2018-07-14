@@ -43,12 +43,12 @@ function H=plot_floor_mark(settings,cdns,data,n,is_split,sub_grid_size)
     end
     if nargin>1
         if ~exist('data','var')
-            plot(cdns(:,1),cdns(:,2),'r*');
+            plot(cdns(:,1),cdns(:,2),'ro');
             return;
         end
         if islogical(data)
-            plot(cdns(data,1),cdns(data,2),'r*');
-            plot(cdns(~data,1),cdns(~data,2),'b*');
+            plot(cdns(data,1),cdns(data,2),'ro');
+            plot(cdns(~data,1),cdns(~data,2),'bo');
         else
             cm=colormap(jet);
             if max(abs(data))>1
@@ -64,10 +64,10 @@ function H=plot_floor_mark(settings,cdns,data,n,is_split,sub_grid_size)
             end
             H=zeros(size(cdns,1),1);
             for i=1:size(cdns,1)
-                h=plot(cdns(i,1),cdns(i,2),'*');
+                h=plot(cdns(i,1),cdns(i,2),'o');
                 c=cm(round(data(i)*63)+1,:);
                 hold on;
-                set(h,'color',c,'markerfacecolor',c,'markersize',5);
+                set(h,'color',c,'markerfacecolor',c,'markersize',8);
                 H(i)=h;
             end
         end

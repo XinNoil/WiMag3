@@ -1,11 +1,10 @@
 % Date:     2017/11/23
 % Auther:   WJK
-% Function: This Script construct area settings
-%           这是一个基于WiFi和地磁的定位算法
+% Function: 这是一个基于区域划分的WiFi和地磁定位算法。  
 % Contact:  jiankunwang@tju.edu.cn
 
 clear
-% clc
+clc
 load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);

@@ -1,4 +1,8 @@
-%% CDF compare,one dim vs two dim
+% Date:     2018/7/1
+% Auther:   WJK
+% Function: CDF compare,one dim vs two dim.对比一维地磁强度与二维地磁强度
+% Contact:  jiankunwang@tju.edu.cn
+
 clear
 clc
 load glo.mat
@@ -25,6 +29,6 @@ for area_i=1:length(area_table)
         mycdfplot(distance_magnitude(:),1,'Euclidean distance','CDF','b','-',[0 60],0:10:60);
         mycdfplot(distance_magnetic(:),0,'Euclidean distance','CDF','r','-',[0 60],0:10:60);
         legend(gca,'Magnetic magnitude','Magnetic components','WiFi');
-        savegcf(['figures/' area_table{area_i} '_1vs2']);
+        savegcf(['figures/1vs2/' area_table{area_i} '_1vs2']);
     end
 end

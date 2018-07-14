@@ -1,3 +1,8 @@
+% Date:     2018/7/1
+% Auther:   WJK
+% Function: 这是一个分析区域硬划分下区域预测情况的程序。
+% Contact:  jiankunwang@tju.edu.cn
+
 clear
 clc
 load glo.mat
@@ -16,7 +21,7 @@ for area_i=[1 2 4 5] % areas
     count=zeros(td.num,1);
     acc=zeros(td.num,1);
     [cdn_max,cdn_min]=get_cdns_statics(area_i);
-    dirpath=['./data/0-Deep-Area/'];
+    dirpath=['.\data_new\other\0-Deep-Area\'];
     data=load([dirpath area_table{area_i} '_s0_predic_test_0.txt']);
     cdns=cdn_min+data(:,3:4);
     y_predict=data(:,1);

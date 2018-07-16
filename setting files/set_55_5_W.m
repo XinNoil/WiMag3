@@ -18,8 +18,13 @@ gridmesh(1)=create_gridmesh(row_index,column_index,folderList,'1');
 
 row_index=create_row(bs,gap,margin(3),columns,true,true);
 column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
-folderList=1:2:3;
+folderList=0:1:1;
 gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
+
+row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,true,true);%测试点-中间点
+column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
+folderList=5:1:6;
+gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(1,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
@@ -47,8 +52,13 @@ gridmesh(1)=create_gridmesh(row_index,column_index,folderList,'1');
 
 row_index=create_row_2(bs,gap,margin(3),columns,in_gap,false,false);
 column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
-folderList=1:2:1;
+folderList=0:1:0;
 gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
+
+row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,false);%测试点-中间点
+column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
+folderList=3:1:3;%文件个数不对
+gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 setting.in_gap=in_gap;
@@ -56,7 +66,7 @@ plot_floor(setting,true,vars);
 settings{area}=setting;
 clear gridmesh;
 
-% Area 3
+%% Area 3
 area=3;
 rows=8;
 columns=3;
@@ -73,15 +83,20 @@ gridmesh(1)=create_gridmesh(row_index,column_index,folderList,'1');
 
 row_index=create_row(bs,gap,margin(3),columns,false,false);
 column_index=margin(2)+[bs:bs:bs*(rows)];
-folderList=1:2:15;
+folderList=0:1:7;
 gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
+
+row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,false);%测试点-中间点
+column_index=margin(2)+[bs:bs:bs*(rows)];
+folderList=15:1:23;
+gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{area}=setting;
 clear gridmesh;
 
-% Area 4
+%% Area 4
 area=4;
 rows=3;
 columns=[6 7 6];
@@ -100,6 +115,12 @@ row_index=create_row(bs,gap,margin(3),columns,false,true);
 column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
 folderList=1:2:3;
 gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
+
+row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,true);%测试点-中间点
+column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
+folderList=5:1:6;
+gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
+
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);

@@ -1,6 +1,6 @@
 vars.plot01='1';
 bs=0.60; %砖块大小
-% Area 1
+%% Area 1
 area=1; % 区域编号
 rows=18; % 砖块行数
 columns=[4]; % 砖块列数
@@ -35,7 +35,7 @@ plot_floor(setting,true,vars);
 settings{area}=setting;
 clear gridmesh;
 
-% Area 2
+%% Area 2
 area=2; % 区域编号
 rows=9; % 砖块行数
 columns=[13]; % 砖块列数

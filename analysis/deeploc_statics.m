@@ -5,29 +5,23 @@ load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);
 
-% filename=['.\data_new\1-Deep-Area\1\cdn_predict_evaluate.csv'];
-% data=csvread(filename,1,1);
-% nums=data(:,3);
-% errors=data(:,2);
-% mean_error=sum(errors.*nums)/sum(nums);
-% disp(mean_error)
+area_i=1;
+sub_area_num=21;
+exp_num='3';
 
-filename='.\data_new\result\0\55-4-W_soft0_deeploc_testResult.txt';
-data=load(filename);
-nums=data(:,2);
-errors=data(:,3);
-mean_error=sum(errors.*nums)/sum(nums);
-disp(mean_error)
+type=1; 
+filename=['.\data_new\result\' exp_num '\' area_table{area_i} '_soft_cdn_predict_evaluate.csv'];
+deeploc_static(filename,type,sub_area_num);
+savegcf(['figures/deeploc/' area_table{area_i} 'error_bar_' n2s(type)]);
 
-% filename=['.\data_new\result\2\cdn_predict_evaluate.csv'];
-% data=csvread(filename,1,1);
-% nums=data(:,3);
-% errors=data(:,2);
-% mean_error=sum(errors.*nums)/sum(nums);
-% disp(mean_error)
+type=2; 
+filename=['.\data_new\result\' exp_num '\' area_table{area_i} '_soft_deeploc_evaluate.txt'];
+deeploc_static(filename,type,sub_area_num);
+savegcf(['figures/deeploc/' area_table{area_i} 'error_bar_' n2s(type)]);
 
-bar(errors)
-figFormat(20,'Area No','Error distance (m)')
-xlim([0 22])
-ylim([0 3]);
-savegcf('figures/deeploc/error_bar_0')
+% filename=['.\data_new\result\3\cdn_predict_evaluate.csv'];
+% deeploc_static(filename,1);
+% savegcf('figures/deeploc/error_bar_0')
+% filename=['.\data_new\result\3\55-4-W_soft0_deeploc_testResult.txt'];
+% deeploc_static(filename,2);
+% savegcf('figures/deeploc/error_bar_1')

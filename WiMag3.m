@@ -57,11 +57,15 @@ if is_plot
     set(gca,'LineWidth',1,'GridLineStyle','--','GridAlpha',0);
 end
 % ¶¨Î»Ñ­»·
-for i=1:test_num
+td_no=1:td.num;
+remove_no=[75 145 215 216];
+td_no(remove_no)=[];
+for i=1:length(td_no)
+    ti=td_no(i);
     if is_testdata
-        test_data=get_testdata( td,i,is_rssi(i_area),is_sub_i );
+        test_data=get_testdata( td,ti,is_rssi(i_area),is_sub_i );
     else
-        test_data=get_testdata( fps{i_area},i,is_rssi(i_area),is_sub_i );
+        test_data=get_testdata( fps{i_area},ti,is_rssi(i_area),is_sub_i );
     end
     if is_rssi_mask
         test_data.rssi=test_data.rssi(logical(fps{i_area}.rssi_mask));
@@ -130,3 +134,4 @@ end
 save(['result/' area_table{test_area} '/result' data_version '_' get_resultName(parameters)], 'results');
 save(['data/' area_table{test_area} '/parameters.mat'],'parameters');
 disp('finish');
+cdfappend(result_errs_f(3,:));

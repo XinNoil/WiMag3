@@ -6,19 +6,24 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
-areas=[1 2 4 5];
-sub_grid_size=5.001; % 子区域大小
+areas=1;%[1 2 4 5];
+% sub_grid_size=5.001; % 子区域大小
 mag_cols=18:20;
 test_time=2;
-save_path='data_new/DeepLoc/';
-is_average=true;
+save_path='data_new/data/4/';
+if ~exist(save_path,'dir')
+    mkdir (save_path);
+end
+is_average=false;
+magnetic_dim=1;
+classification_type='soft';
 
 % 载入数据
 load (['data/fingerprints' data_version '.mat']);
 load (['data/testdatas' data_version '.mat']);
 
 %% area predict train
-for i=1%:length(areas)
+for i=1:length(areas)
     area_i=areas(i);
     fp=fps{area_i};
     categorical_vector_m=[];
@@ -37,9 +42,12 @@ for i=1%:length(areas)
             export_data_append;
         end
     end
-    [mag_max,mag_min]=get_magnetic_statics(area_i);
+    [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
     [cdn_max,cdn_min]=get_cdns_statics(area_i);
     cdns_m=cdns_m-cdn_min;
+    if magnetic_dim==1
+        magnetics_m=mnorm(magnetics_m,2);
+    end
     magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
     rssis_m=(rssis_m+100)/70;
     rssis_m(rssis_m<0)=0;
@@ -47,48 +55,14 @@ for i=1%:length(areas)
     m=[categorical_vector_m cdns_m magnetics_m rssis_m];
     disp([save_path area_table{area_i} '_soft0_training.csv']);
     csvwrite([save_path area_table{area_i} '_soft0_training.csv'],m);
-end
-
-%% area predict test
-remove_no=[75 145 215 216];
-for i=1%:length(areas)
-    area_i=areas(i);
-    fp=fps{area_i};
-    td=tds{area_i};
-    td.categorical_vector=get_subarea_soft(fp.area_vertexs,td.cdns);
-    categorical_vector_m=[];
-    cdns_m=[];
-    rssis_m=[];
-    magnetics_m=[];
-    td_no=1:td.num;
-    td_no(remove_no)=[];
-    for t=td_no
-        tmp_cdn=td.cdns(t,:);
-        [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(td.wfiles{t},fp.bssid_map);
-        tmp_magnetics=process_magnetic(td.sfiles{t},RecordsNum,mag_cols,test_time);
-        RecordsNum=60;
-        if is_average
-            categorical_vector_m=[categorical_vector_m ; fp.categorical_vector(r,:)];
-            export_data_append_average;
-        else
-            categorical_vector_m=[categorical_vector_m ; repmat(fp.categorical_vector(r,:),RecordsNum,1)];
-            export_data_append;
-        end
-    end
-    [mag_max,mag_min]=get_magnetic_statics(area_i);
-    [cdn_max,cdn_min]=get_cdns_statics(area_i);
-    cdns_m=cdns_m-cdn_min;
-    magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
-    rssis_m=(rssis_m+100)/70;
-    rssis_m(rssis_m<0)=0;
-    rssis_m(rssis_m>1)=1;
-    m=[categorical_vector_m cdns_m magnetics_m rssis_m];
-    disp([save_path area_table{area_i} '_soft0_testing.csv']);
-    csvwrite([save_path area_table{area_i} '_soft0_testing.csv'],m);
+    data_description.class_num=size(categorical_vector_m,2);
+    data_description.classification_type=classification_type;
+    data_description.magnetic_dim=magnetic_dim;
+    save_json([save_path area_table{area_i} '_soft_data_description.json'],data_description);
 end
 
 %% cdn predict train
-for i=1%:length(areas)
+for i=1:length(areas)
     area_i=areas(i);
     fp=fps{area_i};
     area_code_num=size(fp.categorical_vector,2);
@@ -123,9 +97,12 @@ for i=1%:length(areas)
         subfp.cdns_m=[subfp.cdns_m ; repmat( tmp_cdn , RecordsNum , 1 )];
         subfp.magnetics_m=[subfp.magnetics_m ; tmp_magnetics];
         subfp.rssis_m=[subfp.rssis_m ; tmp_rssi];
-        [mag_max,mag_min]=get_magnetic_statics(area_i);
+        [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
         [cdn_max,cdn_min]=get_cdns_statics(area_i);
         cdns_m=cdns_m-cdn_min;
+        if magnetic_dim==1
+            magnetics_m=mnorm(magnetics_m,2);
+        end
         magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
         rssis_m=(rssis_m+100)/70;
         rssis_m(rssis_m<0)=0;
@@ -136,8 +113,56 @@ for i=1%:length(areas)
     end
 end
 
+%%
+is_average=true;
+
+%% area predict test
+remove_no=[75 145 215 216];
+% remove_no=[];
+for i=1:length(areas)
+    area_i=areas(i);
+    fp=fps{area_i};
+    td=tds{area_i};
+    td.categorical_vector=get_subarea_soft(fp.area_vertexs,td.cdns);
+    categorical_vector_m=[];
+    cdns_m=[];
+    rssis_m=[];
+    magnetics_m=[];
+    td_no=1:td.num;
+    td_no(remove_no)=[];
+    for t=td_no
+        tmp_cdn=td.cdns(t,:);
+        [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(td.wfiles{t},fp.bssid_map);
+        tmp_magnetics=process_magnetic(td.sfiles{t},RecordsNum,mag_cols,test_time);
+        if is_average
+            RecordsNum=60;
+            categorical_vector_m=[categorical_vector_m ;  repmat(td.categorical_vector(t,:),RecordsNum,1)];
+            cdns_m=[cdns_m; repmat(tmp_cdn,RecordsNum,1)];
+            rssis_m=[rssis_m; repmat(mean(tmp_rssi),RecordsNum,1)];
+            magnetics_m=[magnetics_m; repmat(mean(tmp_magnetics),RecordsNum,1)];
+%             export_data_append_average;
+        else
+            categorical_vector_m=[categorical_vector_m ; repmat(td.categorical_vector(t,:),RecordsNum,1)];
+            export_data_append;
+        end
+    end
+    [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
+    [cdn_max,cdn_min]=get_cdns_statics(area_i);
+    cdns_m=cdns_m-cdn_min;
+    if magnetic_dim==1
+        magnetics_m=mnorm(magnetics_m,2);
+    end
+    magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
+    rssis_m=(rssis_m+100)/70;
+    rssis_m(rssis_m<0)=0;
+    rssis_m(rssis_m>1)=1;
+    m=[categorical_vector_m cdns_m magnetics_m rssis_m];
+    disp([save_path area_table{area_i} '_soft0_testing.csv']);
+    csvwrite([save_path area_table{area_i} '_soft0_testing.csv'],m);
+end
+
 %% cdn predict test
-for i=1%:length(areas)
+for i=1:length(areas)
     area_i=areas(i);
     fp=fps{area_i};
     td=tds{area_i};
@@ -161,9 +186,12 @@ for i=1%:length(areas)
             tmp_cdn=subtd.cdns(p,:);
             [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(subtd.wfiles{p},subtd.bssid_map);
             tmp_magnetics=process_magnetic(subtd.sfiles{p},RecordsNum,mag_cols,test_time);
-            RecordsNum=60;
             if is_average
-                export_data_append_average;
+                RecordsNum=60;
+                cdns_m=[cdns_m; repmat(tmp_cdn,RecordsNum,1)];
+                rssis_m=[rssis_m; repmat(mean(tmp_rssi),RecordsNum,1)];
+                magnetics_m=[magnetics_m; repmat(mean(tmp_magnetics),RecordsNum,1)];
+%                 export_data_append_average;
             else
                 export_data_append;
             end
@@ -171,9 +199,12 @@ for i=1%:length(areas)
         subtd.cdns_m=cdns_m;
         subtd.magnetics_m=magnetics_m;
         subtd.rssis_m=rssis_m;
-        [mag_max,mag_min]=get_magnetic_statics(area_i);
+        [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
         [cdn_max,cdn_min]=get_cdns_statics(area_i);
         cdns_m=cdns_m-cdn_min;
+        if magnetic_dim==1
+            magnetics_m=mnorm(magnetics_m,2);
+        end
         magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
         rssis_m=(rssis_m+100)/70;
         rssis_m(rssis_m<0)=0;

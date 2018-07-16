@@ -16,8 +16,19 @@ type='soft';
 areas=1:length(area_table);
 show_type='rssi';
 
-filename='.\data_new\other\1-Deep-Area\soft2\55-4-W_soft0_area_predict_testResult.txt';
+% filename='.\data_new\other\1-Deep-Area\soft2\55-4-W_soft0_area_predict_testResult.txt';
+% data=load(filename);
+% y_pre=data(:,1:area_num);
+% y_test=data(:,1+area_num:2*area_num);
+% cdns=data(:,end-1:end)+cdn_min;
+
+filename='data_new/result/3/55-4-W_soft0_deeploc_testResult.txt';
+area_num=21;
 data=load(filename);
+y_pre=data(:,6:area_num+5);
+y_test=data(:,6+area_num:5+2*area_num);
+loss=data(:,1);
+
 save tmp/data.mat data
 %%
 for area_i=1%[1 2 4 5] % areas
@@ -29,12 +40,11 @@ for area_i=1%[1 2 4 5] % areas
     
     area_num=length(fp.area_vertexs);
     [cdn_max,cdn_min]=get_cdns_statics(area_i);
-    
+    cdns=data(:,4:5)+cdn_min;
     load tmp/data.mat;
-    y_pre=data(:,1:area_num);
-    y_test=data(:,1+area_num:2*area_num);
+    
     [cdn_max,cdn_min]=get_cdns_statics(area_i);
-    cdns=data(:,end-1:end)+cdn_min;
+    
     [b,c]=sort(y_pre,2,'descend');
     max_b=max(b,[],2);
     bb=b./max_b;
@@ -55,6 +65,8 @@ for area_i=1%[1 2 4 5] % areas
 %     legend('Correct prediction','Incorrect prediction','location','Southeast');
 %     savegcf('./figures/area_predict_analysis/ratio3-2');
     disp(sum(tmp)/length(tmp))
+    error_loss=loss(~tmp);
+    cdfappend(error_loss);
     error_cdns=cdns(~tmp,:);
     error_c=c(~tmp,1);
     error_d=c(~tmp,2);
@@ -66,26 +78,26 @@ for area_i=1%[1 2 4 5] % areas
         tmp_no(i)=get_No(unique_cdns(i,:),td.cdns);
     end
     nos{area_i}=tmp_no;
-    %% Ñ­»·
-    for i=1:size(unique_cdns,1)
-        tmp_cdn=unique_cdns(i,:);
-        tmp_mask=all(error_cdns==tmp_cdn,2);
-        tmp_c=error_c(tmp_mask);
-        tmp_d=error_d(tmp_mask);
-        tmp_y_test=error_y_test(tmp_mask,:);
-        area_codes=find(tmp_y_test(1,:)==1);
-        plot_floor_mark(fp.settings);
-        plot_floor_sub(fp.area_vertexs,area_codes,'b');
-        plot_floor_sub(fp.area_vertexs,unique(tmp_d),'r','--');
-        plot_floor_sub(fp.area_vertexs,unique(tmp_c),'r');
-        h=plot(tmp_cdn(1),tmp_cdn(2),'bo');
-        set(h,'MarkerSize',10,'MarkerFaceColor','b')
-        title(['td No:' n2s(tmp_no(i)) ' cdn: ' n2s(tmp_cdn(1)) ' ' n2s(tmp_cdn(2))]);
-        plot(fpcdns(:,1),fpcdns(:,2),'r*');
-        savegcf(['./figures/area_predict_analysis2/' area_table{area_i} '_' n2s(i)]);
-        setupdatefun(@myupdatefcn3);
-        close;
-    end
+%     %% Ñ­»·
+%     for i=1:size(unique_cdns,1)
+%         tmp_cdn=unique_cdns(i,:);
+%         tmp_mask=all(error_cdns==tmp_cdn,2);
+%         tmp_c=error_c(tmp_mask);
+%         tmp_d=error_d(tmp_mask);
+%         tmp_y_test=error_y_test(tmp_mask,:);
+%         area_codes=find(tmp_y_test(1,:)==1);
+%         plot_floor_mark(fp.settings);
+%         plot_floor_sub(fp.area_vertexs,area_codes,'b');
+%         plot_floor_sub(fp.area_vertexs,unique(tmp_d),'r','--');
+%         plot_floor_sub(fp.area_vertexs,unique(tmp_c),'r');
+%         h=plot(tmp_cdn(1),tmp_cdn(2),'bo');
+%         set(h,'MarkerSize',10,'MarkerFaceColor','b')
+%         title(['td No:' n2s(tmp_no(i)) ' cdn: ' n2s(tmp_cdn(1)) ' ' n2s(tmp_cdn(2))]);
+%         plot(fpcdns(:,1),fpcdns(:,2),'r*');
+%         savegcf(['./figures/area_predict_analysis2/' area_table{area_i} '_' n2s(i)]);
+%         setupdatefun(@myupdatefcn3);
+%         close;
+%     end
     save tmp/tmp_no.mat tmp_no
 end
 

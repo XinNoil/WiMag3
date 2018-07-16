@@ -18,7 +18,7 @@ save result/fpcdns.mat cdns
 cdns=td.cdns;
 save result/tdcdns.mat cdns
 test_cdns=reshape([results.test_cdns],2,length(results))';
-%% WiFi定位结构
+%% WiFi定位结果
 % cut=6;
 % wifi_err=[results.wifi_err];
 % wifi_err(wifi_err>cut)=cut;

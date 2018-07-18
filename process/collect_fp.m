@@ -12,18 +12,21 @@ for i=1:length(area_table)
     if(exist(['data/' area_table{i} '/fingerprint' data_version '.mat'],'file'))
         load (['data/' area_table{i} '/fingerprint' data_version '.mat']);
         fp=rssi_threshold(fp,thredhold);
+        fp=rssi_pca(fp);
         fps{i}=fp;
     end
     
     if(exist(['data/' area_table{i} '/testdata' data_version '.mat'],'file'))
         load (['data/' area_table{i} '/testdata' data_version '.mat']);
         td=rssi_threshold(td,thredhold);
+        td=rssi_pca(td);
         tds{i}=td;
     end
     
     if(exist(['data/' area_table{i} '/database' data_version '.mat'],'file'))
         load (['data/' area_table{i} '/database' data_version '.mat']);
         db=rssi_threshold(db,thredhold);
+        db=rssi_pca(db);
         dbs{i}=db;
     end
 end

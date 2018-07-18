@@ -53,7 +53,7 @@ switch (type)
             ylim([-100 -10]);
             figFormat(10,[n2s(local_bssid_indexs(i)) ' -- ' bssid{i} '--' n2s(frequencys(bssid{i}))],'');
         end
-        save('tmp.mat','-append','bssid');
+        save('tmp/tmp.mat','-append','bssid');
     case 'mag'
         tmp=load(filename);
         tmp=tmp(floor(size(tmp,1)/10):end-floor(size(tmp,1)/10),:);

@@ -15,20 +15,28 @@ cq='rgbcmkrgbcmkrgbcmkrgbcmkrgbcmk';
 mq='oooooo^^^^^^ssssssppppppvvvvvv';
 opts = statset('Display','final');
 areas=[1 2 4 5 10 11];
+cluster_area=15;
 
 for i=areas
     fp=fps{i};
     if isfield(fp,'rssis')
-        X=cell2mat(fp.rssis);
-        K=floor(fp.area_size/15);
-        disp(['Cluster to ' n2s(K) 'class']);
-        [Idx,Ctrs,SumD,D] = kmeans(X,K,'Replicates',5,'Options',opts);
+        rssis=cell2mat(fp.rssis);
+        K=floor(fp.area_size/cluster_area);
+        disp(['Cluster to ' n2s(K) ' classes']);
+        [Idx,Ctrs,SumD,D] = kmeans(rssis,K,'Replicates',5,'Options',opts);
         plot_floor_mark(fp.settings);
         for j=1:fp.num
             h=plot(fp.cdns(j,1),fp.cdns(j,2));
             set(h,'Marker',mq(Idx(j)),'Color',cq(Idx(j)),'MarkerFaceColor',cq(Idx(j)));
         end
         fp.kclass=Idx;
+        fp.knum=K;
+        fp.k_rssi_mask=zeros(K,length(fp.bssid_map));
+        for j=1:K
+            sub_rssis=rssis(Idx==j,:);
+            t=abs(sub_rssis+100)>1e-3;
+            fp.k_rssi_mask(j,:)=any(t);
+        end
         disp(' ');
     end
     fps{i}=fp;

@@ -3,7 +3,6 @@ function [cdns,rssis,bssid_maps,bssid_indexs,wfiles,duties]=process_gridmesh_w(g
 i_area=gridmesh.i_area;
 i_subarea=gridmesh.i_subarea;
 [row_index,column_index,folderList,folderNum,fileNum,~,~]=get_gridmesh(gridmesh);
-% load glo.mat is_together
 num=folderNum*fileNum;
 J_range=0:fileNum-1;
 if head

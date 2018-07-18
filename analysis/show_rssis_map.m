@@ -16,7 +16,7 @@ for area_i=1 % areas
     bssid_map_r=get_map_reverse(fp.bssid_map);
     fpcdns=fp.cdns;
     tdcdns=td.cdns;
-    save data/tmp.mat td fp fpcdns tdcdns show_type
+    save tmp/tmp.mat td fp fpcdns tdcdns show_type
     switch show_which_rssi
         case 'all'
             show_rssi_indexs=1:size(rssis,2);

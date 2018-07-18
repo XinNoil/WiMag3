@@ -15,6 +15,6 @@ for area_i=9 % areas
     h=plot_floor_mark(fp_holder.settings,fp.cdns,fp.magnitudes);
     set(h,'marker','s','markersize',10);
     fpcdns=fp_holder.cdns;
-    save data/tmp.mat fp_holder fp_hand fpcdns show_type
+    save tmp/tmp.mat fp_holder fp_hand fpcdns show_type
     setupdatefun(@myupdatefcn_compare);
 end

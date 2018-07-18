@@ -4,7 +4,7 @@ function output_txt = myupdatefcn2(obj,event_obj)
 % event_obj    Handle to event object
 % output_txt   Data cursor text string (string or cell array of strings).
 pos = get(event_obj,'Position');
-    load result/fpcdns;
+    load tmp/fpcdns;
     no=get_No(pos,cdns);
     ti=get(gcf,'userdata');
     str=rssi_match(ti,no);

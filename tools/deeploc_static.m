@@ -17,4 +17,4 @@ figure;
 bar(errors)
 figFormat(20,'Area No','Error distance (m)')
 xlim([0 sub_area_num+1])
-ylim([0 4]);
+ylim([0 5]);

@@ -12,7 +12,7 @@ for area_i=5 % areas
     h=plot_floor_mark(fp.settings,fp.cdns,fp.magnitudes);
     set(h,'marker','s','markersize',10);
     fpcdns=fp.cdns;
-    save data/tmp.mat fp fpcdns show_type 
+    save tmp/tmp.mat fp fpcdns show_type 
     setupdatefun(@myupdatefcn3);
 end
 

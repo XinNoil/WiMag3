@@ -10,19 +10,27 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
-test_area=1;
+test_area=11;
+% remove_no=[1,27,50,165,299,357,102,369];
+remove_no=[];
 is_testdata=true; % 没有测试数据则采用测试数据从数据库中抽取。
 is_sub_i=false;
 is_rssi_mask=false;
 feature_mode=5;
 feature_modes={'1DM','2DM','WiFi','W1','F1'};
-simulation_parameters=[3.16 4.42 0 9.36 5.04 0 0];
+simulation_parameters=[3.16 4.42 0 9.36 5.04 0 0 0 0 2.54 3.0]  ;
 error_predict_paras={
     [0.2 1.5],[0.2 1],[1 0.36],1;
     [0.2 1.6],[0.5 0.45],[0.86 0.75],1;
     [],[],[],2.4;
     [0.3 3.56],[0.45 1.15],[1.36 1.64],0;
-    [0.1 2],[0.45 0.75],[0.7 1],1.5 }; % WiFi预测参数 / Dmk预测参数 / Pm预测参数 / 使用融合算法的阈值
+    [0.1 2],[0.45 0.75],[0.7 1],1.5 
+    [],[],[],2.4;
+    [],[],[],2.4;
+    [],[],[],2.4;
+    [],[],[],2.4;
+    [0.2 1.5],[0.2 1],[1 0.36],1;
+    [0.2 1.5],[0.2 1],[1 0.36],1;}; % WiFi预测参数 / Dmk预测参数 / Pm预测参数 / 使用融合算法的阈值
 parameters.test_area=test_area;
 parameters.is_testdata=is_testdata;
 parameters.is_sub_i=is_sub_i;
@@ -58,7 +66,6 @@ if is_plot
 end
 % 定位循环
 td_no=1:td.num;
-remove_no=[75 145 215 216];
 td_no(remove_no)=[];
 for i=1:length(td_no)
     ti=td_no(i);
@@ -134,4 +141,5 @@ end
 save(['result/' area_table{test_area} '/result' data_version '_' get_resultName(parameters)], 'results');
 save(['data/' area_table{test_area} '/parameters.mat'],'parameters');
 disp('finish');
-cdfappend(result_errs_f(3,:));
+% cdfappend(result_errs_f(3,:));
+% cdfappend([results.wifi_err]);

@@ -6,22 +6,24 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
-areas=1;%[1 2 4 5];
-% sub_grid_size=5.001; % 子区域大小
+areas=[10];
 mag_cols=18:20;
 test_time=2;
-save_path='data_new/data/4/';
+save_path='data_new/data/5/';
 if ~exist(save_path,'dir')
     mkdir (save_path);
 end
 is_average=false;
-magnetic_dim=1;
+magnetic_dim=2;
 classification_type='soft';
 
 % 载入数据
 load (['data/fingerprints' data_version '.mat']);
 load (['data/testdatas' data_version '.mat']);
 
+% remove_no=[75 145 215 216];
+% remove_no=[1,27,50,165,299,357,102,369];
+remove_no=[];
 %% area predict train
 for i=1:length(areas)
     area_i=areas(i);
@@ -45,9 +47,9 @@ for i=1:length(areas)
     [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
     [cdn_max,cdn_min]=get_cdns_statics(area_i);
     cdns_m=cdns_m-cdn_min;
-    if magnetic_dim==1
-        magnetics_m=mnorm(magnetics_m,2);
-    end
+%     if magnetic_dim==1
+%         magnetics_m=mnorm(magnetics_m,2);
+%     end
     magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
     rssis_m=(rssis_m+100)/70;
     rssis_m(rssis_m<0)=0;
@@ -100,9 +102,9 @@ for i=1:length(areas)
         [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
         [cdn_max,cdn_min]=get_cdns_statics(area_i);
         cdns_m=cdns_m-cdn_min;
-        if magnetic_dim==1
-            magnetics_m=mnorm(magnetics_m,2);
-        end
+%         if magnetic_dim==1
+%             magnetics_m=mnorm(magnetics_m,2);
+%         end
         magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
         rssis_m=(rssis_m+100)/70;
         rssis_m(rssis_m<0)=0;
@@ -117,8 +119,6 @@ end
 is_average=true;
 
 %% area predict test
-remove_no=[75 145 215 216];
-% remove_no=[];
 for i=1:length(areas)
     area_i=areas(i);
     fp=fps{area_i};
@@ -135,7 +135,7 @@ for i=1:length(areas)
         [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(td.wfiles{t},fp.bssid_map);
         tmp_magnetics=process_magnetic(td.sfiles{t},RecordsNum,mag_cols,test_time);
         if is_average
-            RecordsNum=60;
+            RecordsNum=10;
             categorical_vector_m=[categorical_vector_m ;  repmat(td.categorical_vector(t,:),RecordsNum,1)];
             cdns_m=[cdns_m; repmat(tmp_cdn,RecordsNum,1)];
             rssis_m=[rssis_m; repmat(mean(tmp_rssi),RecordsNum,1)];
@@ -149,9 +149,9 @@ for i=1:length(areas)
     [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
     [cdn_max,cdn_min]=get_cdns_statics(area_i);
     cdns_m=cdns_m-cdn_min;
-    if magnetic_dim==1
-        magnetics_m=mnorm(magnetics_m,2);
-    end
+%     if magnetic_dim==1
+%         magnetics_m=mnorm(magnetics_m,2);
+%     end
     magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
     rssis_m=(rssis_m+100)/70;
     rssis_m(rssis_m<0)=0;
@@ -187,7 +187,7 @@ for i=1:length(areas)
             [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(subtd.wfiles{p},subtd.bssid_map);
             tmp_magnetics=process_magnetic(subtd.sfiles{p},RecordsNum,mag_cols,test_time);
             if is_average
-                RecordsNum=60;
+                RecordsNum=10;
                 cdns_m=[cdns_m; repmat(tmp_cdn,RecordsNum,1)];
                 rssis_m=[rssis_m; repmat(mean(tmp_rssi),RecordsNum,1)];
                 magnetics_m=[magnetics_m; repmat(mean(tmp_magnetics),RecordsNum,1)];
@@ -202,9 +202,9 @@ for i=1:length(areas)
         [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim);
         [cdn_max,cdn_min]=get_cdns_statics(area_i);
         cdns_m=cdns_m-cdn_min;
-        if magnetic_dim==1
-            magnetics_m=mnorm(magnetics_m,2);
-        end
+%         if magnetic_dim==1
+%             magnetics_m=mnorm(magnetics_m,2);
+%         end
         magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
         rssis_m=(rssis_m+100)/70;
         rssis_m(rssis_m<0)=0;

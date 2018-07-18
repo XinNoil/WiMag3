@@ -4,7 +4,7 @@ function output_txt = myupdatefcn3(obj,event_obj)
 % event_obj    Handle to event object
 % output_txt   Data cursor text string (string or cell array of strings).
 pos = get(event_obj,'Position');
-load data/tmp.mat
+load tmp/tmp.mat
 no=get_No(pos,fpcdns);
 if isempty(no)
     no=get_No(pos,tdcdns);

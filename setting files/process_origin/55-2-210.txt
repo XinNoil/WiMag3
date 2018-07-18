@@ -1,12 +1,12 @@
  
-data_version:3
+data_version:5
   <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
 
         Count: 27
       KeyType: char
     ValueType: double
 
-save to: data/55-2-210/fingerprint3.mat
+save to: data/55-2-210/fingerprint5.mat
 区域:55-2-210
 总面积:47.25
  
@@ -40,17 +40,3 @@ WiFi     data:original_data/55-2-210/long/3/1
 WiFi     data:original_data/55-2-210/long/3/2
 WiFi     data:original_data/55-2-210/long/3/3
  
- 
-data_version:3
-区域:55-2-210
-总面积:47.25
- 
-子区域:1
-面积:10.8
-参考点...
-Magnetic data:original_data/55-2-210/long/1/0
-if system_dependent('IsDebugMode')==1, dbstep; end
-if system_dependent('IsDebugMode')==1, dbstep; end
-if system_dependent('IsDebugMode')==1, dbstep; end
-if system_dependent('IsDebugMode')==1, dbstep; end
-if system_dependent('IsDebugMode')==1, dbquit; end

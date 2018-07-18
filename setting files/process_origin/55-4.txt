@@ -1,14 +1,14 @@
  
-data_version:3
+data_version:5
   <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
 
         Count: 144
       KeyType: char
     ValueType: double
 
-save to: data/55-4/fingerprint3.mat
+save to: data/55-4/fingerprint5.mat
 区域:55-4
-总面积:415.5781
+总面积:415.2877
  
 子区域:1
 面积:28.908
@@ -20,230 +20,193 @@ WiFi     data:original_data/55-4/short/1/0
 WiFi     data:original_data/55-4/short/1/2
 WiFi     data:original_data/55-4/short/1/4
 参考点...
-Magnetic data:original_data/55-4/short/1/1
-Magnetic data:original_data/55-4/short/1/3
+Magnetic data:original_data/55-4/long/1/0
+Magnetic data:original_data/55-4/long/1/1
+WiFi     data:original_data/55-4/long/1/0
 WiFi     data:original_data/55-4/long/1/1
-WiFi     data:original_data/55-4/long/1/3
-{错误使用 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('textscan')" style="font-weight:bold">textscan</a>
-文件标识符无效。使用 fopen 生成有效的文件标识符。
-
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('loadWiFiData', 'E:\noil\WorkSpace\Github\MyMatlabTools\loadWiFiData.m', 27)" style="font-weight:bold">loadWiFiData</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\MyMatlabTools\loadWiFiData.m',27,0)">line 27</a>)
-dataArray = textscan(fileID, formatSpec, 'Delimiter',
-delimiter, 'MultipleDelimsAsOne', true,
-'ReturnOnError', false);
-
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_gridmesh_w', 'E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh_w.m', 45)" style="font-weight:bold">process_gridmesh_w</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh_w.m',45,0)">line 45</a>)
-        [timestamp,BSSID,RSSI,~]=loadWiFiData(filename);
-        
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_gridmesh', 'E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m', 16)" style="font-weight:bold">process_gridmesh</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m',16,0)">line 16</a>)
-    [~,rssis,bssid_maps,bssid_indexs,wfiles,duties]=process_gridmesh_w(gridmesh,bssid_map,origin,head,tail,type);
-    
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_origin', 'E:\noil\WorkSpace\Github\WiMag3\process\process_origin.m', 57)" style="font-weight:bold">process_origin</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\process\process_origin.m',57,0)">line 57</a>)
-            results=process_gridmesh(gridmesh(i),is_rssi(i_area),mag_cols,bssid_map,setting.origin,head,tail);} 
-if system_dependent('IsDebugMode')==1, dbquit; end
-collect_fp
-data_version:3
-WiMag3
-data_version:3
-
-ans =
-
-    2.5526
-
-
-ans =
-
-    1.9648
-    1.9397
-    1.9701
-    2.0299
-    2.0625
-    2.0930
-    2.1310
-    2.1660
-    2.2043
-    2.2511
-
-80% 2.9863
-90% 4.0255
-
-ans =
-
-    1.9018
-    1.9224
-    1.9726
-    1.9782
-    2.0255
-    2.0581
-    2.0964
-    2.1296
-    2.1658
-    2.1960
-
-80% 2.9199
-90% 4.1446
-
-ans =
-
-    1.3445
-
-
-ans =
-
-    1.2343
-
-finish
-collect_fp
-data_version:3
-WiMag3
-data_version:3
-
-ans =
-
-    2.5526
-
-
-ans =
-
-    1.9648
-    1.9397
-    1.9701
-    2.0299
-    2.0625
-    2.0930
-    2.1310
-    2.1660
-    2.2043
-    2.2511
-
-80% 2.9863
-90% 4.0255
-
-ans =
-
-    1.9018
-    1.9224
-    1.9726
-    1.9782
-    2.0255
-    2.0581
-    2.0964
-    2.1296
-    2.1658
-    2.1960
-
-80% 2.9199
-90% 4.1446
-
-ans =
-
-    1.3445
-
-
-ans =
-
-    1.2343
-
-finish
-show_result
-data_version:3
-WiMag3
-data_version:3
-
-ans =
-
-    2.5526
-
-
-ans =
-
-    1.9648
-    1.9397
-    1.9701
-    2.0299
-    2.0625
-    2.0930
-    2.1310
-    2.1660
-    2.2043
-    2.2511
-
-80% 2.9863
-90% 4.0255
-
-ans =
-
-    1.9018
-    1.9224
-    1.9726
-    1.9782
-    2.0255
-    2.0581
-    2.0964
-    2.1296
-    2.1658
-    2.1960
-
-80% 2.9199
-90% 4.1446
-
-ans =
-
-    1.3445
-
-
-ans =
-
-    1.2343
-
-finish
-show_result
-data_version:3
-show_result
-data_version:3
-process_origin
-data_version:3
- 
-diary saved to: setting files/process_origin/55-4.txt
- 
-data_version:3
-区域:55-4
-总面积:415.5781
- 
-子区域:1
-面积:28.908
 测试点...
-Magnetic data:original_data/55-4/short/1/0
-Magnetic data:original_data/55-4/short/1/2
-Magnetic data:original_data/55-4/short/1/4
-WiFi     data:original_data/55-4/short/1/0
-WiFi     data:original_data/55-4/short/1/2
-WiFi     data:original_data/55-4/short/1/4
-参考点...
-Magnetic data:original_data/55-4/short/1/1
-Magnetic data:original_data/55-4/short/1/3
-WiFi     data:original_data/55-4/long/1/1
-WiFi     data:original_data/55-4/long/1/3
-{错误使用 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('textscan')" style="font-weight:bold">textscan</a>
-文件标识符无效。使用 fopen 生成有效的文件标识符。
-
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('loadWiFiData', 'E:\noil\WorkSpace\Github\MyMatlabTools\loadWiFiData.m', 27)" style="font-weight:bold">loadWiFiData</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\MyMatlabTools\loadWiFiData.m',27,0)">line 27</a>)
-dataArray = textscan(fileID, formatSpec, 'Delimiter',
-delimiter, 'MultipleDelimsAsOne', true,
-'ReturnOnError', false);
-
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_gridmesh_w', 'E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh_w.m', 45)" style="font-weight:bold">process_gridmesh_w</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh_w.m',45,0)">line 45</a>)
-        [timestamp,BSSID,RSSI,~]=loadWiFiData(filename);
-        
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_gridmesh', 'E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m', 16)" style="font-weight:bold">process_gridmesh</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m',16,0)">line 16</a>)
-    [~,rssis,bssid_maps,bssid_indexs,wfiles,duties]=process_gridmesh_w(gridmesh,bssid_map,origin,head,tail,type);
-    
-出错 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_origin', 'E:\noil\WorkSpace\Github\WiMag3\process\process_origin.m', 57)" style="font-weight:bold">process_origin</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\process\process_origin.m',57,0)">line 57</a>)
-            results=process_gridmesh(gridmesh(i),is_rssi(i_area),mag_cols,bssid_map,setting.origin,head,tail);} 
-dbup
-在属于 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_gridmesh_w', 'E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh_w.m', 45)" style="font-weight:bold">process_gridmesh_w</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh_w.m',45,0)">line 45</a>) 的工作区中
-if system_dependent('IsDebugMode')==1, dbquit; end
-process_origin
-data_version:3
+Magnetic data:original_data/55-4/short/1/5
+Magnetic data:original_data/55-4/short/1/6
+WiFi     data:original_data/55-4/short/1/5
+WiFi     data:original_data/55-4/short/1/6
  
-diary saved to: setting files/process_origin/55-2-210.txt
+子区域:2
+面积:130.2816
+测试点...
+Magnetic data:original_data/55-4/short/2/0
+Magnetic data:original_data/55-4/short/2/2
+Magnetic data:original_data/55-4/short/2/4
+Magnetic data:original_data/55-4/short/2/6
+Magnetic data:original_data/55-4/short/2/8
+Magnetic data:original_data/55-4/short/2/10
+WiFi     data:original_data/55-4/short/2/0
+WiFi     data:original_data/55-4/short/2/2
+WiFi     data:original_data/55-4/short/2/4
+WiFi     data:original_data/55-4/short/2/6
+WiFi     data:original_data/55-4/short/2/8
+WiFi     data:original_data/55-4/short/2/10
+参考点...
+Magnetic data:original_data/55-4/long/2/0
+Magnetic data:original_data/55-4/long/2/1
+Magnetic data:original_data/55-4/long/2/2
+Magnetic data:original_data/55-4/long/2/3
+Magnetic data:original_data/55-4/long/2/4
+WiFi     data:original_data/55-4/long/2/0
+WiFi     data:original_data/55-4/long/2/1
+WiFi     data:original_data/55-4/long/2/2
+WiFi     data:original_data/55-4/long/2/3
+WiFi     data:original_data/55-4/long/2/4
+测试点...
+Magnetic data:original_data/55-4/short/2/11
+Magnetic data:original_data/55-4/short/2/12
+Magnetic data:original_data/55-4/short/2/13
+Magnetic data:original_data/55-4/short/2/14
+Magnetic data:original_data/55-4/short/2/15
+WiFi     data:original_data/55-4/short/2/11
+WiFi     data:original_data/55-4/short/2/12
+WiFi     data:original_data/55-4/short/2/13
+WiFi     data:original_data/55-4/short/2/14
+WiFi     data:original_data/55-4/short/2/15
+ 
+子区域:3
+面积:46.2528
+测试点...
+Magnetic data:original_data/55-4/short/3/0
+Magnetic data:original_data/55-4/short/3/2
+Magnetic data:original_data/55-4/short/3/4
+WiFi     data:original_data/55-4/short/3/0
+WiFi     data:original_data/55-4/short/3/2
+WiFi     data:original_data/55-4/short/3/4
+参考点...
+Magnetic data:original_data/55-4/long/3/0
+Magnetic data:original_data/55-4/long/3/1
+WiFi     data:original_data/55-4/long/3/0
+WiFi     data:original_data/55-4/long/3/1
+测试点...
+Magnetic data:original_data/55-4/short/3/5
+Magnetic data:original_data/55-4/short/3/6
+WiFi     data:original_data/55-4/short/3/5
+WiFi     data:original_data/55-4/short/3/6
+ 
+子区域:4
+面积:49.0648
+测试点...
+Magnetic data:original_data/55-4/short/4/0
+Magnetic data:original_data/55-4/short/4/2
+Magnetic data:original_data/55-4/short/4/4
+WiFi     data:original_data/55-4/short/4/0
+WiFi     data:original_data/55-4/short/4/2
+WiFi     data:original_data/55-4/short/4/4
+测试点...
+Magnetic data:original_data/55-4/short/4/1
+Magnetic data:original_data/55-4/short/4/3
+WiFi     data:original_data/55-4/short/4/1
+WiFi     data:original_data/55-4/short/4/3
+参考点...
+Magnetic data:original_data/55-4/long/4/0
+Magnetic data:original_data/55-4/long/4/1
+WiFi     data:original_data/55-4/long/4/0
+WiFi     data:original_data/55-4/long/4/1
+ 
+子区域:5
+面积:20.9279
+测试点...
+Magnetic data:original_data/55-4/short/5/0
+Magnetic data:original_data/55-4/short/5/2
+Magnetic data:original_data/55-4/short/5/4
+Magnetic data:original_data/55-4/short/5/6
+Magnetic data:original_data/55-4/short/5/8
+Magnetic data:original_data/55-4/short/5/10
+Magnetic data:original_data/55-4/short/5/12
+Magnetic data:original_data/55-4/short/5/14
+WiFi     data:original_data/55-4/short/5/0
+WiFi     data:original_data/55-4/short/5/2
+WiFi     data:original_data/55-4/short/5/4
+WiFi     data:original_data/55-4/short/5/6
+WiFi     data:original_data/55-4/short/5/8
+WiFi     data:original_data/55-4/short/5/10
+WiFi     data:original_data/55-4/short/5/12
+WiFi     data:original_data/55-4/short/5/14
+测试点...
+Magnetic data:original_data/55-4/short/5/1
+Magnetic data:original_data/55-4/short/5/3
+Magnetic data:original_data/55-4/short/5/5
+Magnetic data:original_data/55-4/short/5/7
+Magnetic data:original_data/55-4/short/5/9
+Magnetic data:original_data/55-4/short/5/11
+Magnetic data:original_data/55-4/short/5/13
+WiFi     data:original_data/55-4/short/5/1
+WiFi     data:original_data/55-4/short/5/3
+WiFi     data:original_data/55-4/short/5/5
+WiFi     data:original_data/55-4/short/5/7
+WiFi     data:original_data/55-4/short/5/9
+WiFi     data:original_data/55-4/short/5/11
+WiFi     data:original_data/55-4/short/5/13
+参考点...
+Magnetic data:original_data/55-4/long/5/0
+Magnetic data:original_data/55-4/long/5/1
+Magnetic data:original_data/55-4/long/5/2
+Magnetic data:original_data/55-4/long/5/3
+Magnetic data:original_data/55-4/long/5/4
+Magnetic data:original_data/55-4/long/5/5
+Magnetic data:original_data/55-4/long/5/6
+WiFi     data:original_data/55-4/long/5/0
+WiFi     data:original_data/55-4/long/5/1
+WiFi     data:original_data/55-4/long/5/2
+WiFi     data:original_data/55-4/long/5/3
+WiFi     data:original_data/55-4/long/5/4
+WiFi     data:original_data/55-4/long/5/5
+WiFi     data:original_data/55-4/long/5/6
+ 
+子区域:6
+面积:107.5176
+测试点...
+Magnetic data:original_data/55-4/short/6/0
+Magnetic data:original_data/55-4/short/6/2
+Magnetic data:original_data/55-4/short/6/4
+Magnetic data:original_data/55-4/short/6/6
+Magnetic data:original_data/55-4/short/6/8
+WiFi     data:original_data/55-4/short/6/0
+WiFi     data:original_data/55-4/short/6/2
+WiFi     data:original_data/55-4/short/6/4
+WiFi     data:original_data/55-4/short/6/6
+WiFi     data:original_data/55-4/short/6/8
+测试点...
+Magnetic data:original_data/55-4/short/6/1
+Magnetic data:original_data/55-4/short/6/3
+Magnetic data:original_data/55-4/short/6/5
+Magnetic data:original_data/55-4/short/6/7
+WiFi     data:original_data/55-4/short/6/1
+WiFi     data:original_data/55-4/short/6/3
+WiFi     data:original_data/55-4/short/6/5
+WiFi     data:original_data/55-4/short/6/7
+参考点...
+Magnetic data:original_data/55-4/long/6/0
+Magnetic data:original_data/55-4/long/6/1
+Magnetic data:original_data/55-4/long/6/2
+Magnetic data:original_data/55-4/long/6/3
+WiFi     data:original_data/55-4/long/6/0
+WiFi     data:original_data/55-4/long/6/1
+WiFi     data:original_data/55-4/long/6/2
+WiFi     data:original_data/55-4/long/6/3
+ 
+子区域:7
+面积:32.3351
+测试点...
+Magnetic data:original_data/55-4/short/7/0
+Magnetic data:original_data/55-4/short/7/2
+Magnetic data:original_data/55-4/short/7/4
+WiFi     data:original_data/55-4/short/7/0
+WiFi     data:original_data/55-4/short/7/2
+WiFi     data:original_data/55-4/short/7/4
+测试点...
+Magnetic data:original_data/55-4/short/7/1
+Magnetic data:original_data/55-4/short/7/3
+WiFi     data:original_data/55-4/short/7/1
+WiFi     data:original_data/55-4/short/7/3
+参考点...
+Magnetic data:original_data/55-4/long/7/0
+Magnetic data:original_data/55-4/long/7/1
+WiFi     data:original_data/55-4/long/7/0
+WiFi     data:original_data/55-4/long/7/1
+ 

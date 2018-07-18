@@ -4,7 +4,7 @@ function output_txt = myupdatefcn_compare(obj,event_obj)
 % event_obj    Handle to event object
 % output_txt   Data cursor text string (string or cell array of strings).
 pos = get(event_obj,'Position');
-load data/tmp.mat
+load tmp/tmp.mat
 no=get_No(pos,fpcdns);
 output_txt = {['Rqs No: ' num2str(no)],...
 ['X: ',num2str(pos(1),4)],...

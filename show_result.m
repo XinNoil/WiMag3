@@ -12,11 +12,11 @@ fp=fps{test_area};
 load(['data/' area_table{test_area} '/testdata' data_version '.mat']);
 load(['result/' area_table{test_area} '/result' data_version '_' get_resultName(parameters)]);
 K=3;
-save result/result_show.mat;
+save tmp/result_show.mat;
 cdns=fp.cdns;
-save result/fpcdns.mat cdns
+save tmp/fpcdns.mat cdns
 cdns=td.cdns;
-save result/tdcdns.mat cdns
+save tmp/tdcdns.mat cdns
 test_cdns=reshape([results.test_cdns],2,length(results))';
 %% WiFi定位结果
 % cut=6;

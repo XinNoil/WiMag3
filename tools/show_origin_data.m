@@ -1,6 +1,6 @@
 function show_origin_data(filename,type,bssid_map)
 load glo.mat
-load data/tmp.mat
+load tmp/tmp.mat
 disp(filename);
 switch (type)
     case 'rssi'

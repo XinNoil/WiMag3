@@ -22,7 +22,7 @@ gridmesh(4)=create_gridmesh(row_index,column_index,folderList,'1');
 
 row_index=create_row(bs,gap,margin(3),columns,false,false);
 column_index=margin(2)+[bs:2*bs:bs*rows];
-folderList=2:4:36;
+folderList=0:8;
 gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 
 row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,false);
@@ -57,7 +57,7 @@ gridmesh(4)=create_gridmesh(row_index,column_index,folderList,'1');
 
 row_index=create_row(bs,gap,margin(3),columns,false,false);
 column_index=margin(2)+[bs:2*bs:bs*rows];
-folderList=2:4:18;
+folderList=0:4;
 gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 
 row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,false);

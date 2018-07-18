@@ -3,7 +3,7 @@ function str = rssi_match( ti,fi )
 %   此处显示详细说明
 disp(' ');
 disp(['Test: ' num2str(ti) ' Rqs: ' num2str(fi)]);
-load result/result_show.mat;
+load tmp/result_show.mat;
 bssid_index=td.bssid_indexs{ti}(td.bssid_indexs{ti}>0);
 s_rssi=td.rssis{ti}(int8(bssid_index));
 disp(['test rssi ' num2str(ti)]);

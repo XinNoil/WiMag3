@@ -11,8 +11,8 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % 参数设置
-areas=2;%[1 2 4 5];
-sub_grid_size=6.001; % 子区域大小
+areas=11;%[1 2 4 5];
+sub_grid_sizes=5;%[5 6 8 6]; % 子区域大小
 is_overlapped=false;
 
 % 载入数据
@@ -20,7 +20,9 @@ load (['data/fingerprints' data_version '.mat']);
 load (['data/testdatas' data_version '.mat']);
 
 % 循环分割
-for area_i=areas
+for a_i=1:length(areas)
+    area_i=areas(a_i);
+    sub_grid_size=sub_grid_sizes(a_i);
     fp=fps{area_i};
     td=tds{area_i};
     cdns=fp.cdns;
@@ -63,7 +65,7 @@ for area_i=areas
     end
     fp.area_vertexs=area_vertexs;
     fp.categorical_vector=get_subarea_soft(area_vertexs,cdns);
-    savegcf(['setting files/' area_table{area_i} '_soft_split'],{'png','fig'})
+    savegcf(['setting files/setting figures/' area_table{area_i} '_soft_split'],{'png','fig'})
     fps{area_i}=fp;
     tds{area_i}=td;
 end

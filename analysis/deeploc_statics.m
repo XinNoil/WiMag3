@@ -5,19 +5,19 @@ load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);
 
-area_i=1;
-sub_area_num=21;
-exp_num='3';
+area_i=4;
+sub_area_num=12;
+exp_num='deeploc';
 
 type=1; 
 filename=['.\data_new\result\' exp_num '\' area_table{area_i} '_soft_cdn_predict_evaluate.csv'];
 deeploc_static(filename,type,sub_area_num);
-savegcf(['figures/deeploc/' area_table{area_i} 'error_bar_' n2s(type)]);
+savegcf(['data_new/figures/deeploc/' area_table{area_i} 'error_bar_' n2s(type)]);
 
 type=2; 
 filename=['.\data_new\result\' exp_num '\' area_table{area_i} '_soft_deeploc_evaluate.txt'];
 deeploc_static(filename,type,sub_area_num);
-savegcf(['figures/deeploc/' area_table{area_i} 'error_bar_' n2s(type)]);
+savegcf(['data_new/figures/deeploc/' area_table{area_i} 'error_bar_' n2s(type)]);
 
 % filename=['.\data_new\result\3\cdn_predict_evaluate.csv'];
 % deeploc_static(filename,1);

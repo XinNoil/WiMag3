@@ -1,4 +1,4 @@
-function deeploc_static(filename,type,sub_area_num)
+function [nums,errors]=deeploc_static(filename,type,sub_area_num)
 switch type
     case 1
         data=csvread(filename,1,1);

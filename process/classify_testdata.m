@@ -22,7 +22,7 @@ for area_i=areas
     end
     fps{area_i}=fp;
 end
- save(['data/fingerprints' data_version '.mat'],'fps');
+ save(['data/testdatas' data_version '.mat'],'fps');
 
 %% test KNN Classification
 for area_i=areas
@@ -32,8 +32,12 @@ for area_i=areas
         test_data=cell2mat(td.rssis);
         test_label=predict(fp.classifier, test_data);
         td.kclass=test_label;
+        plot_floor_mark(fp.settings);
+        for j=1:td.num
+            h=plot(td.cdns(j,1),td.cdns(j,2));
+            set(h,'Marker',mq(test_label(j)),'Color',cq(test_label(j)),'MarkerFaceColor',cq(test_label(j)));
+        end
     end
     tds{area_i}=td;
 end
- save(['data/fingerprints' data_version '.mat'],'fps');
-% save(['data/fingerprints' data_version '.mat'],'fps');
+ save(['data/testdatas' data_version '.mat'],'tds');

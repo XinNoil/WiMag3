@@ -44,15 +44,17 @@ for I=1:folderNum
         if ~check_file_mode
             tmp=load(filename);
             tmp=tmp(floor(size(tmp,1)/10):end-floor(size(tmp,1)/10),:);
-            t=(tmp(:,2)-tmp(1,2))/1e9-test_time;
-            [~,b]=min(abs(t));
+            t=(tmp(:,2)-tmp(1,2))/1e9-2;
+            [~,b1]=min(abs(t));
+            t=(tmp(:,2)-tmp(end,2))/1e9+1;
+            [~,b2]=min(abs(t));
             tmp_magnetics=tmp(:,mag_cols);
             tmp_magnetics=[sqrt(tmp_magnetics(:,1).*tmp_magnetics(:,1)+tmp_magnetics(:,2).*tmp_magnetics(:,2)) tmp_magnetics(:,3)];%¶þÎ¬
             switch type
                 case '0'
-                    magnetics(c,:)=mean(tmp_magnetics(b:end,:),1);
+                    magnetics(c,:)=mean(tmp_magnetics(b1:b2,:),1);
                 case '1'
-                    magnetics(c,:)=mean(tmp_magnetics(1:b,:),1);
+                    magnetics(c,:)=mean(tmp_magnetics(b2+1:end,:),1);
             end
         end
         c=c+1;

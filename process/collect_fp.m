@@ -6,7 +6,9 @@ disp(['data_version:' data_version]);
 fps=cell(1,length(area_table));
 tds=cell(1,length(area_table));
 dbs=cell(1,length(area_table));
+is_pca=false;
 thredhold=-100;
+warning off
 outdoor_magnetics=[28.5 -43.6];
 for i=1:length(area_table)
     if(exist(['data/' area_table{i} '/fingerprint' data_version '.mat'],'file'))
@@ -33,3 +35,4 @@ end
 save(['data/fingerprints' data_version '.mat'],'fps');
 save(['data/testdatas' data_version '.mat'],'tds');
 save(['data/databases' data_version '.mat'],'dbs');
+warning on

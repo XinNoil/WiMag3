@@ -1,12 +1,5 @@
  
 data_version:5
-  <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
-
-        Count: 64
-      KeyType: char
-    ValueType: double
-
-save to: data/55-5-W/fingerprint5.mat
 区域:55-5-W
 总面积:142.8404
  

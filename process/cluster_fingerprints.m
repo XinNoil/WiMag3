@@ -14,7 +14,7 @@ load(['data/fingerprints' data_version '.mat']);
 cq='rgbcmkrgbcmkrgbcmkrgbcmkrgbcmk';
 mq='oooooo^^^^^^ssssssppppppvvvvvv';
 opts = statset('Display','final');
-areas=[1 2 4 5 10 11];
+areas=[1 10];%[1 2 4 5 10 11];
 cluster_area=15;
 
 for i=areas

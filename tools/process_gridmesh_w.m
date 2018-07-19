@@ -20,12 +20,16 @@ bssid_maps=cell(num,1);
 bssid_indexs=cell(num,1);
 wfiles=cell(num,1);
 duties=zeros(num,ApNum);
+load glo.mat
 switch type
     case '0'
         path=get_dpath(i_area,i_subarea,'long');
+        freq=fps_rssi_freq(i_area);
     case '1'
         path=get_dpath(i_area,i_subarea,'short');
+        freq=tds_rssi_freq(i_area);
 end
+test_time=1;
 c=1;
 for I=1:folderNum
     disp(['WiFi     data:' path n2s(folderList(I))]);
@@ -40,6 +44,18 @@ for I=1:folderNum
         cdns(c,2)=column_index(I);
         if ~check_file_mode
             [timestamp,BSSID,RSSI,~]=loadWiFiData(filename);
+            if freq>0
+                mask=true(size(timestamp));
+                if type=='0'&&max(timestamp)>2*freq %²Î¿¼µã
+                    mask=timestamp>2*freq&timestamp<(max(timestamp)-test_time*freq+1);
+                elseif type=='1'
+                    mask=timestamp>max(timestamp)-test_time*freq;
+                end
+                timestamp=timestamp(mask);
+                timestamp=timestamp-min(timestamp);
+                BSSID=BSSID(mask);
+                RSSI=RSSI(mask);
+            end
             row=size(timestamp,1);
             RecordsNum=max(timestamp)+1;
             bssid=unique(BSSID);

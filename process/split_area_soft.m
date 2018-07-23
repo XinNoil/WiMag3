@@ -65,6 +65,7 @@ for a_i=1:length(areas)
     end
     fp.area_vertexs=area_vertexs;
     fp.categorical_vector=get_subarea_soft(area_vertexs,cdns);
+    td.categorical_vector=get_subarea_soft(area_vertexs,td.cdns);
     savegcf(['setting files/setting figures/' area_table{area_i} '_soft_split'],{'png','fig'})
     fps{area_i}=fp;
     tds{area_i}=td;

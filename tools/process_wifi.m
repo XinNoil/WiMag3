@@ -15,6 +15,12 @@ if freq>0
     timestamp=timestamp-min(timestamp);
     BSSID=BSSID(mask);
     RSSI=RSSI(mask);
+else
+    mask=timestamp<5;
+    timestamp=timestamp(mask);
+    timestamp=timestamp-min(timestamp);
+    BSSID=BSSID(mask);
+    RSSI=RSSI(mask);
 end
 row=size(timestamp,1);
 RecordsNum=length(unique(timestamp));

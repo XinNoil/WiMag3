@@ -26,5 +26,11 @@ switch area_table{i_area}
         set_55_4_E
     case '55-4'
         set_55_4
+    case 'test0'
+        set_test0
+    case 'test1'
+        set_test1
+    case '55-1-E'
+        set_55_1_E
 end
 

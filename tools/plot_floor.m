@@ -24,19 +24,36 @@ else
 end
 % 画砖线
 block_size=st.block_size;
-num=length(st.columns);
-s=st.margin(3);
-for i=1:num
-    columns(i).index=s+[0:block_size:block_size*st.columns(i)];
-    s=columns(i).index(end)+st.gap(i);
-end
-for i=1:num
-    for j=0:st.rows
-        plot(offset.x+[columns(i).index(1) columns(i).index(end)],offset.y+st.margin(2)+[j*block_size j*block_size],'k-');
+if length(st.columns)>1
+    num=length(st.columns);
+    s=st.margin(3);
+    for i=1:num
+        columns(i).index=s+[0:block_size:block_size*st.columns(i)];
+        s=columns(i).index(end)+st.gap(i);
     end
-    for j=0:st.columns(i)
-        plot(offset.x+columns(i).index(1)+[j*block_size j*block_size],offset.y+st.margin(2)+[0 st.rows*block_size],'k-');
+    for i=1:num
+        for j=0:st.rows
+            plot(offset.x+[columns(i).index(1) columns(i).index(end)],offset.y+st.margin(2)+[j*block_size j*block_size],'k-');
+        end
+        for j=0:st.columns(i)
+            plot(offset.x+columns(i).index(1)+[j*block_size j*block_size],offset.y+st.margin(2)+[0 st.rows*block_size],'k-');
+        end
     end
+else
+%     num=length(st.rows);
+%     s=st.margin(2);
+%     for i=1:num
+%         rows(i).index=s+[0:block_size:block_size*st.rows(i)];
+%         s=rows(i).index(end)+st.gap(i);
+%     end
+%     for i=1:num
+%         for j=0:st.rows(i)
+%             plot(offset.x+[columns(i).index(1) columns(i).index(end)],offset.y+st.margin(3)+[j*block_size j*block_size],'k-');
+%         end
+%         for j=0:st.columns
+%             plot(offset.x+columns(i).index(1)+[j*block_size j*block_size],offset.y+st.margin(3)+[0 st.rows*block_size],'k-');
+%         end
+%     end
 end
 % 磁性物体
 if isfield(st,'magnetic_object_cdns')

@@ -11,7 +11,7 @@ clc
 load glo.mat
 cd (work_path)
 % ²ÎÊýÉèÖÃ
-i_area=1;
+i_area=14;
 disp(['data_version:' data_version]);
 RSSI_threshold=-80;
 if i_area>0

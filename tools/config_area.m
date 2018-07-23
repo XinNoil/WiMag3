@@ -32,5 +32,7 @@ switch area_table{i_area}
         set_test1
     case '55-1-E'
         set_55_1_E
+    case '55-5-30m'
+        set_55_5_30m
 end
 

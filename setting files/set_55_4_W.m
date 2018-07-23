@@ -1,4 +1,5 @@
 %%
+clear gridmesh;
 vars.plot01='1';
 bs=0.8; %砖块大小
 %% Area 1
@@ -23,7 +24,7 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 
 row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,true,false);%测试点-中间点
 column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
-folderList=5:1:6;
+folderList=1:2:3;
 gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(1,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
@@ -54,7 +55,7 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 
 row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,false);
 column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
-folderList=11:1:15;
+folderList=1:2:9;
 gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
@@ -84,7 +85,7 @@ gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 
 row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,false);
 column_index=margin(2)+[bs:bs:bs*(rows-0.5)];
-folderList=5:1:6;
+folderList=1:2:3;
 gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);

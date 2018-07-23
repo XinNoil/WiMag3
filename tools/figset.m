@@ -23,7 +23,7 @@ function  figset(varargin)
 %  figset('-saveall',['Figout/M-']);  %
 %  将所有Figure保存在Figout文件夹，文件名分别为M-01.png M-02.png ...
 %  
-%
+% Author: S.E.Wei
 if nargin<1
     error('缺失参数');
 else

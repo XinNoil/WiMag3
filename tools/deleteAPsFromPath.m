@@ -5,13 +5,13 @@ function deleteAPsFromPath(pathName, bssids)
 % Example:
 % dir_ref = 'original_data\55-4-W\long';
 % dir_test = 'original_data\55-4-W\short';
-% bssid_ref = FindAllAPFromDir(dir_ref, -80);
-% bssid_test = FindAllAPFromDir(dir_test, -80);
+% bssid_ref = findAllAPFromPath(dir_ref, -80);
+% bssid_test = findAllAPFromPath(dir_test, -80);
 % bssid_intersect = unique(intersect(bssid_ref, bssid_test));
 % bssidr_ref = setdiff(bssid_ref, bssid_intersect);
 % bssidr_test = setdiff(bssid_test, bssid_intersect);
-% deleteAPsFromDir(dir_ref, bssidr_ref);
-% deleteAPsFromDir(dir_test, bssidr_test);
+% deleteAPsFromPath(dir_ref, bssidr_ref);
+% deleteAPsFromPath(dir_test, bssidr_test);
 if pathName(length(pathName))~='\'
     pathName = [pathName '\'];
 end
@@ -20,7 +20,7 @@ for m=1:length(subdir)
     if(isequal(subdir(m).name, '.')||isequal(subdir(m).name, '..'))
         continue;
     elseif subdir(m).isdir
-        deleteRm([pathName subdir(m).name '\'], bssids);
+        deleteAPsFromPath([pathName subdir(m).name '\'], bssids);
     elseif subdir(m).name(1)=='W'
         deleteAPsFromFile([pathName subdir(m).name], bssids);
     end

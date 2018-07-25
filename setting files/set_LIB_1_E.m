@@ -71,8 +71,8 @@ M=bs*sum(columns)+margin(3)+margin(4)+sum(gap); % ³¤
 N=bs*rows+margin(1)+margin(2); % ¿í
 
 row_index=create_row(bs,gap,margin(3),columns,false,false);
-column_index=margin(2)+[bs/2:bs:bs*(rows-0.5)];
-folderList=1:2:17;
+column_index=margin(2)+[bs/2:bs:5.5*bs 7.5*bs:bs:8.5*bs];
+folderList=[1:2:11 15:2:17] ;
 gridmesh(1)=create_gridmesh(row_index,column_index,folderList,'1');
 
 row_index=create_row(bs,gap,margin(3),columns,false,false);
@@ -81,8 +81,8 @@ folderList=0:1:9;
 gridmesh(2)=create_gridmesh(row_index,column_index,folderList,'0');
 
 row_index=create_mid_row(bs,gap,margin(3)+bs/2,columns,false,false);
-column_index=margin(2)+[0:bs:bs*rows];
-folderList=19:28;
+column_index=margin(2)+[0:bs:5*bs 8*bs:bs:9*bs];
+folderList=[0:2:10 16:2:18];
 gridmesh(3)=create_gridmesh(row_index,column_index,folderList,'1');
 
 setting=set_area(1,bs,rows,columns,gap,margin,origin,M,N,gridmesh);

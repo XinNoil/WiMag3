@@ -16,5 +16,9 @@ for i=1:RecordsNum
     tmp_e=t_b+(i-0.5)*tt;
     mask=t_tmp>=tmp_b;
     mask=mask&(t_tmp<=tmp_e);
-    tmp_magnetic(i,:)=mean(tmp_magnetics(mask,:),1);
+    if(sum(mask)>0)
+        tmp_magnetic(i,:)=mean(tmp_magnetics(mask,:),1);
+    else
+        tmp_magnetic(i,:)=tmp_magnetic(i-1,:);
+    end
 end

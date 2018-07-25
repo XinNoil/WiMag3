@@ -1,4 +1,4 @@
-function [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(filename,bssid_map,type,freq,test_time)
+function [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(filename,bssid_map,type,freq,test_time,rssi_mask)
 if nargin<3
     [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi_old(filename,bssid_map);
     return;
@@ -39,3 +39,4 @@ for i=1:row
         tmp_rssi(timestamp(i)+1,bssid_map(cell2mat(BSSID(i))))=RSSI(i);
     end
 end
+tmp_rssi=tmp_rssi(:,rssi_mask);

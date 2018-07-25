@@ -7,21 +7,12 @@ disp(['data_version:' data_version]);
 load(['data/fingerprints' data_version '.mat']);
 load(['data/testdatas' data_version '.mat']);
 
-num_thredhold=5;
-RSSI_min=-100;
+areas=1:length(area_table);
 
-for area_i=[1 2 4 5]
+for area_i=areas
     fp=fps{area_i};
-    td=tds{area_i};
-    BSSIDs={};
-    fprssis=cell2mat(fp.rssis);
-    tdrssis=cell2mat(td.rssis);
-    nums=fprssis>-100;
-    if isfield(fp,'rssi_mask')
-        fp.rssi_mask=rssi_mask;
-    else
-        fp.rssi_mask=rssi_mask&fp.rssi_mask;
-    end
+    fp=rm_field(fp,'rssi_mask');
+    fp=set_rssi_mask(fp,tds{area_i},is_rssi(area_i));
     fps{area_i}=fp;
 end
-% save(['data/fingerprints' data_version '.mat'],'fps');
+save(['data/fingerprints' data_version '.mat'],'fps');

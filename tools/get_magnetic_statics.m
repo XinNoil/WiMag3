@@ -2,6 +2,7 @@ function [mag_max,mag_min]=get_magnetic_statics(area_i,magnetic_dim)
 load glo.mat
 load (['data/fingerprints' data_version '.mat']);
 fp=fps{area_i};
+
 if magnetic_dim==2
     mag_max=[0 0];
     mag_min=[0 0];
@@ -12,4 +13,7 @@ if magnetic_dim==2
 else
     mag_max=max(fp.magnitudes);
     mag_min=min(fp.magnitudes);
+end
+if max(mag_max)>200
+    disp('magnetic is too large!!!!!!')
 end

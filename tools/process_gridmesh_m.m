@@ -36,7 +36,7 @@ for I=1:folderNum
         filename=[path num2str(folderList(I)) '/S' num2str(J) '.txt'];
         if ~exist(filename,'file')
             disp(['file not found:' filename]);
-            pause;
+%             pause;
         end
         sfiles{c}=filename;
         cdns(c,1)=row_index(J+1);

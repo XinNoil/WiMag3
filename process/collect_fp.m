@@ -11,18 +11,20 @@ thredhold=-100;
 warning off
 outdoor_magnetics=[28.5 -43.6];
 for i=1:length(area_table)
-    if(exist(['data/' area_table{i} '/fingerprint' data_version '.mat'],'file'))
-        load (['data/' area_table{i} '/fingerprint' data_version '.mat']);
-        fp=rssi_threshold(fp,thredhold);
-        fp=rssi_pca(fp);
-        fps{i}=fp;
-    end
-    
     if(exist(['data/' area_table{i} '/testdata' data_version '.mat'],'file'))
         load (['data/' area_table{i} '/testdata' data_version '.mat']);
         td=rssi_threshold(td,thredhold);
         td=rssi_pca(td);
         tds{i}=td;
+    end
+    
+    if(exist(['data/' area_table{i} '/fingerprint' data_version '.mat'],'file'))
+        load (['data/' area_table{i} '/fingerprint' data_version '.mat']);
+        fp=rssi_threshold(fp,thredhold);
+        fp=rssi_pca(fp);
+        fp=rm_field(fp,'rssi_mask');
+        fp=set_rssi_mask(fp,tds{i},is_rssi(i));
+        fps{i}=fp;
     end
     
     if(exist(['data/' area_table{i} '/database' data_version '.mat'],'file'))

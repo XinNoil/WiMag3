@@ -14,14 +14,14 @@ disp(['data_version:' data_version]);
 diary('tmp/diary.txt');
 diary on;
 % test_area=area_i;
-test_area=10;
+test_area=4;
 disp(area_table{test_area});
 % remove_no=[1,27,50,165,299,357,102,369];
 remove_no=[];
 is_testdata=true; % 没有测试数据则采用测试数据从数据库中抽取。
 is_sub_i=false;
 is_rssi_mask=false;
-feature_mode=5;
+feature_mode=3;
 feature_modes={'1DM','2DM','WiFi','W1','F1'};
 simulation_parameters=[3.16 4.42 0 9.36 5.04 0 0 0 0 2.54 3.0]  ;
 error_predict_paras={

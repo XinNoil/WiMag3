@@ -5,11 +5,11 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % ²ÎÊıÉèÖÃ
-areas=[2];%[1 2 4 5 10 11];
-test_mode=2; % 0 testing
+areas=[1 2 4 5 10 11 14];
+test_mode=1; % 0 testing
 mag_cols=18:20;
 test_time=1;
-data_ver=n2s(test_mode);
+data_ver='0';
 save_path=[deeploc_path '\data\' data_ver '\'];
 label_type='deeploc';
 magnetic_dim=2;
@@ -27,8 +27,9 @@ load (['data/testdatas' data_version '.mat']);
 
 % remove_no=[75 145 215 216];
 % remove_no=[1,27,50,165,299,357,102,369];
+test_mode_str={'','_1','_2'};
 remove_no=[];
-data_type='testing';
+data_type=['testing' test_mode_str{test_mode+1}];
 
 for i=1:length(areas)
     area_i=areas(i);
@@ -79,6 +80,6 @@ for i=1:length(areas)
     rssis_m(rssis_m<0)=0;
     rssis_m(rssis_m>1)=1;
     m=[cdns_m magnetics_m rssis_m];
-    disp([save_path area_table{area_i} '_' label_type '0_' data_type '.csv']);
-    csvwrite([save_path area_table{area_i} '_' label_type '0_' data_type '.csv'],m);
+    disp([save_path area_table{area_i} '_' data_type '.csv']);
+    csvwrite([save_path area_table{area_i} '_' data_type '.csv'],m);
 end

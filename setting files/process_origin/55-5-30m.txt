@@ -1,25 +1,21 @@
  
 data_version:5
-  <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
-
-        Count: 22
-      KeyType: char
-    ValueType: double
-
-save to: data/55-5-30m/fingerprint5.mat
 区域:55-5-30m
 总面积:12.9888
  
 子区域:1
 面积:12.9888
-测试点...
-Magnetic data:original_data/55-5-30m/short/1/0
-Magnetic data:original_data/55-5-30m/short/1/1
-WiFi     data:original_data/55-5-30m/short/1/0
-WiFi     data:original_data/55-5-30m/short/1/1
 参考点...
 Magnetic data:original_data/55-5-30m/long/1/0
 Magnetic data:original_data/55-5-30m/long/1/1
-WiFi     data:original_data/55-5-30m/long/1/0
-WiFi     data:original_data/55-5-30m/long/1/1
+{操作在以下过程中被用户终止 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_gridmesh', 'E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m', 16)" style="font-weight:bold">process_gridmesh</a>
+(<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m',16,0)">line 16</a>)
+
+
+位置 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_origin_data', 'E:\noil\WorkSpace\Github\WiMag3\process\process_origin_data.m', 57)" style="font-weight:bold">process_origin_data</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\process\process_origin_data.m',57,0)">line 57</a>)
+            results=process_gridmesh(gridmesh(i),is_rssi(i_area),mag_cols,bssid_map,setting.origin,head,tail,check_file_mode);} 
+process_origin_data
+data_version:5
  
+Diary : setting files/process_origin/LIB-1-E.txt deleted
+Diary : setting files/process_origin/LIB-1-E.txt created

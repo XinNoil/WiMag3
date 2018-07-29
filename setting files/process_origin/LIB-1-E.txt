@@ -1,165 +1,70 @@
  
 data_version:5
+  <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
+
+        Count: 53
+      KeyType: char
+    ValueType: double
+
+save to: data/LIB-1-E/fingerprint5.mat
 区域:LIB-1-E
-总面积:201.2474
+总面积:100.4625
  
 子区域:1
-面积:75.1349
+面积:100.4625
+测试点...
+Magnetic data:original_data/LIB-1-E/short/1/1
+Magnetic data:original_data/LIB-1-E/short/1/3
+Magnetic data:original_data/LIB-1-E/short/1/5
+Magnetic data:original_data/LIB-1-E/short/1/7
+Magnetic data:original_data/LIB-1-E/short/1/9
+Magnetic data:original_data/LIB-1-E/short/1/11
+Magnetic data:original_data/LIB-1-E/short/1/15
+Magnetic data:original_data/LIB-1-E/short/1/17
+WiFi     data:original_data/LIB-1-E/short/1/1
+WiFi     data:original_data/LIB-1-E/short/1/3
+WiFi     data:original_data/LIB-1-E/short/1/5
+WiFi     data:original_data/LIB-1-E/short/1/7
+WiFi     data:original_data/LIB-1-E/short/1/9
+WiFi     data:original_data/LIB-1-E/short/1/11
+WiFi     data:original_data/LIB-1-E/short/1/15
+WiFi     data:original_data/LIB-1-E/short/1/17
+参考点...
+Magnetic data:original_data/LIB-1-E/long/1/0
+Magnetic data:original_data/LIB-1-E/long/1/1
+Magnetic data:original_data/LIB-1-E/long/1/2
+Magnetic data:original_data/LIB-1-E/long/1/3
+Magnetic data:original_data/LIB-1-E/long/1/4
+Magnetic data:original_data/LIB-1-E/long/1/5
+Magnetic data:original_data/LIB-1-E/long/1/6
+Magnetic data:original_data/LIB-1-E/long/1/7
+Magnetic data:original_data/LIB-1-E/long/1/8
+Magnetic data:original_data/LIB-1-E/long/1/9
+WiFi     data:original_data/LIB-1-E/long/1/0
+WiFi     data:original_data/LIB-1-E/long/1/1
+WiFi     data:original_data/LIB-1-E/long/1/2
+WiFi     data:original_data/LIB-1-E/long/1/3
+WiFi     data:original_data/LIB-1-E/long/1/4
+WiFi     data:original_data/LIB-1-E/long/1/5
+WiFi     data:original_data/LIB-1-E/long/1/6
+WiFi     data:original_data/LIB-1-E/long/1/7
+WiFi     data:original_data/LIB-1-E/long/1/8
+WiFi     data:original_data/LIB-1-E/long/1/9
 测试点...
 Magnetic data:original_data/LIB-1-E/short/1/0
 Magnetic data:original_data/LIB-1-E/short/1/2
 Magnetic data:original_data/LIB-1-E/short/1/4
+Magnetic data:original_data/LIB-1-E/short/1/6
+Magnetic data:original_data/LIB-1-E/short/1/8
+Magnetic data:original_data/LIB-1-E/short/1/10
+Magnetic data:original_data/LIB-1-E/short/1/16
+Magnetic data:original_data/LIB-1-E/short/1/18
 WiFi     data:original_data/LIB-1-E/short/1/0
 WiFi     data:original_data/LIB-1-E/short/1/2
 WiFi     data:original_data/LIB-1-E/short/1/4
-参考点...
-Magnetic data:original_data/LIB-1-E/long/1/0
-Magnetic data:original_data/LIB-1-E/long/1/1
-WiFi     data:original_data/LIB-1-E/long/1/0
-WiFi     data:original_data/LIB-1-E/long/1/1
-测试点...
-Magnetic data:original_data/LIB-1-E/short/1/6
-Magnetic data:original_data/LIB-1-E/short/1/7
 WiFi     data:original_data/LIB-1-E/short/1/6
-WiFi     data:original_data/LIB-1-E/short/1/7
- 
-子区域:2
-面积:25.65
-测试点...
-Magnetic data:original_data/LIB-1-E/short/2/1
-Magnetic data:original_data/LIB-1-E/short/2/3
-Magnetic data:original_data/LIB-1-E/short/2/5
-Magnetic data:original_data/LIB-1-E/short/2/7
-Magnetic data:original_data/LIB-1-E/short/2/9
-Magnetic data:original_data/LIB-1-E/short/2/11
-Magnetic data:original_data/LIB-1-E/short/2/13
-Magnetic data:original_data/LIB-1-E/short/2/15
-Magnetic data:original_data/LIB-1-E/short/2/17
-Magnetic data:original_data/LIB-1-E/short/2/19
-Magnetic data:original_data/LIB-1-E/short/2/21
-WiFi     data:original_data/LIB-1-E/short/2/1
-WiFi     data:original_data/LIB-1-E/short/2/3
-WiFi     data:original_data/LIB-1-E/short/2/5
-WiFi     data:original_data/LIB-1-E/short/2/7
-WiFi     data:original_data/LIB-1-E/short/2/9
-WiFi     data:original_data/LIB-1-E/short/2/11
-WiFi     data:original_data/LIB-1-E/short/2/13
-WiFi     data:original_data/LIB-1-E/short/2/15
-WiFi     data:original_data/LIB-1-E/short/2/17
-WiFi     data:original_data/LIB-1-E/short/2/19
-WiFi     data:original_data/LIB-1-E/short/2/21
-参考点...
-Magnetic data:original_data/LIB-1-E/long/2/0
-Magnetic data:original_data/LIB-1-E/long/2/1
-Magnetic data:original_data/LIB-1-E/long/2/2
-Magnetic data:original_data/LIB-1-E/long/2/3
-Magnetic data:original_data/LIB-1-E/long/2/4
-Magnetic data:original_data/LIB-1-E/long/2/5
-Magnetic data:original_data/LIB-1-E/long/2/6
-Magnetic data:original_data/LIB-1-E/long/2/7
-Magnetic data:original_data/LIB-1-E/long/2/8
-Magnetic data:original_data/LIB-1-E/long/2/9
-Magnetic data:original_data/LIB-1-E/long/2/10
-Magnetic data:original_data/LIB-1-E/long/2/11
-WiFi     data:original_data/LIB-1-E/long/2/0
-WiFi     data:original_data/LIB-1-E/long/2/1
-WiFi     data:original_data/LIB-1-E/long/2/2
-WiFi     data:original_data/LIB-1-E/long/2/3
-WiFi     data:original_data/LIB-1-E/long/2/4
-WiFi     data:original_data/LIB-1-E/long/2/5
-WiFi     data:original_data/LIB-1-E/long/2/6
-WiFi     data:original_data/LIB-1-E/long/2/7
-WiFi     data:original_data/LIB-1-E/long/2/8
-WiFi     data:original_data/LIB-1-E/long/2/9
-WiFi     data:original_data/LIB-1-E/long/2/10
-WiFi     data:original_data/LIB-1-E/long/2/11
-测试点...
-Magnetic data:original_data/LIB-1-E/short/2/23
-Magnetic data:original_data/LIB-1-E/short/2/24
-Magnetic data:original_data/LIB-1-E/short/2/25
-Magnetic data:original_data/LIB-1-E/short/2/26
-Magnetic data:original_data/LIB-1-E/short/2/27
-Magnetic data:original_data/LIB-1-E/short/2/28
-Magnetic data:original_data/LIB-1-E/short/2/29
-Magnetic data:original_data/LIB-1-E/short/2/30
-Magnetic data:original_data/LIB-1-E/short/2/31
-Magnetic data:original_data/LIB-1-E/short/2/32
-Magnetic data:original_data/LIB-1-E/short/2/33
-Magnetic data:original_data/LIB-1-E/short/2/34
-WiFi     data:original_data/LIB-1-E/short/2/23
-WiFi     data:original_data/LIB-1-E/short/2/24
-WiFi     data:original_data/LIB-1-E/short/2/25
-WiFi     data:original_data/LIB-1-E/short/2/26
-WiFi     data:original_data/LIB-1-E/short/2/27
-WiFi     data:original_data/LIB-1-E/short/2/28
-WiFi     data:original_data/LIB-1-E/short/2/29
-WiFi     data:original_data/LIB-1-E/short/2/30
-WiFi     data:original_data/LIB-1-E/short/2/31
-WiFi     data:original_data/LIB-1-E/short/2/32
-WiFi     data:original_data/LIB-1-E/short/2/33
-WiFi     data:original_data/LIB-1-E/short/2/34
- 
-子区域:3
-面积:100.4625
-测试点...
-Magnetic data:original_data/LIB-1-E/short/3/1
-Magnetic data:original_data/LIB-1-E/short/3/3
-Magnetic data:original_data/LIB-1-E/short/3/5
-Magnetic data:original_data/LIB-1-E/short/3/7
-Magnetic data:original_data/LIB-1-E/short/3/9
-Magnetic data:original_data/LIB-1-E/short/3/11
-Magnetic data:original_data/LIB-1-E/short/3/13
-Magnetic data:original_data/LIB-1-E/short/3/15
-Magnetic data:original_data/LIB-1-E/short/3/17
-WiFi     data:original_data/LIB-1-E/short/3/1
-WiFi     data:original_data/LIB-1-E/short/3/3
-WiFi     data:original_data/LIB-1-E/short/3/5
-WiFi     data:original_data/LIB-1-E/short/3/7
-WiFi     data:original_data/LIB-1-E/short/3/9
-WiFi     data:original_data/LIB-1-E/short/3/11
-WiFi     data:original_data/LIB-1-E/short/3/13
-WiFi     data:original_data/LIB-1-E/short/3/15
-WiFi     data:original_data/LIB-1-E/short/3/17
-参考点...
-Magnetic data:original_data/LIB-1-E/long/3/0
-Magnetic data:original_data/LIB-1-E/long/3/1
-Magnetic data:original_data/LIB-1-E/long/3/2
-Magnetic data:original_data/LIB-1-E/long/3/3
-Magnetic data:original_data/LIB-1-E/long/3/4
-Magnetic data:original_data/LIB-1-E/long/3/5
-Magnetic data:original_data/LIB-1-E/long/3/6
-Magnetic data:original_data/LIB-1-E/long/3/7
-Magnetic data:original_data/LIB-1-E/long/3/8
-Magnetic data:original_data/LIB-1-E/long/3/9
-WiFi     data:original_data/LIB-1-E/long/3/0
-WiFi     data:original_data/LIB-1-E/long/3/1
-WiFi     data:original_data/LIB-1-E/long/3/2
-WiFi     data:original_data/LIB-1-E/long/3/3
-WiFi     data:original_data/LIB-1-E/long/3/4
-WiFi     data:original_data/LIB-1-E/long/3/5
-WiFi     data:original_data/LIB-1-E/long/3/6
-WiFi     data:original_data/LIB-1-E/long/3/7
-WiFi     data:original_data/LIB-1-E/long/3/8
-WiFi     data:original_data/LIB-1-E/long/3/9
-测试点...
-Magnetic data:original_data/LIB-1-E/short/3/19
-Magnetic data:original_data/LIB-1-E/short/3/20
-Magnetic data:original_data/LIB-1-E/short/3/21
-Magnetic data:original_data/LIB-1-E/short/3/22
-Magnetic data:original_data/LIB-1-E/short/3/23
-Magnetic data:original_data/LIB-1-E/short/3/24
-Magnetic data:original_data/LIB-1-E/short/3/25
-Magnetic data:original_data/LIB-1-E/short/3/26
-Magnetic data:original_data/LIB-1-E/short/3/27
-Magnetic data:original_data/LIB-1-E/short/3/28
-WiFi     data:original_data/LIB-1-E/short/3/19
-WiFi     data:original_data/LIB-1-E/short/3/20
-WiFi     data:original_data/LIB-1-E/short/3/21
-WiFi     data:original_data/LIB-1-E/short/3/22
-WiFi     data:original_data/LIB-1-E/short/3/23
-WiFi     data:original_data/LIB-1-E/short/3/24
-WiFi     data:original_data/LIB-1-E/short/3/25
-WiFi     data:original_data/LIB-1-E/short/3/26
-WiFi     data:original_data/LIB-1-E/short/3/27
-WiFi     data:original_data/LIB-1-E/short/3/28
+WiFi     data:original_data/LIB-1-E/short/1/8
+WiFi     data:original_data/LIB-1-E/short/1/10
+WiFi     data:original_data/LIB-1-E/short/1/16
+WiFi     data:original_data/LIB-1-E/short/1/18
  

@@ -11,7 +11,7 @@ cd (work_path)
 % 参数设置
 disp(['data_version:' data_version]);
 disp(' ');
-i_areas=[1 2 11];%1:length(area_table);
+i_areas=4;%1:length(area_table);
 outdoor_magnetics=[28.5 -43.6];
 head=false; %是否删除首
 tail=false; %是否删除尾
@@ -19,9 +19,9 @@ RSSI_threshold=-80;
 check_file_mode=false;
 
 % 存储设置
-is_save_fingerprint=true&check_file_mode; %是否保存fingerpint
-is_save_testdata=true&check_file_mode; %是否保存testdata
-is_save_database=true&check_file_mode; %是否保存databas
+is_save_fingerprint=true&~check_file_mode; %是否保存fingerpint
+is_save_testdata=true&~check_file_mode; %是否保存testdata
+is_save_database=true&~check_file_mode; %是否保存databas
 mag_cols=18:20;
 for i_area=i_areas
     diary_filename=['setting files/process_origin/' area_table{i_area} '.txt'];

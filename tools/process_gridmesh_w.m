@@ -73,7 +73,7 @@ for I=1:folderNum
                     tmp_rssi(timestamp(i)+1,bssid_map(cell2mat(BSSID(i))))=RSSI(i);
                 end
             end
-            rssis{c}=mean(tmp_rssi);
+            rssis{c}=mean(tmp_rssi,1);
             duties(c,:)=get_duty(timestamp,BSSID,bssid_map);
         end
         c=c+1;

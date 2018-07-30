@@ -11,7 +11,7 @@ cd (work_path)
 % 参数设置
 disp(['data_version:' data_version]);
 disp(' ');
-i_areas=4;%1:length(area_table);
+i_areas=15;%1:length(area_table);
 outdoor_magnetics=[28.5 -43.6];
 head=false; %是否删除首
 tail=false; %是否删除尾

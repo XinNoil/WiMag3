@@ -53,9 +53,7 @@ for i=1:length(areas)
     [cdn_max,cdn_min]=get_cdns_statics(area_i);
     cdns_m=cdns_m-cdn_min;
     magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
-    rssis_m=(rssis_m-min_rssi)/(max_rssi-min_rssi);
-    rssis_m(rssis_m<0)=0;
-    rssis_m(rssis_m>1)=1;
+    rssis_m=my_norm(rssis_m,max_rssi,min_rssi);
     m=[cdns_m magnetics_m rssis_m];
     disp([save_path area_table{area_i}  '_' data_type '.csv']);
     csvwrite([save_path area_table{area_i}  '_' data_type '.csv'],m);

@@ -5,17 +5,131 @@ data_version:5
  
 子区域:1
 面积:12.9888
+测试点...
+Magnetic data:original_data/55-5-30m/short/1/0
+Magnetic data:original_data/55-5-30m/short/1/1
+Magnetic data:original_data/55-5-30m/short/1/2
+if system_dependent('IsDebugMode')==1, dbstep; end
+WiFi     data:original_data/55-5-30m/short/1/0
+WiFi     data:original_data/55-5-30m/short/1/1
+WiFi     data:original_data/55-5-30m/short/1/2
+if system_dependent('IsDebugMode')==1, dbcont; end
 参考点...
 Magnetic data:original_data/55-5-30m/long/1/0
 Magnetic data:original_data/55-5-30m/long/1/1
-{操作在以下过程中被用户终止 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_gridmesh', 'E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m', 16)" style="font-weight:bold">process_gridmesh</a>
-(<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\tools\process_gridmesh.m',16,0)">line 16</a>)
+if system_dependent('IsDebugMode')==1, dbstep in; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+WiFi     data:original_data/55-5-30m/long/1/0
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+mean(tmp_rssi)
 
+ans =
 
-位置 <a href="matlab:matlab.internal.language.introspective.errorDocCallback('process_origin_data', 'E:\noil\WorkSpace\Github\WiMag3\process\process_origin_data.m', 57)" style="font-weight:bold">process_origin_data</a> (<a href="matlab: opentoline('E:\noil\WorkSpace\Github\WiMag3\process\process_origin_data.m',57,0)">line 57</a>)
-            results=process_gridmesh(gridmesh(i),is_rssi(i_area),mag_cols,bssid_map,setting.origin,head,tail,check_file_mode);} 
+  1 至 3 列
+
+  -74.4108  -92.0323  -99.5020
+
+  4 至 6 列
+
+  -90.1812 -100.0000  -77.3526
+
+  7 至 9 列
+
+  -43.7816  -51.8195 -100.0000
+
+  10 至 12 列
+
+  -85.4299  -99.4034  -91.2983
+
+  13 至 15 列
+
+ -100.0000  -88.6016  -83.2475
+
+  16 至 18 列
+
+  -88.4173  -78.5859  -74.5441
+
+  19 至 21 列
+
+  -83.5561  -83.6376  -81.0164
+
+  22 列
+
+  -99.8168
+
+if system_dependent('IsDebugMode')==1, dbquit; end
 process_origin_data
 data_version:5
  
-Diary : setting files/process_origin/LIB-1-E.txt deleted
-Diary : setting files/process_origin/LIB-1-E.txt created
+Diary : setting files/process_origin/55-5-30m.txt deleted
+Diary : setting files/process_origin/55-5-30m.txt created
+ 
+data_version:5
+区域:55-5-30m
+总面积:12.9888
+ 
+子区域:1
+面积:12.9888
+测试点...
+Magnetic data:original_data/55-5-30m/short/1/0
+Magnetic data:original_data/55-5-30m/short/1/1
+Magnetic data:original_data/55-5-30m/short/1/2
+if system_dependent('IsDebugMode')==1, dbcont; end
+WiFi     data:original_data/55-5-30m/short/1/0
+filename
+
+filename =
+
+original_data/55-5-30m/short/1/0/W0.txt
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+clear
+clc
+load glo.mat
+tds_rssi_freq(15)=5
+
+tds_rssi_freq =
+
+  1 至 7 列
+
+     5     0     0     0     0     0     0
+
+  8 至 14 列
+
+     0     0     5     5     5     5     5
+
+  15 列
+
+     5
+
+save 'setting files'\glo.mat
+clear
+clc
+process_origin_data
+data_version:5
+ 
+Diary : setting files/process_origin/55-5-30m.txt deleted
+Diary : setting files/process_origin/55-5-30m.txt created
+ 
+data_version:5
+区域:55-5-30m
+总面积:12.9888
+ 
+子区域:1
+面积:12.9888
+测试点...
+Magnetic data:original_data/55-5-30m/short/1/0
+Magnetic data:original_data/55-5-30m/short/1/1
+Magnetic data:original_data/55-5-30m/short/1/2
+if system_dependent('IsDebugMode')==1, dbcont; end
+WiFi     data:original_data/55-5-30m/short/1/0
+WiFi     data:original_data/55-5-30m/short/1/1
+WiFi     data:original_data/55-5-30m/short/1/2
+参考点...
+Magnetic data:original_data/55-5-30m/long/1/0
+Magnetic data:original_data/55-5-30m/long/1/1
+WiFi     data:original_data/55-5-30m/long/1/0
+WiFi     data:original_data/55-5-30m/long/1/1
+ 

@@ -7,7 +7,7 @@ load(['data/fingerprints' data_version '.mat']);
 show_type='rssi';
 
 areas=1:length(area_table);
-for area_i=5 % areas
+for area_i=15 % areas
     fp=fps{area_i};
     h=plot_floor_mark(fp.settings,fp.cdns,fp.magnitudes);
     set(h,'marker','s','markersize',10);

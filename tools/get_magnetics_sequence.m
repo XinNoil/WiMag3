@@ -1,0 +1,9 @@
+function tmp_magnetics=get_magnetics_sequence(filename,mag_cols,origin_time,freq)
+tmp=load(filename);
+% t=abs((tmp(:,2)-tmp(1,2))/1e9-2);
+% [~,b]=min(t);
+% t=abs((tmp(:,2)-tmp(1,2))/1e9-origin_time);
+% [~,e]=min(t);
+tmp_magnetics=tmp(:,mag_cols);
+tmp_magnetics=[sqrt(tmp_magnetics(:,1).*tmp_magnetics(:,1)+tmp_magnetics(:,2).*tmp_magnetics(:,2)) tmp_magnetics(:,3)];%¶þÎ¬
+tmp_magnetics=tmp_magnetics(1:origin_time*freq,:);

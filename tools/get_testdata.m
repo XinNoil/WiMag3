@@ -1,10 +1,10 @@
-function test_data = get_testdata( db,i,is_rssi,is_sub_i )
+function test_data = get_testdata( db,i,is_rssi,is_sub_i,rssi_mask )
 %GET_TESTDATA 此处显示有关此函数的摘要
 %   此处显示详细说明
 test_data.i=i;
 test_data.cdn=db.cdns(i,:);
 test_data.magnetic=db.magnetics(i,:);
-if isfield(db,'magnitude')
+if isfield(db,'magnitudes')
     test_data.magnitude=db.magnitudes(i,:);
 end
 if is_rssi
@@ -20,4 +20,7 @@ if nargin>3
     if is_sub_i
         test_data.sub_i=db.sub_i(i);
     end
+end
+if nargin>4
+    test_data.rssi=test_data.rssi(logical(rssi_mask));
 end

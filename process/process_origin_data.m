@@ -11,7 +11,7 @@ cd (work_path)
 % 参数设置
 disp(['data_version:' data_version]);
 disp(' ');
-i_areas=4;%1:length(area_table);
+i_areas=[1 2 4 9];%1:length(area_table);
 outdoor_magnetics=[28.5 -43.6];
 head=false; %是否删除首
 tail=false; %是否删除尾
@@ -31,15 +31,23 @@ for i_area=i_areas
     is_have_fingerprint=false;
     is_have_testdata=false;
     load(['data/' area_table{i_area} '/fingerprint' data_version '.mat']);
+    if ~exist(['original_data/' area_table{i_area}],'file')
+        disp(['original_data/' area_table{i_area}  ':not found']);
+        continue;
+    end
     if is_rssi(i_area)%% &&~isfield(fp,'bssid_map'))
 %         scan_bssid(i_area,RSSI_threshold);
-        bssids=findAllAPFromPath(['original_data/' area_table{i_area} '/long/'], RSSI_threshold);
-        bssid_map=containers.Map(bssids,num2cell(1:length(bssids)));
-        fp.bssid_map=bssid_map;
-        disp(bssid_map);
-        save(['data/' area_table{i_area} '/fingerprint' data_version '.mat'],'fp');
-        disp(['save to: data/' area_table{i_area} '/fingerprint' data_version '.mat']);
-        load(['data/' area_table{i_area} '/fingerprint' data_version '.mat']);
+        if exist(['original_data/' area_table{i_area} '/long/'],'file')
+            bssids=findAllAPFromPath(['original_data/' area_table{i_area} '/long/'], RSSI_threshold);
+            bssid_map=containers.Map(bssids,num2cell(1:length(bssids)));
+            fp.bssid_map=bssid_map;
+            disp(bssid_map);
+            save(['data/' area_table{i_area} '/fingerprint' data_version '.mat'],'fp');
+            disp(['save to: data/' area_table{i_area} '/fingerprint' data_version '.mat']);
+            load(['data/' area_table{i_area} '/fingerprint' data_version '.mat']);
+        else
+            disp(['original_data/' area_table{i_area} '/long :not found']);
+        end
     end
     [~,settings,area_size,bssid_map]=get_fingerprint(fp);
 %     plot_floor_mark(settings);

@@ -1,5 +1,12 @@
  
-data_version:5
+data_version:6
+  <a href="matlab:helpPopup containers.Map"style="font-weight:bold">Map</a> (具有属性):
+
+        Count: 68
+      KeyType: char
+    ValueType: double
+
+save to: data/55-5-W/fingerprint6.mat
 区域:55-5-W
 总面积:142.8404
  
@@ -17,6 +24,11 @@ Magnetic data:original_data/55-5-W/long/1/0
 Magnetic data:original_data/55-5-W/long/1/1
 WiFi     data:original_data/55-5-W/long/1/0
 WiFi     data:original_data/55-5-W/long/1/1
+测试点...
+Magnetic data:original_data/55-5-W/short/1/1
+Magnetic data:original_data/55-5-W/short/1/3
+WiFi     data:original_data/55-5-W/short/1/1
+WiFi     data:original_data/55-5-W/short/1/3
  
 子区域:2
 面积:39.406
@@ -28,6 +40,9 @@ WiFi     data:original_data/55-5-W/short/2/2
 参考点...
 Magnetic data:original_data/55-5-W/long/2/0
 WiFi     data:original_data/55-5-W/long/2/0
+测试点...
+Magnetic data:original_data/55-5-W/short/2/1
+WiFi     data:original_data/55-5-W/short/2/1
  
 子区域:3
 面积:26.1352
@@ -65,6 +80,23 @@ WiFi     data:original_data/55-5-W/long/3/4
 WiFi     data:original_data/55-5-W/long/3/5
 WiFi     data:original_data/55-5-W/long/3/6
 WiFi     data:original_data/55-5-W/long/3/7
+测试点...
+Magnetic data:original_data/55-5-W/short/3/1
+Magnetic data:original_data/55-5-W/short/3/3
+Magnetic data:original_data/55-5-W/short/3/5
+Magnetic data:original_data/55-5-W/short/3/7
+Magnetic data:original_data/55-5-W/short/3/9
+Magnetic data:original_data/55-5-W/short/3/11
+Magnetic data:original_data/55-5-W/short/3/13
+Magnetic data:original_data/55-5-W/short/3/15
+WiFi     data:original_data/55-5-W/short/3/1
+WiFi     data:original_data/55-5-W/short/3/3
+WiFi     data:original_data/55-5-W/short/3/5
+WiFi     data:original_data/55-5-W/short/3/7
+WiFi     data:original_data/55-5-W/short/3/9
+WiFi     data:original_data/55-5-W/short/3/11
+WiFi     data:original_data/55-5-W/short/3/13
+WiFi     data:original_data/55-5-W/short/3/15
  
 子区域:4
 面积:40.92
@@ -80,4 +112,9 @@ Magnetic data:original_data/55-5-W/long/4/0
 Magnetic data:original_data/55-5-W/long/4/1
 WiFi     data:original_data/55-5-W/long/4/0
 WiFi     data:original_data/55-5-W/long/4/1
+测试点...
+Magnetic data:original_data/55-5-W/short/4/1
+Magnetic data:original_data/55-5-W/short/4/3
+WiFi     data:original_data/55-5-W/short/4/1
+WiFi     data:original_data/55-5-W/short/4/3
  

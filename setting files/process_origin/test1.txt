@@ -1,11 +1,5 @@
  
-data_version:5
-区域:test1
-总面积:6.3745
- 
-子区域:1
-面积:6.3745
-参考点...
-Magnetic data:original_data/test1/long/1/0
-WiFi     data:original_data/test1/long/1/0
- 
+data_version:6
+original_data/test1:not found
+Diary : setting files/process_origin/55-1-E.txt deleted
+Diary : setting files/process_origin/55-1-E.txt created

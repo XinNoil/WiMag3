@@ -48,4 +48,5 @@ result.wifi_err=distance(test_data.cdn,rssi_result_cdn);
 result.rssi_topk_cdns=rssi_topk_cdns;
 result.avgpd_k_r=avgpd_k_r;
 result.rssi_result=rssi_result;
+result.errs=result.wifi_err;
 end

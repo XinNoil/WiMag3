@@ -15,7 +15,7 @@ if ~isempty(td)&&is_rssi
         fp.rssi_mask=rssi_mask;
     end
     fp.rssi_mask_num=sum(fp.rssi_mask);
-elseif is_rssi
+elseif is_rssi&&isfield(fp,'bssid_map')
     fp.rssi_mask=true(1,length(fp.bssid_map));
     fp.rssi_mask_num=sum(fp.rssi_mask);
 end

@@ -12,6 +12,7 @@ if is_rssi
     db.wfiles={};
     db.sfiles={};
     db.duties=[];
+    db.rssi_statics=[];
 else
     db.cdns=[];
     db.magnetics=[];

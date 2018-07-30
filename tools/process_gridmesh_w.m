@@ -1,4 +1,4 @@
-function [cdns,rssis,bssid_maps,bssid_indexs,wfiles,duties]=process_gridmesh_w(gridmesh,bssid_map,origin,head,tail,type,check_file_mode)
+function [cdns,rssis,bssid_maps,bssid_indexs,wfiles,duties,rssi_statics]=process_gridmesh_w(gridmesh,bssid_map,origin,head,tail,type,check_file_mode)
 % head,tail表示是否去掉头和尾 true表示去掉
 i_area=gridmesh.i_area;
 i_subarea=gridmesh.i_subarea;
@@ -75,9 +75,11 @@ for I=1:folderNum
             end
             rssis{c}=mean(tmp_rssi,1);
             duties(c,:)=get_duty(timestamp,BSSID,bssid_map);
+            rssi_statics(c)=get_rssi_static(tmp_rssi);
         end
         c=c+1;
     end
 end
+rssi_statics=rssi_statics';
 cdns(:,1)=cdns(:,1)+origin(1);
 cdns(:,2)=cdns(:,2)+origin(2);

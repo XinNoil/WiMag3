@@ -9,11 +9,20 @@ areas=1:length(area_table);
 % ÔØÈëÊı¾İ
 load (['data/fingerprints' data_version '.mat']);
 load (['data/testdatas' data_version '.mat']);
-fprintf('fp\t\ttd\t\tap\t\tarea\n');
+% fprintf('fp\t\ttd\t\tap\t\tarea\n');
+% for area_i=areas
+%     fp=fps{area_i};
+%     td=tds{area_i}; 
+%     if ~isempty(td)&&isfield(fp,'bssid_map')
+%         fprintf('%s\t\t%s\t\t%s\t\t%s\n',n2s(fp.num),n2s(td.num),n2s(length(fp.bssid_map)),area_table{area_i});
+%     end
+% end
+
+fprintf('ap\tarea\n');
 for area_i=areas
     fp=fps{area_i};
     td=tds{area_i}; 
-    if ~isempty(td)&&isfield(fp,'bssid_map')
-        fprintf('%s\t\t%s\t\t%s\t\t%s\n',n2s(fp.num),n2s(td.num),n2s(length(fp.bssid_map)),area_table{area_i});
+    if isfield(fp,'bssid_map')
+        fprintf('%s\t%s\n',n2s(length(fp.bssid_map)),area_table{area_i});
     end
 end

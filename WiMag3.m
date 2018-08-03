@@ -37,6 +37,11 @@ if isfield(fp,'rssi_mask')
 else
     parameters.rssi_mask=true(1,length(fp.bssid_map));
 end
+[mag_max,mag_min]=get_magnetic_statics(i_area,2);
+fp.mag_max=mag_max;
+fp.mag_min=mag_min;
+fp.magni_max=max(fp.magnitudes);
+fp.magni_min=min(fp.magnitudes);
 if is_testdata
     load (['data/testdatas' data_version '.mat']);
     td=tds{test_area};
@@ -75,7 +80,10 @@ if run_this
 end
 %% save result
 % save(['result/' area_table{test_area} '/result' data_version '_' get_result_name(parameters)], 'results');
-testResult_file=['testResults/' area_table{test_area} '_' data_version '_' get_result_name(parameters) '_KNN_testResult.txt'];
+testResult_file=['testResults/0_' area_table{test_area} '/KNN_v_' data_version '_' get_result_name(parameters) '_testResult.txt'];
+if ~exist(['testResults/0_' area_table{test_area}],'dir')
+    mkdir(['testResults/0_' area_table{test_area}]);
+end
 save(testResult_file,'testResult','-ascii', '-double');
 save(['data/' area_table{test_area} '/parameters.mat'],'parameters');
 save_evaluation;

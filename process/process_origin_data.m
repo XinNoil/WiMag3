@@ -19,8 +19,7 @@ is_save_testdata=true&~check_file_mode; %是否保存testdata
 is_save_database=true&~check_file_mode; %是否保存databas
 for i_area=i_areas
     diary_filename=['setting files/process_origin/' area_table{i_area} '.txt'];
-    diary(diary_filename);
-    diary on;
+    diaryon;
     disp(['data_version:' data_version]);
     clear fp td db;
     is_have_fingerprint=false;

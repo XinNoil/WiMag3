@@ -1,4 +1,9 @@
 function [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi(filename,bssid_map,type,freq,test_time,rssi_mask)
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for processing origin wifi data file.
+%           该函数用于处理一个WiFi数据文件的原始数据。
+% Contact:  jiankunwang@tju.edu.cn
 if nargin<3
     [tmp_rssi,bssid_maps,bssid_indexs,RecordsNum]=process_wifi_old(filename,bssid_map);
     return;

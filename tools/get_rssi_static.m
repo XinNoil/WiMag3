@@ -1,4 +1,9 @@
 function rssi_static=get_rssi_static(tmp_rssi)
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for getting wifi statics.
+%           该函数用于获取WiFi的统计数据。
+% Contact:  jiankunwang@tju.edu.cn
 ApNum=size(tmp_rssi,2);
 rssi_static.duties=zeros(1,ApNum);
 rssi_static.means=ones(1,ApNum).*-100;

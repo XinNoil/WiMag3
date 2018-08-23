@@ -1,9 +1,9 @@
 # WiMag3
 - startup.m
 
-```
+```matlab
 dbstop if error
-cd % Your path of WiMag3
+cd % Your path of WiMag4
 pre
 ```
 

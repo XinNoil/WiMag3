@@ -1,6 +1,6 @@
-%%
+%% set_55_4_W
 clear gridmesh;
-vars.plot01='1';
+vars.plot_gridmesh='1';
 bs=0.8; %砖块大小
 %% Area 1
 area=1; % 区域编号
@@ -92,47 +92,3 @@ setting=set_area(area,bs,rows,columns,gap,margin,origin,M,N,gridmesh);
 plot_floor(setting,true,vars);
 settings{area}=setting;
 clear gridmesh;
-
-area=1;
-settings{area}.magnetic_object_cdns=[
-    0 3.5*0.8
-    4*0.8+0.075 3.5*0.8
-    4*0.8+0.075 -0.5*0.8
-    10.85 3.5*0.8
-    10.85 -0.5*0.8];
-settings{area}.magnetic_object_type=[1 0 1 1 1 1];
-settings{area}.magnetic_room(1).x=4*0.8+0.075+0.3;
-settings{area}.magnetic_room(1).y=3*0.8+0.12+0.12;
-settings{area}.magnetic_room(1).width=3.05;
-settings{area}.magnetic_room(1).height=1.25;
-settings{area}.magnetic_room(1).text='弱电井';
-settings{area}.magnetic_room(2).x=0;
-settings{area}.magnetic_room(2).y=0.63;
-settings{area}.magnetic_room(2).width=0.3;
-settings{area}.magnetic_room(2).height=1.17;
-settings{area}.magnetic_room(2).text='暖气';
-
-area=2;
-settings{area}.magnetic_object_cdns=[
-    2.87 6.5*0.8
-    8.5*0.8+0.15 6.5*0.8
-    8.5*0.8+0.15 -0.5*0.8
-    17.5*0.8+0.45 6.5*0.8
-    17.5*0.8+0.45 -0.5*0.8
-    27*0.8+0.75 6.5*0.8
-    27*0.8+0.75 -0.5*0.8];
-settings{area}.magnetic_object_type=[2 3 1 2 1 2 1];
-settings{area}.magnetic_room(1).x=0;
-settings{area}.magnetic_room(1).y=6*0.8+0.12;
-settings{area}.magnetic_room(1).width=3.3;
-settings{area}.magnetic_room(1).height=1.45;
-settings{area}.magnetic_room(1).text='强电井';
-
-area=3;
-settings{area}.magnetic_object_cdns=[
-    0 3.5*0.8
-    0 -0.5*0.8
-    5.5*0.8 3.5*0.8
-    5.5*0.8 -0.5*0.8
-    14.5*0.8+0.3 3.5*0.8];
-settings{area}.magnetic_object_type=[1 1 1 1 1];

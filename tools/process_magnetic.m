@@ -1,4 +1,9 @@
 function tmp_magnetic=process_magnetic(filename,RecordsNum,mag_cols,test_time)
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for processing origin magnetic data file.
+%           该函数用于处理一个原始地磁数据文件。
+% Contact:  jiankunwang@tju.edu.cn
 tmp=load(filename);
 tmp=tmp(floor(size(tmp,1)/10):end-floor(size(tmp,1)/10),:);
 t=abs((tmp(:,2)-tmp(1,2))/10e8-test_time);

@@ -1,5 +1,8 @@
+%% set_55_5_W_2
+clear gridmesh;
+vars.plot_gridmesh='1';
 bs=0.8; %砖块大小
-% Area 1
+%% Area 1
 area=1; % 区域编号
 rows=3; % 砖块行数
 columns=[6 5 5]; % 砖块列数

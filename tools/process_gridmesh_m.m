@@ -1,5 +1,10 @@
 function [cdns,magnetics,types,sfiles]=process_gridmesh_m(gridmesh,mag_cols,origin,head,tail,type,check_file_mode)
-% head,tail表示是否去掉头和尾 true表示去掉
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for processing magnetic origin data files of a gridmesh.
+%           该函数用于处理一个gridmesh的地磁原始数据。
+% Note:     head,tail表示是否去掉头和尾 true表示去掉
+% Contact:  jiankunwang@tju.edu.cn
 i_area=gridmesh.i_area;
 i_subarea=gridmesh.i_subarea;
 [row_index,column_index,folderList,folderNum,fileNum,~,~]=get_gridmesh(gridmesh);

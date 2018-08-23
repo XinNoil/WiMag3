@@ -1,4 +1,6 @@
-vars.plot01='1';
+%% set_LIB_1_E
+clear gridmesh;
+vars.plot_gridmesh='1';
 bs=0.75; %×©¿é´óÐ¡
 
 %% Area 1

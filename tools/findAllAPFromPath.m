@@ -1,8 +1,9 @@
 function bssids = findAllAPFromPath(pathName, threshold)
-% 从指定的路径遍历所有文件，找出所有RSSI>=threshold的AP的BSSID
-% 输入: 路径，RSSI阈值
-% 输出: BSSID列表
-% Author: S.E.Wei
+% Date:     2018/08/22
+% Auther:   S.E.Wei
+% Function: 从指定的路径遍历所有文件，找出所有RSSI>=threshold的AP的BSSID。
+% input:    路径，RSSI阈值
+% output:   BSSID列表
 if pathName(length(pathName))~='\'
     pathName = [pathName '\'];
 end

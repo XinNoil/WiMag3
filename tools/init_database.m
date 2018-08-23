@@ -1,6 +1,9 @@
-function db = init_database( db,is_rssi )
-%INIT_FINGERPRINT 此处显示有关此函数的摘要
-%   此处显示详细说明
+function db = init_database(db,is_rssi)
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for initialing a database.
+%           该函数用于初始化一个数据库。
+% Contact:  jiankunwang@tju.edu.cn
 if is_rssi
     db.cdns=[];
     db.magnetics=[];
@@ -19,10 +22,5 @@ else
     db.magnitudes=[];
     db.types=[];
     db.sfiles={};
-    if isfield(db,'rssis')
-        db=rmfield(db,'rssis');
-        db=rmfield(db,'bssid_maps');
-        db=rmfield(db,'bssid_indexs');
-    end
 end
 

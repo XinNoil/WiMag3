@@ -1,5 +1,10 @@
 function [cdns,rssis,bssid_maps,bssid_indexs,wfiles,duties,rssi_statics]=process_gridmesh_w(gridmesh,bssid_map,origin,head,tail,type,check_file_mode)
-% head,tail表示是否去掉头和尾 true表示去掉
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for processing wifi origin data files of a gridmesh.
+%           该函数用于处理一个gridmesh的WiFi原始数据。
+% Note:     head,tail表示是否去掉头和尾 true表示去掉
+% Contact:  jiankunwang@tju.edu.cn
 i_area=gridmesh.i_area;
 i_subarea=gridmesh.i_subarea;
 [row_index,column_index,folderList,folderNum,fileNum,~,~]=get_gridmesh(gridmesh);
@@ -31,6 +36,9 @@ switch type
 end
 test_time=1;
 c=1;
+if check_file_mode
+    rssi_statics=[];
+end
 for I=1:folderNum
     disp(['WiFi     data:' path n2s(folderList(I))]);
     for J=J_range

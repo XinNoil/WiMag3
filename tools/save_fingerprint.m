@@ -1,19 +1,13 @@
 function save_fingerprint(i_area,settings,s)
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for saving a fingerprint.
+%           该函数用于保存一个新的指纹库。
+% Contact:  jiankunwang@tju.edu.cn
 load glo.mat;
-vars.plot01='1';
+vars.plot_gridmesh='1';
 newfig;
 for i=1:length(settings)
-    if ~s.is_plot_magnetic_object
-        if isfield(settings{i},'magnetic_object_cdns')
-            settings{i}=rmfield(settings{i},'magnetic_object_cdns');
-        end
-        if isfield(settings{i},'magnetic_object_types')
-            settings{i}=rmfield(settings{i},'magnetic_object_types');
-        end
-        if isfield(settings{i},'magnetic_room')
-            settings{i}=rmfield(settings{i},'magnetic_room');
-        end
-    end
     plot_floor(settings{i},false,vars);
 end
 if s.is_new_fingerprint
@@ -26,6 +20,8 @@ if s.is_save_fingerprint
     save(['data/' area_table{i_area} '/fingerprint' s.data_version '.mat'],'fp');
 end
 if s.is_savegcf
-    savegcf(['setting files/setting figures/' area_table{i_area}]);
-end
+    if ~exist('setting files/setting figures/','dir')
+        mkdir('setting files/setting figures/');
+    end
+    savegcf(['setting files/setting figures/' area_table{i_area}],{'png','fig'});
 end

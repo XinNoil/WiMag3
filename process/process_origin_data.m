@@ -1,17 +1,12 @@
+% process_origin_data
 % Date:     2018/07/14
 % Auther:   WJK
 % Function: Process original data of magnetism-based indoor localization.
 %           处理基于地磁室内定位的原始数据
 % Contact:  jiankunwang@tju.edu.cn
 
-clear
-clc
-load glo.mat
-cd (work_path)
-% 参数设置
-disp(['data_version:' data_version]);
-disp(' ');
-i_areas=[1 2 4 9];%1:length(area_table);
+my_head;
+i_areas=[1 2 4 5 9 10 11 14 15];%1:length(area_table);
 outdoor_magnetics=[28.5 -43.6];
 head=false; %是否删除首
 tail=false; %是否删除尾
@@ -22,10 +17,10 @@ check_file_mode=false;
 is_save_fingerprint=true&~check_file_mode; %是否保存fingerpint
 is_save_testdata=true&~check_file_mode; %是否保存testdata
 is_save_database=true&~check_file_mode; %是否保存databas
-mag_cols=18:20;
 for i_area=i_areas
     diary_filename=['setting files/process_origin/' area_table{i_area} '.txt'];
-    diaryon;
+    diary(diary_filename);
+    diary on;
     disp(['data_version:' data_version]);
     clear fp td db;
     is_have_fingerprint=false;
@@ -36,7 +31,6 @@ for i_area=i_areas
         continue;
     end
     if is_rssi(i_area)%% &&~isfield(fp,'bssid_map'))
-%         scan_bssid(i_area,RSSI_threshold);
         if exist(['original_data/' area_table{i_area} '/long/'],'file')
             bssids=findAllAPFromPath(['original_data/' area_table{i_area} '/long/'], RSSI_threshold);
             bssid_map=containers.Map(bssids,num2cell(1:length(bssids)));
@@ -50,12 +44,11 @@ for i_area=i_areas
         end
     end
     [~,settings,area_size,bssid_map]=get_fingerprint(fp);
-%     plot_floor_mark(settings);
     td.i_area=i_area;
     db.i_area=i_area;
-    fp=init_database( fp,is_rssi(i_area) );
-    td=init_database( td,is_rssi(i_area) );
-    db=init_database( db,is_rssi(i_area) );
+    fp=init_database(fp,is_rssi(i_area));
+    td=init_database(td,is_rssi(i_area));
+    db=init_database(db,is_rssi(i_area));
     disp(['区域:' area_table{i_area}])
     disp(['总面积:' num2str(area_size)]);
     disp(' ');

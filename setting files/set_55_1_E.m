@@ -1,5 +1,6 @@
-%% bofore
-vars.plot01='1';
+%% set_55_1_E
+clear gridmesh;
+vars.plot_gridmesh='1';
 bs=0.8; %×©¿é´óĞ¡
 %% Area 1
 area=1; % ÇøÓò±àºÅ

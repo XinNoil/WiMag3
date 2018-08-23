@@ -1,4 +1,9 @@
 function duty=get_duty(timestamp,BSSID,bssid_map)
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for getting all ap's wifi duty(loss rate) of a time sequence.
+%           该函数用于计算一个时间序列中所有AP的占空比（丢失率）。
+% Contact:  jiankunwang@tju.edu.cn
 duty=zeros(1,length(bssid_map));
 BSSIDs=unique(BSSID);
 max_num=max(timestamp)+1;

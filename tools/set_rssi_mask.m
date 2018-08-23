@@ -1,4 +1,9 @@
 function fp=set_rssi_mask(fp,td,is_rssi)
+% Date:     2018/08/22
+% Auther:   WJK
+% Function: This function is used for setting rssi mask by find the bssid intersection of fingerprints and testdatas.
+%           该函数用于设置rssi_mask，通过计算指纹库和测试集的交集。
+% Contact:  jiankunwang@tju.edu.cn
 num_thredhold=5;
 RSSI_min=-100;
 if ~isempty(td)&&is_rssi

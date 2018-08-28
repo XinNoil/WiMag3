@@ -27,7 +27,7 @@ if is_plot_floors
     end
     xl=get(gca,'xlim');
     yl=get(gca,'ylim');
-    set(gcf,'Units','centimeters','Position',[0 1 (xl(2)-xl(1))*1 (yl(2)-yl(1))*1]);
+    set(gcf,'Units','centimeters','Position',[0 1 (xl(2)-xl(1))*1 (yl(2)-yl(1))*1.2]);
 end
 if nargin>1
     if ~exist('data','var')

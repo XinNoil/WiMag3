@@ -4,15 +4,36 @@ load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);
 load(['data/fingerprints' data_version '.mat']);
-show_type='rssi';
+load(['data/testdatas' data_version '.mat']);
+show_fptd = containers.Map({'fp','td'}, {true,false});
+show_type='mag';
 
-areas=1:length(area_table);
-for area_i=15 % areas
+areas=4;%1:length(area_table);
+for area_i=areas
     fp=fps{area_i};
-    h=plot_floor_mark(fp.settings,fp.cdns,fp.magnitudes);
+    td=tds{area_i};
+    if show_fptd('fp')
+        if show_fptd('td')
+            cdns=[fp.cdns;td.cdns];
+            magnitudes=[fp.magnitudes;td.magnitudes];
+        else
+            cdns=fp.cdns;
+            magnitudes=fp.magnitudes;
+        end
+    elseif show_fptd('td')
+        cdns=td.cdns;
+        magnitudes=td.magnitudes;
+    end
+    h=plot_floor_mark(fp.settings,cdns,magnitudes);
     set(h,'marker','s','markersize',10);
     fpcdns=fp.cdns;
-    save tmp/tmp.mat fp fpcdns show_type 
+    if isempty(td)
+        show_fptd('td')=false;
+        save tmp/tmp.mat fp fpcdns show_type show_fptd
+    else
+        tdcdns=td.cdns;
+        save tmp/tmp.mat td fp fpcdns tdcdns show_type show_fptd
+    end
     setupdatefun(@myupdatefcn3);
 end
 

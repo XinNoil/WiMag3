@@ -7,7 +7,6 @@ clear
 clc
 load glo.mat
 cd (work_path)
-disp(['data_version:' data_version]);
 %% 参数设置
 run_this=false;
 if run_this
@@ -18,30 +17,40 @@ else
 end
 feature_modes={'M','MM','R','RM','RMM'};
 remove_no=[];
-is_testdata=true; % 没有测试数据则采用测试数据从数据库中抽取。
 is_plot=false;
-parameters.test_area=test_area;
-parameters.is_testdata=is_testdata;
-parameters.feature_mode=feature_modes{feature_mode};
-parameters.distance_mode='E'; % E
-parameters.K=3;
+parameters=load_parameters();
+if ~parameters.exist
+    parameters.test_area=test_area;
+    parameters.is_testdata=true;% 没有测试数据则采用测试数据从数据库中抽取。
+    parameters.feature_mode=feature_modes{feature_mode};
+    parameters.distance_mode='E'; % E
+    parameters.K=3;
+    parameters.max_rssi=-20;
+    parameters.min_rssi=-100;
+end
+if isfield(parameters,'data_version')
+    data_version=parameters.data_version;
+end
+if ~isfield(parameters,'result_label')
+    parameters.result_label='0';
+end
 i_area=WiMaG_predicate_area(test_area);
-disp(area_table{test_area});
-disp(parameters.feature_mode);
+disp(['data_version:' data_version]);
+disp(['test_area:' area_table{test_area}]);
+disp(['feature_mode:' parameters.feature_mode]);
+
 %% 载入指纹库&测试集
 load(['data/fingerprints' data_version '.mat']);
 fp=fps{i_area};
-if isfield(fp,'rssi_mask')
-    parameters.rssi_mask=fp.rssi_mask;
-else
-    parameters.rssi_mask=true(1,length(fp.bssid_map));
+if ~isfield(fp,'rssi_mask')
+    fp.rssi_mask=true(1,length(fp.bssid_map));
 end
 [mag_max,mag_min]=get_magnetic_statics(i_area,2);
 fp.mag_max=mag_max;
 fp.mag_min=mag_min;
 fp.magni_max=max(fp.magnitudes);
 fp.magni_min=min(fp.magnitudes);
-if is_testdata
+if parameters.is_testdata
     load (['data/testdatas' data_version '.mat']);
     td=tds{test_area};
     test_num=td.num;
@@ -60,10 +69,10 @@ td_no=1:td.num;
 td_no(remove_no)=[];
 for i=1:length(td_no)
     ti=td_no(i);
-    if is_testdata
-        test_data=get_testdata( td,ti,is_rssi(i_area),false,parameters.rssi_mask );
+    if parameters.is_testdata
+        test_data=get_testdata( td,ti,is_rssi(i_area),false,fp.rssi_mask );
     else
-        test_data=get_testdata( fp,ti,is_rssi(i_area),false,parameters.rssi_mask );
+        test_data=get_testdata( fp,ti,is_rssi(i_area),false,fp.rssi_mask );
     end
     tmp_r=WiMag_match(fp,test_data,parameters);
     results(i)=tmp_r;
@@ -78,10 +87,10 @@ if run_this
     mycdfplot(testResult,1,'Error Distance','CDF','r','-');
 end
 %% save result
-% save(['result/' area_table{test_area} '/result' data_version '_' get_result_name(parameters)], 'results');
-testResult_file=['testResults/0_' area_table{test_area} '/KNN_v_' data_version '_' get_result_name(parameters) '_testResult.txt'];
-if ~exist(['testResults/0_' area_table{test_area}],'dir')
-    mkdir(['testResults/0_' area_table{test_area}]);
+% save(['result/' area_table{test_area} '/result' data_version '_' get_result_name(parameters) '.mat'], 'results');
+testResult_file=['testResults/' area_table{test_area} '/KNN_v_' data_version '_' get_result_name(parameters) '_' parameters.result_label '_testResult.txt'];
+if ~exist(['testResults/' area_table{test_area}],'dir')
+    mkdir(['testResults/' area_table{test_area}]);
 end
 save(testResult_file,'testResult','-ascii', '-double');
 save(['data/' area_table{test_area} '/parameters.mat'],'parameters');

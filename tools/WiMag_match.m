@@ -1,8 +1,8 @@
 function result = WiMag_match( fp,test_data,parameters)
 [feature_mode,distance_mode,K,~,~,is_testdata] = get_parameters( parameters );
-max_rssi=-20;
-min_rssi=-100;
-rssi_mask=parameters.rssi_mask;
+max_rssi=parameters.max_rssi;
+min_rssi=parameters.min_rssi;
+rssi_mask=fp.rssi_mask;
 search_mask=true(fp.num,1);
 if ~is_testdata
     search_mask(test_data.i)=false;
@@ -16,8 +16,8 @@ switch feature_mode
         test_feature=test_data.magnetic;
     case 'R'
         fp_rssis=cell2mat(fp.rssis);
-        search_feature=fp_rssis(search_mask,rssi_mask);
-        test_feature=test_data.rssi;
+        search_feature=my_norm(fp_rssis(search_mask,rssi_mask),max_rssi,min_rssi);
+        test_feature=my_norm(test_data.rssi,max_rssi,min_rssi);
     case 'RM'
         fp_rssis=cell2mat(fp.rssis);
         search_magnitudes=my_norm(fp.magnitudes(search_mask,:),fp.magni_max,fp.magni_min);

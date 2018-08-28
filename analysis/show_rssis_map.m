@@ -1,3 +1,9 @@
+% Date:     2018/08/24
+% Auther:   WJK
+% Function: This Script .
+%           ¸Ã½Å±¾¡£
+% Contact:  jiankunwang@tju.edu.cn
+
 clear
 clc
 load glo.mat
@@ -12,7 +18,7 @@ show_rssi_indexs=[];
 is_run_auto=true;
 areas=1:length(area_table);
 areas=areas(is_rssi);
-for area_i=[4] %areas
+for area_i=[1 2 4] %areas
     fp=fps{area_i};
     td=tds{area_i};
     rssis=cell2mat(fp.rssis);
@@ -32,19 +38,19 @@ for area_i=[4] %areas
             show_rssi_indexs=input('rssi index:');
     end
     bads=false(length(show_rssi_indexs),1);
+    show_rssis_map_checkdir;
     for i=1:length(show_rssi_indexs)
         show_rssi_map(fp,td,show_rssi_indexs(i),show_fptd);
-        title([bssid_map_r(show_rssi_indexs(i))]);
+        title([bssid_map_r(show_rssi_indexs(i)) ' ' n2s(fp.bssids_freq(show_rssi_indexs(i))) ' ' n2s(show_rssi_indexs(i))]);
         if is_run_auto
-            savegcf(['./shiyiyao/dataversion5_LIB/' area_table{area_i} '_' n2s(show_rssi_indexs(i))]);
+            bssid=bssid_map_r(show_rssi_indexs(i));
+            savegcf(['./tmp/rss_map6/' area_table{area_i} '/' replace(bssid,':','_') '_' n2s(fp.bssids_freq(show_rssi_indexs(i))) '_' n2s(show_rssi_indexs(i))],{'png'});
         else
             bad=input([n2s(show_rssi_indexs(i)) ': ' bssid_map_r(show_rssi_indexs(i)) ' have problem?: (y/n)'],'s');
             if strcmp(bad,'y')
                 bads(i)=true;
             end
-
         end
         close;
     end
 end
-% '_' bssid_map_r(show_rssi_indexs(i))

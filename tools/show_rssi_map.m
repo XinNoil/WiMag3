@@ -14,6 +14,6 @@ elseif show_fptd('td')
     cdns=td.cdns;
     rssis=tdrssis(:,rssi_index);
 end
-h=plot_floor_mark(fp.settings,cdns,rssis);
+h=plot_floor_mark(fp.settings,cdns,rssis,1,[-20,-100]);
 set(h,'marker','s','markersize',10);
 setupdatefun(@myupdatefcn3);

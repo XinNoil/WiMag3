@@ -8,17 +8,18 @@ clc
 load glo.mat
 cd (work_path)
 %% 参数设置
-run_this=false;
+run_this=true;
 if run_this
-    test_area=1;
-    feature_mode=5;
+    test_area=4;
+    feature_mode=3;
+    parameters.exist=false;
 else
     load tmp/wimag.mat test_area feature_mode;
+    parameters=load_parameters();
 end
 feature_modes={'M','MM','R','RM','RMM'};
 remove_no=[];
 is_plot=false;
-parameters=load_parameters();
 if ~parameters.exist
     parameters.test_area=test_area;
     parameters.is_testdata=true;% 没有测试数据则采用测试数据从数据库中抽取。

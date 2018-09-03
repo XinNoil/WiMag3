@@ -27,5 +27,6 @@ for area_i=areas
             end
         end
     end
+    fps{area_i}=fp;
 end
 save(['data/fingerprints' data_version '.mat'],'fps');

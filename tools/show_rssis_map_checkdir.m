@@ -1,9 +1,9 @@
 if ~exist('./tmp','dir')
     mkdir('./tmp');
 end
-if ~exist('./tmp/rss_map6','dir')
-    mkdir('./tmp/rss_map6');
+if ~exist(['./tmp/' save_path],'dir')
+    mkdir(['./tmp/' save_path]);
 end
-if ~exist(['./tmp/rss_map6/' area_table{area_i}],'dir')
-    mkdir(['./tmp/rss_map6/' area_table{area_i}]);
+if ~exist(['./tmp/' save_path '/' area_table{area_i}],'dir')
+    mkdir(['./tmp/' save_path '/' area_table{area_i}]);
 end

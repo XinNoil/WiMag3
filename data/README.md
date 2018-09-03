@@ -21,10 +21,5 @@
     + 处理程序：process_origin_data
     + 处理说明：取测试点end-1:end1
 
-- testdatas5_1.mat
-    + 处理程序：process_origin_data_1
-    + 处理说明：取参考点end-1:end
-
-- testdatas5_1.mat
-    + 处理程序：process_origin_data_2
-    + 处理说明：取参考点end-1:end和测试点end-1:end
+- data version 7.1
+New data of library processed by ignoring the unreceived RSS, created at 18.08.29.

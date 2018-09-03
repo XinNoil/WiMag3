@@ -1,4 +1,4 @@
-function H=plot_floor_mark(settings,cdns,data,n)
+function H=plot_floor_mark(settings,cdns,data,n,dlim)
 % Date:     2017/11/06
 % Auther:   WJK
 % Function: This function is used to plot floorplan with a setting struct.
@@ -39,18 +39,24 @@ if nargin>1
         plot(cdns(~data,1),cdns(~data,2),'bo');
     else
         cm=colormap(jet);
-        if max(abs(data))>1
+        if exist('dlim','var')
+            d1=dlim(2);
+            d2=dlim(1);
+        else
             d1=max(data);
             d2=min(data);
-            data=data-min(data);
-            if(max(data)~=0 )
-                data=data/max(data);
-            end
-            colorbar('ytick',0:0.2:1,'yticklabel',d2:(d1-d2)/5:d1);
-        else
-            colorbar;
         end
+        data(data>d1)=d1;
+        data(data<d2)=d2;
+        data=data-d2;
         H=zeros(size(cdns,1),1);
+        if(d1~=0)
+            data=data/d1;
+        else
+            disp('error:max(data)=0!');
+            return;
+        end
+        colorbar('ytick',0:0.2:1,'yticklabel',d2:(d1-d2)/5:d1);
         for i=1:size(cdns,1)
             h=plot(cdns(i,1),cdns(i,2),'o');
             c=cm(round(data(i)*63)+1,:);

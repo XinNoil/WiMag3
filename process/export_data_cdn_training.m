@@ -6,15 +6,16 @@ cd (work_path)
 disp(['data_version:' data_version]);
 
 % ²ÎÊıÉèÖÃ
-areas=[15];%[1 2 4 5 10 11 14 15];
+areas=[4];%[1 2 4 5 10 11 14 15];
 mag_cols=18:20;
 test_time=1;
-data_ver='0';
+data_ver='2';
 save_path=[deeploc_path '\data\' data_ver '\'];
 magnetic_dim=2;
 max_rssi=-20;
-min_rssi=-100;
+min_rssi=-85;
 is_average=false;
+area_label='';
 if ~exist(save_path,'dir')
     mkdir (save_path);
 end
@@ -31,7 +32,7 @@ for i=1:length(areas)
     area_i=areas(i);
     data_description.magnetic_dim=magnetic_dim;
     data_description.rssi_dim=fps{area_i}.rssi_mask_num;
-    save_json([save_path area_table{area_i}  '_data_description.json'],data_description);
+    save_json([save_path area_table{area_i} area_label '_data_description.json'],data_description);
 end
 
 %% training data
@@ -55,6 +56,6 @@ for i=1:length(areas)
     magnetics_m=my_norm(magnetics_m,mag_max,mag_min);
     rssis_m=my_norm(rssis_m,max_rssi,min_rssi);
     m=[cdns_m magnetics_m rssis_m];
-    disp([save_path area_table{area_i}  '_' data_type '.csv']);
-    csvwrite([save_path area_table{area_i}  '_' data_type '.csv'],m);
+    disp([save_path area_table{area_i} area_label '_' data_type '.csv']);
+    csvwrite([save_path area_table{area_i} area_label '_' data_type '.csv'],m);
 end

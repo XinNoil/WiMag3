@@ -15,7 +15,7 @@ for i=1:length(area_table)
     end
 end
 % area number ('0' means all area)
-i_area=14;
+i_area=4;
 % settings
 s.data_version=data_version;
 s.is_new_fingerprint=true; %ÊÇ·ñ±£´æfingerpint

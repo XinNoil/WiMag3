@@ -8,7 +8,7 @@ clc
 load glo.mat
 cd (work_path)
 %% ²ÎÊıÉèÖÃ
-run_this=true;
+run_this=false;
 if run_this
     test_area=4;
     feature_mode=3;
@@ -45,6 +45,9 @@ load(['data/fingerprints' data_version '.mat']);
 fp=fps{i_area};
 if ~isfield(fp,'rssi_mask')
     fp.rssi_mask=true(1,length(fp.bssid_map));
+end
+if isfield(parameters,'rssi_mask')
+    fp.rssi_mask=fp.rssi_mask&parameters.rssi_mask;
 end
 [mag_max,mag_min]=get_magnetic_statics(i_area,2);
 fp.mag_max=mag_max;

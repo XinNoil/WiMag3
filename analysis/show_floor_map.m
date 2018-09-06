@@ -4,7 +4,7 @@ clc
 load glo.mat
 cd (work_path)
 disp(['data_version:' data_version]);
-test_area=1;
+test_area=4;
 load (['data/fingerprints' data_version '.mat']);
 load (['data/testdatas' data_version '.mat']);
 fp=fps{test_area};

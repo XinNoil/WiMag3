@@ -8,8 +8,7 @@ parameters.distance_mode='E'; % E
 parameters.K=3;
 parameters.max_rssi=-20;
 parameters.min_rssi=-85;
-fps{4}.rssi_mask=rssi_mask;
-save(['data/fingerprints' data_version '.mat'],'fps');
+parameters.rssi_mask=rssi_mask;
 save tmp/wimag.mat 
 WiMag3
 mycdfplot(testResult,1,'Error Distance','CDF','r','-',[0 15],0:3:15);

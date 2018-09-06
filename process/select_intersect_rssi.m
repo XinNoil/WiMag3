@@ -7,7 +7,7 @@ disp(['data_version:' data_version]);
 load(['data/fingerprints' data_version '.mat']);
 load(['data/testdatas' data_version '.mat']);
 
-areas=1:length(area_table);
+areas=4;%1:length(area_table);
 
 for area_i=areas
     fp=fps{area_i};
